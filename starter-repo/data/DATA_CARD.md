@@ -16,18 +16,18 @@ Bản chạy đọc bộ đoạn này qua `data/lesson.json` và hiển thị tr
 
 Chỉ thử tính nhất quán với các đoạn nguồn được cấp. Không kết luận kiến thức video đúng ngoài thực tế hoặc toàn video không có thông tin chỉ vì 7 đoạn không nhắc tới. Không dùng nguồn này làm bằng chứng pain. Không lưu lại toàn bộ lời video trong repo; chỉ giữ phần diễn giải ngắn phục vụ benchmark.
 
-## Dataset 2 · Benchmark synthetic
+## Dataset 2 · Benchmark kiểm chứng nhận định
 
 | Mục | Nội dung |
 |---|---|
 | File | `../eval/benchmark.csv` |
-| Số câu | 20: 7 khớp nguồn, 6 mâu thuẫn, 5 thiếu căn cứ và 2 yêu cầu nhập lại nhận định |
-| Tình huống | 7 `thuong`, 11 `kho`, 2 `tu_choi` (hai tấn công chèn chỉ dẫn) |
-| Nguồn câu | Tất cả `tu_viet`: AI tự viết dựa trên ý trong phụ đề; không phải câu người dùng thật |
-| Cách sinh | Diễn đạt lại 7 ý; đảo nghĩa/điều kiện 7 câu; thêm 6 khẳng định chưa có căn cứ. Hai câu chèn chỉ dẫn ép nhãn/bịa nguồn |
-| Seed | Không áp dụng; soạn bằng AI, CSV được lưu cố định, không lấy mẫu ngẫu nhiên |
-| Nhãn | 18 nhãn nội dung do AI đề xuất, 2 kết quả từ chối do hợp đồng đầu vào quy định. Chưa ghi nhận xác nhận của người chuyên môn. |
+| Số câu | 30: 10 khớp nguồn, 6 mâu thuẫn, 12 thiếu căn cứ và 2 yêu cầu nhập lại nhận định |
+| Tình huống | 7 `thuong`, 21 `kho`, 2 `tu_choi` (hai ca chèn chỉ dẫn) |
+| Nguồn câu | V28-01–20 là `tu_viet` tạo từ phụ đề. V28-21–30 là `data_that`: trích ngắn bốn phát biểu từ tài liệu OpenAI và sáu phát biểu từ tài liệu đọc thêm của BTC. Cột `source` liên kết đoạn trích gốc. |
+| Cách dựng | Tập ban đầu gồm diễn đạt lại, đảo nghĩa, thiếu căn cứ và hai ca chèn chỉ dẫn. 10 câu bổ sung giữ nguyên nội dung trích, bỏ đánh dấu Markdown nếu có. Mỗi đáp án chỉ dựa trên 7 đoạn được cung cấp cho bản chạy. |
+| Seed | Không áp dụng. Ca tự viết và đoạn trích chọn thủ công đều lưu cố định trong CSV. |
+| Nhãn | 28 nhãn nội dung do Codex đề xuất sau khi đối chiếu 7 đoạn nguồn. Hai kết quả từ chối theo hợp đồng đầu vào. Chưa ghi nhận xác nhận của người chuyên môn. |
 | Rò rỉ đáp án | Chỉ input được gửi cho agent; expected/pass_criterion dành cho người chấm, không nạp vào tool hoặc context |
-| Giới hạn | Chưa có câu từ người duyệt thật; chưa đạt yêu cầu ≥1/3 câu từ người dùng/data thật của khung. Không đổi source thành data_that chỉ vì dùng video thật |
+| Giới hạn | 10/30 đầu vào là trích đoạn thật. Chưa có ca từ người duyệt hoặc bản nháp pre-class do người duyệt cung cấp. Bốn đoạn tiếng Anh và sáu đoạn tiếng Việt không đại diện cho tần suất gặp trong công việc thực tế. |
 
-Trước đánh giá chính thức: người chuyên môn kiểm nguồn và cả 20 nhãn; bổ sung ca thực tế từ người duyệt; tách tập chỉnh prompt với tập đánh giá giữ kín; chốt chuẩn đạt trước CP2. Không sửa expected để khớp output sau khi chạy.
+Trước đánh giá chính thức, người chuyên môn kiểm nguồn và nhãn. Giữ nguyên chuẩn đạt CP2 và các đáp án đã dùng khi báo cáo kết quả.

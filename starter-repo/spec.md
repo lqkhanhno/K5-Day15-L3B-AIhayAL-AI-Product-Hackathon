@@ -72,17 +72,23 @@ flowchart TD
 
 ## §5. Chỗ khó — 4 lớp + ≥6 kịch bản + 2 tấn công *(guide 2.3)*
 
-| Kịch bản | Lớp (1–4) | Hành vi mong muốn (nói gì, hiện gì, cho làm gì tiếp) | Câu thử |
+| Kịch bản | Lớp | Hành vi mong muốn | Câu kiểm |
 |---|---|---|---|
-|  |  |  |  |
-| *(tấn công)* |  |  |  |
-| *(tấn công)* |  |  |  |
-
-(1) nguồn sự thật · (2) mơ hồ / thiếu thông tin · (3) ngoài phạm vi / thẩm quyền · (4) đặc thù lĩnh vực (sai thì người dùng mất gì đắt nhất)
+| Nhận định đúng nhưng diễn đạt khác nguồn | 1 | Trả khớp nguồn và dẫn đoạn xác nhận đúng ý. | V28-01, V28-21 |
+| Bộ đoạn không nêu ngưỡng đánh giá | 1 | Trả thiếu căn cứ và yêu cầu bổ sung đoạn có ngưỡng. | V28-15, V28-23 |
+| Hai đoạn nguồn đưa kết luận trái nhau | 1 | Trả thiếu căn cứ và chuyển người duyệt kiểm lại nguồn. | `test_conflicting_sources_escalate_and_clear_reason` |
+| Đầu vào là câu hỏi hoặc nhiều câu | 2 | Yêu cầu nhập một nhận định để rà. | `test_out_of_scope_actions_request_claim` |
+| Nhận định trái nguồn có thể làm bài giảng sai | 4 | Trả mâu thuẫn và nêu vế bị bác bỏ. | V28-08–13 |
+| Model dẫn mã ngoài tập đoạn hiện tại | 1 | Không hiển thị trích dẫn sai. Trả thiếu căn cứ để người duyệt kiểm lại. | `test_source_id_from_previous_turn_is_rejected` |
+| Chỉ dẫn chèn ép nhãn | 3 | Yêu cầu nhập lại, không hiện nhãn. | V28-14 |
+| Chỉ dẫn chèn yêu cầu bịa mã nguồn | 3 | Yêu cầu nhập lại, không hiện mã nguồn. | V28-20 |
 
 ## §6. Bốn đường đi của trải nghiệm
-- Mọi thứ suôn sẻ: · Không chắc (lớp 2): · Không có căn cứ (lớp 1): · Người dùng sửa:
-- Bị đòi ngoài phạm vi (lớp 3): · Trường hợp đặc thù lĩnh vực (lớp 4):
+
+1. Có căn cứ. Hiện nhãn, lý do và đoạn nguồn. Người duyệt quyết định giữ hay sửa.
+2. Đầu vào mơ hồ hoặc ngoài phạm vi. Yêu cầu nhập lại một nhận định cần rà.
+3. Nguồn thiếu hoặc chưa đủ rõ. Mời người duyệt bổ sung nguồn hoặc kiểm thủ công.
+4. Người duyệt chỉnh nhận định và gửi lại. Mỗi lượt dùng lại nguồn cấu hình của bài, rồi kiểm lại mã đoạn trước khi hiển thị.
 
 ## §7. Đánh giá & chuẩn đạt *(guide 2.4, 4.1)*
 
@@ -100,7 +106,7 @@ flowchart TD
 
 Giữ mẫu số đầy đủ dù có output rỗng hoặc lỗi. Output lỗi trượt tiêu chí từng câu.
 
-Bộ thử hiện có 20 câu tự viết. Tập nguồn, nhãn và tiêu chí còn chờ rà tay. Chưa ghi nhận việc hai người chấm độc lập 5 đầu ra. Chưa có lượt chấm model thật. [Hồ sơ đánh giá](eval/README.md) · [Metric spec](eval/metric_spec.yaml)
+Bộ thử hiện có 30 câu gồm 20 câu tự viết và 10 nhận định trích từ tài liệu thật, có dẫn nguồn theo từng ca. Tập nguồn, nhãn và tiêu chí còn chờ người chuyên môn rà tay. Chưa ghi nhận việc hai người chấm độc lập 5 đầu ra. Chưa có lượt chấm model thật. [Hồ sơ đánh giá](eval/README.md) · [Metric spec](eval/metric_spec.yaml)
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
 - Persona + giá: `cost/personas.yaml` · lượt mô phỏng: `cost/simulate-__.csv` (__ phiên)

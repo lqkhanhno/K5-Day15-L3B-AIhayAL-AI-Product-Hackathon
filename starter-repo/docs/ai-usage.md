@@ -10,9 +10,9 @@ README của nhóm có mục "Dùng AI vào việc gì" (2–3 dòng, bắt bu�
 | Prompt / thiết kế lời gọi mô hình | Codex | Soạn prompt trả label/source_ids/reason, coi nguồn là dữ liệu và chuyển người khi thiếu căn cứ; quyết định CP2 đang dùng mock | Chưa kiểm với model thật | Nguyễn Minh Thành |
 | Đào data (viết script đếm, gợi ý nhãn) | | | Kiểm tay __ dòng, khớp __ | |
 | Rà câu hỏi phỏng vấn / khảo sát | | Chỉ rà câu dẫn dắt | | |
-| Viết câu thử (benchmark) | Codex | Lấy phụ đề tự động video EjAT5n6r-UQ; viết 7 đoạn diễn giải có thời gian, 20 câu synthetic với nhãn đề xuất và 3 metrics | Chưa có người chuyên môn kiểm nguồn/20 nhãn; mọi câu ghi source=tu_viet; chưa chạy model hoặc chấm pass | Nguyễn Nam Khánh |
+| Viết câu thử (benchmark) | Codex | Tổng hợp 7 đoạn từ phụ đề, soạn 20 ca tự viết và chọn 10 trích đoạn từ tài liệu công khai. Đề xuất nhãn và lý do dựa trên 7 đoạn đối chiếu. | Đã kiểm vị trí và nguồn 10 đoạn trích. Chưa ghi nhận người chuyên môn duyệt nhãn hoặc hai người chấm độc lập. | Nguyễn Nam Khánh |
 | Sinh data `synthetic` (nếu có) | Codex | Soạn trực tiếp 3 đoạn nguồn và 3 ca minh họa CP2; không dùng làm bằng chứng pain | Không lấy mẫu ngẫu nhiên; chưa có xác nhận kiểm tay của thành viên nhóm | Nguyễn Minh Thành |
 | Chấm cột `pass` bằng LLM (nếu có) | | | Kiểm tra thủ công __ câu thử, khớp __/__ | |
-| Spec, Canvas và báo cáo | Codex | Soạn luồng, tổng hợp tiến độ GitHub, ghi lại kiểm tra tích hợp | Thành viên rà nội dung mình phụ trách và bổ sung kết quả thật khi có | Cả nhóm |
+| Spec, Canvas, báo cáo và reflection | Codex | Soạn luồng, tổng hợp tiến độ GitHub, ghi kiểm tra tích hợp và soạn bản nháp reflection | Thành viên xác nhận nội dung gắn tên mình và bổ sung kết quả thật | Cả nhóm |
 
 **Không dùng AI để:** tạo người được phỏng vấn, trích dẫn, câu trả lời khảo sát; sửa kết quả các lượt đã chạy (`eval/run-*.csv`, `cost/simulate-*.csv`, `traces/`).
