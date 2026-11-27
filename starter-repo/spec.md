@@ -1,35 +1,42 @@
 # AI SPEC — Rà nhận định trong kịch bản pre-class · AIhayAL
 
-> Mốc nộp: §7 chốt chuẩn "đạt" tại **CP2 19:30 Thứ Sáu 27/11** · §0–§7 nộp **CP3 10:00 Thứ Bảy 28/11** · đủ §0–§10 **CP4 14:30 Thứ Bảy 28/11** · §10 changelog ghi tiếp đến **23:59 Thứ Bảy 28/11**.
-> Đầu mỗi mục ghi bước guide (`02-guide.md` trong repo đề) chỉ cách điền. Mỗi mục ngắn, có số và nguồn; chi tiết để ở file được trỏ tới. Xoá dòng hướng dẫn trong ngoặc vuông khi điền xong.
+**Track A · A3 — Sản xuất bài giảng pre-class.** AIhayAL thiết kế công cụ rà một nhận định trước khi xuất bản. Bản CP2 chạy luồng giả với tập đoạn nguồn đang chờ duyệt.
 
-**Track A · A3 — Sản xuất bài giảng.** Nguồn đối chiếu dự kiến là các trích đoạn ngắn hoặc bản viết lại từ tài liệu đã duyệt của một bài pre-class, mỗi đoạn có mã để mở lại nguồn.
+**Hồ sơ CP2.** [Canvas](canvas.md) · [Tiến độ bằng chứng](evidence/summary.md) · [Benchmark 30 câu](eval/benchmark.csv) · [Metric spec](eval/metric_spec.yaml) · [Data Card](data/DATA_CARD.md) · [Hướng dẫn chạy thử](docs/a3-demo.md)
 
 ## §0. Hiện tại việc này diễn ra thế nào *(guide 1.1)*
-- Luồng hiện tại của việc này, trong khoá hoặc trên app thật (3–5 bước; ảnh chụp từ tài khoản của mình, đã che thông tin):
-- Công cụ / AI đang được dùng cho việc này (nếu có) + nguồn. Không kiểm được thì ghi "chưa kiểm":
+
+Đề Track A3 mô tả bước kiểm kiến thức, nguồn và người duyệt trước khi xuất bản bài giảng. Luồng dưới đây là giả thuyết để kiểm với người từng duyệt kịch bản pre-class. Công cụ đang dùng và cách bàn giao giữa người soạn và người duyệt chưa được xác nhận. [Bối cảnh Track A3](../tracks/track-a-edtech.md#a3--sản-xuất-bài-giảng-bằng-ai)
+
+1. Người soạn chuyển bản nháp và tài liệu tham chiếu cho người duyệt.
+2. Người duyệt khoanh những nhận định chuyên môn cần kiểm.
+3. Người duyệt mở tài liệu, tìm đoạn liên quan và đối chiếu từng nhận định.
+4. Người duyệt ghi quyết định giữ, yêu cầu sửa hoặc yêu cầu bổ sung nguồn trước khi bàn giao bản duyệt.
 
 ## §1. Người dùng & bằng chứng *(guide 1.1, 1.2)*
-- Người dùng chính (một vai cụ thể):
-- Việc họ cố làm xong (`động từ + đối tượng + bối cảnh`, không có chữ AI):
-- Hôm nay họ giải bằng gì, hỏng ở đâu, vì sao chưa bỏ:
-- Pain (KHÔNG chữ AI): ai — đang làm gì — vướng đâu — hậu quả gì:
-- Bằng chứng đang thu: Đức Anh đã tạo khảo sát và soạn lời mời. Chưa có phản hồi hoặc ghi chép phỏng vấn trong repo để kết luận giả thuyết hay ước lượng thời gian mất. [Tổng hợp bằng chứng](evidence/summary.md)
+
+- **Người dùng chính.** Người trực tiếp duyệt nội dung kịch bản pre-class của đội sản xuất bài giảng AI20K.
+- **Việc cần làm.** Đối chiếu một nhận định chuyên môn trong kịch bản với đoạn tài liệu đã duyệt trước khi quyết định giữ hay yêu cầu sửa.
+- **Vấn đề giả thuyết.** Khi duyệt kịch bản pre-class, người duyệt phải dò lại tài liệu để kiểm từng nhận định. Việc tìm đúng đoạn có thể kéo dài thời gian duyệt và khiến lỗi kiến thức bị bỏ sót.
+- **Tiến độ bằng chứng.** Nhóm đã tạo form và soạn lời mời. Theo ghi nhận hiện có, lời mời chưa gửi. Repo chưa có phản hồi, ghi chép phỏng vấn, số liệu đầu tiên hay trích dẫn để kết luận giả thuyết. Mục tiêu là khảo sát ít nhất 20 người ngoài nhóm có kinh nghiệm trực tiếp duyệt kịch bản. Các câu hỏi đo lần duyệt gần nhất, số lần gặp trong tháng, số nhận định phải tra và số phút dò nguồn. [Tổng hợp bằng chứng](evidence/summary.md)
+- **Dữ liệu phục vụ bản thử.** Benchmark và các đoạn video dùng để kiểm cách hệ thống đối chiếu. Kết quả chạy thử chưa đo được thời gian dò nguồn trong công việc thực tế. [Data Card](data/DATA_CARD.md)
 
 ## §2. Impact & quyết định chọn *(guide 1.3)*
 
-| Hướng | Bao nhiêu người gặp | Bao nhiêu lần / tháng | Mỗi lần tốn gì | Impact / tháng | Làm kịp không | Chọn? |
-|---|---|---|---|---|---|---|
-|  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |
+| Hướng | Người gặp · lần/tháng · thời gian mỗi lần | Impact/tháng | Quyết định CP2 |
+|---|---|---|---|
+| Rà một nhận định trong kịch bản | Đo ở người trực tiếp duyệt. Hỏi số lượt tra nguồn và số phút mỗi lượt. Chưa có số đo. | Chờ dữ liệu khảo sát hoặc phỏng vấn. | **Chọn.** Một nhận định, một tập nguồn cố định và ba nhãn giúp nhóm kiểm từng quyết định. |
+| Rà cả kịch bản rồi gom các chỗ cần sửa | Cần đo số kịch bản, số nhận định mỗi bản và thời gian rà cả bản. Chưa có số đo. | Chờ dữ liệu. | Để sau. Cần tách nhận định và xử lý nhiều đoạn nguồn trong cùng một lượt. |
+| Soạn kịch bản mới kèm nguồn | Cần khảo sát người soạn về tần suất viết và thời gian bổ sung nguồn. Chưa có số đo. | Chờ dữ liệu. | Để sau. Công việc chính chuyển sang viết kịch bản và cần quy trình duyệt riêng. |
 
-- **Impact / tháng** của hướng chọn = __ người × __ lần × __ phút = __ — nguồn từng thừa số: __ (không có nguồn thì ghi rõ *(tự ước tính)*)
-- Hướng ĐÃ LOẠI + vì sao (giữ lại, đừng xoá):
-- Số lần / tháng của từng kiểu người dùng (dùng cho persona ở §8):
+**Cách tính cho hướng đã chọn.** Số người trực tiếp duyệt × số lượt phải tra nguồn mỗi người mỗi tháng × số phút tra trung vị mỗi lượt = ước lượng số phút tra nguồn của nhóm mỗi tháng. Khi thử với người dùng, đo cùng một nhận định ở quy trình thủ công và bản thử để ước lượng phần thời gian tiết kiệm. Nhóm ít, vừa và nhiều lượt sẽ được chia theo tần suất quan sát được. [Kế hoạch lấy số](evidence/summary.md)
 
 ## §3. Giải pháp tương tự *(guide 2.1)*
-- [sản phẩm / tính năng gần giống]: một điều đáng học · một điều đáng né · mình khác gì
+
+- **Gemini Notebook của Google.** Tính năng chat trả lời dựa trên tài liệu người dùng chọn, kèm trích dẫn có thể mở lại trong ngữ cảnh gốc. [Tài liệu chính thức](https://support.google.com/gemininotebook/answer/16179559)
+- **Điểm áp dụng.** Hiện mã và đoạn nguồn ngay cạnh nhận xét để người duyệt tự kiểm.
+- **Giới hạn cần tránh.** Hỏi đáp mở có thể tạo nhiều dạng đầu ra, khiến người duyệt khó so sánh các nhận xét theo cùng tiêu chí.
+- **Thiết kế cho lát cắt A3.** Mỗi lượt chỉ rà một nhận định và trả nhãn cố định cùng lý do chỉ rõ vế cần kiểm. Người duyệt dùng kết quả để quyết định giữ, sửa hoặc bổ sung nguồn.
 
 ## §4. Thiết kế *(guide 2.2, 3.2)*
 
@@ -41,7 +48,7 @@
 flowchart TD
     A["Người duyệt nhập một nhận định"] --> B{"Đầu vào có nhận định cần rà?"}
     B -->|"Không hoặc ngoài phạm vi"| R["Yêu cầu nhập một nhận định để rà"]
-    B -->|"Có"| C["Công cụ đọc các đoạn đã duyệt của bài pre-class"]
+    B -->|"Có"| C["Công cụ đọc các đoạn nguồn được cấu hình cho bài"]
     C --> D{"Có đoạn nguồn để đối chiếu?"}
     D -->|"Không"| F["Thiếu căn cứ hoặc chưa xác minh được"]
     D -->|"Có"| E["Model đề xuất nhãn, mã đoạn và lý do"]
@@ -52,11 +59,11 @@ flowchart TD
     H --> J["Người duyệt quyết định giữ hay sửa câu"]
 ```
 
-**Hình dạng.** Workflow cố định với tối đa một lần gọi model cho mỗi nhận định. Thứ tự đọc nguồn, gắn nhãn, kiểm kết quả và đưa cho người duyệt đã biết trước. Phần mềm gọi công cụ đọc nguồn theo luồng, model chỉ thực hiện quyết định đối chiếu nội dung.
+**Hình dạng.** Workflow cố định với tối đa một lần gọi model cho mỗi nhận định. Mỗi lượt đọc một tập nguồn cấu hình sẵn, nhận đề xuất nhãn, kiểm kết quả và đưa cho người duyệt. Vì các bước đã xác định trước, model chỉ cần đối chiếu nội dung. Phân vai nhiều agent sẽ thêm lượt gọi và thêm đầu ra cần kiểm.
 
-| Công cụ dự kiến | Đầu vào | Đầu ra | Quyền |
+| Công cụ | Đầu vào | Đầu ra | Quyền |
 |---|---|---|---|
-| `get_approved_passages()` | Bản thử dùng bộ nguồn cấu hình sẵn cho một bài | Danh sách đoạn có `code` và `text`. Mã đoạn trỏ về tài liệu đã duyệt | Chỉ đọc dữ liệu cục bộ |
+| `get_approved_passages()` | Cấu hình cục bộ `data/lesson.json`. Hàm không nhận tham số từ người dùng. | Danh sách đoạn có `code` và `text`. Bản CP2 đọc tập `draft_unreviewed`. | Chỉ đọc dữ liệu cục bộ |
 
 **Đầu ra và chỗ chặn lỗi.** Mỗi nhận xét có `label`, `source_ids` và `reason`. `Khớp nguồn` yêu cầu nguồn xác nhận nội dung của nhận định. `Mâu thuẫn` yêu cầu nguồn bác bỏ ít nhất một vế và lý do nêu rõ vế đó. Hai nhãn này cần ít nhất một mã đoạn, và mọi mã phải thuộc đúng tập đoạn đã đưa cho model ở lượt đó. Dữ liệu đầu vào và đoạn nguồn chỉ được dùng làm nội dung để đối chiếu. Khi nguồn thiếu, mâu thuẫn chưa giải được, hoặc đầu ra sai định dạng hay sai mã, hệ thống hiện `thiếu căn cứ`, bỏ mã và lý do chưa xác minh, rồi mời người duyệt kiểm lại. Khi đầu vào chỉ yêu cầu thao tác ngoài phạm vi, hệ thống yêu cầu nhập một nhận định cần rà.
 
@@ -109,15 +116,20 @@ Giữ mẫu số đầy đủ dù có output rỗng hoặc lỗi. Output lỗi t
 Bộ thử hiện có 30 câu gồm 20 câu tự viết và 10 nhận định trích từ tài liệu thật, có dẫn nguồn theo từng ca. Tập nguồn, nhãn và tiêu chí còn chờ người chuyên môn rà tay. Chưa ghi nhận việc hai người chấm độc lập 5 đầu ra. Chưa có lượt chấm model thật. [Hồ sơ đánh giá](eval/README.md) · [Metric spec](eval/metric_spec.yaml)
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
-- Persona + giá: `cost/personas.yaml` · lượt mô phỏng: `cost/simulate-__.csv` (__ phiên)
-- Chi phí / task thành công: __ (model __) · __ (model __)
-- Chi phí / tháng ở quy mô thật: thấp __ · cơ sở __ · cao __ → chi tiết `cost/cost-estimate.md`
-- So với impact / người / tháng (§2): đáng làm không, vì sao:
+
+**Tiến độ CP2.** Model giả ghi token bằng 0. Chi phí triển khai và chi phí một tác vụ thành công chưa có số đo.
+
+- **Đầu vào cần thu.** Lượt rà/tháng của người duyệt ít, vừa và nhiều. Quy mô sử dụng cho ba kịch bản thấp, cơ sở và cao. Token vào/ra, số lượt gọi thực tế và giá của ít nhất hai mức model.
+- **Cách tính.** Chạy mô phỏng ít nhất 50 phiên sau khi nối model thật. Lấy chi phí trung bình mỗi phiên chia tỷ lệ tác vụ đạt của lượt đánh giá 2 để ra chi phí một tác vụ thành công. So sánh chi phí theo người mỗi tháng với thời gian tiết kiệm đo được ở §2. [Báo cáo chi phí](cost/cost-estimate.md)
 
 ## §9. Rủi ro & an toàn
-- Dữ liệu: đã ẩn danh gì, không thu gì, không đưa gì vào model gói miễn phí:
-- AI **không được** làm gì kể cả khi người dùng yêu cầu:
-- Ai có thể bị hại nếu AI sai, và nhóm chặn thế nào:
+
+| Rủi ro | Kiểm soát trong lát cắt |
+|---|---|
+| Gắn nhãn sai hoặc dẫn nhầm nguồn | Kiểm mã đoạn theo tập nguồn của lượt hiện tại. Người duyệt mở đoạn, kiểm quan hệ với nhận định, rồi quyết định giữ hay sửa. |
+| Nguồn thiếu, chưa duyệt hoặc xung đột | Hiển thị trạng thái nguồn. Khi thiếu căn cứ, yêu cầu bổ sung đoạn liên quan hoặc kiểm thủ công. Tập phụ đề CP2 đang ở trạng thái `draft_unreviewed`. |
+| Chỉ dẫn chèn trong nhận định hoặc đoạn nguồn | Xử lý văn bản đầu vào như dữ liệu. Bản thử chỉ có công cụ đọc nguồn. Các thao tác sửa, gửi và xuất bản nằm ngoài quyền của hệ thống. |
+| Lộ dữ liệu khi lưu phụ đề, tài liệu lớp hoặc phản hồi khảo sát | Repo giữ trích đoạn ngắn và bộ câu thử. Ghi chép người dùng dùng mã vai trò và bỏ tên, thông tin liên hệ trước khi lưu công khai. Khi nối model thật, chỉ gửi nhận định và đoạn tài liệu đã được phép dùng. |
 
 ## §10. Phân công & changelog
 
@@ -144,17 +156,17 @@ Cả nhóm dành 15 phút trước mỗi mốc để đối chiếu vấn đề,
 - **18:40–19:15** · Rà chéo và đối chiếu 5 đầu ra. Nếu khớp dưới 4/5, làm rõ tiêu chí rồi chấm lại. Cả nhóm chốt chuẩn đạt bằng số trước khi nộp.
 - **19:15–19:30** · Chạy `python run.py` và `python run.py check`, kiểm nội dung và link theo checklist CP2, rồi đội trưởng nộp.
 
-- Dùng AI vào việc gì (2–3 dòng; chi tiết `docs/ai-usage.md`):
+- **Dùng AI.** Codex hỗ trợ viết luồng, chọn đoạn nguồn, chuẩn bị benchmark và tổng hợp tài liệu. Các nhãn và trích đoạn đối chiếu đang chờ người chuyên môn rà. [Khai báo dùng AI](docs/ai-usage.md)
 - Nhật ký thay đổi — **mọi thay đổi sau CP2 19:30 Thứ Sáu 27/11 phải có dòng ở đây**:
 
 **CP2 → CP4** (vd thu hẹp lát cắt, hỏi thêm người dùng, lần cải tiến trước lượt 2)
 
 | Thời điểm | Đổi gì | Vì sao (trỏ về câu thử / lỗi / bằng chứng nào) |
 |---|---|---|
-|  |  |  |
+| — | Chưa có mục cần ghi tại thời điểm CP2. | — |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 
 | Thời điểm | Đổi gì | Vì sao |
 |---|---|---|
-|  |  |  |
+| — | Chưa có mục cần ghi tại thời điểm CP2. | — |
