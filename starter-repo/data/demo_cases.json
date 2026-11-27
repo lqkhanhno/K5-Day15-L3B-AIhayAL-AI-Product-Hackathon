@@ -1,0 +1,14 @@
+[
+  {
+    "name": "khớp nguồn",
+    "input": "Trong quy trình mẫu, người duyệt quyết định nội dung trước khi xuất bản."
+  },
+  {
+    "name": "mâu thuẫn",
+    "input": "Trong quy trình mẫu, người duyệt không quyết định nội dung trước khi xuất bản."
+  },
+  {
+    "name": "thiếu căn cứ",
+    "input": "Trong quy trình mẫu, video dài đúng 12 phút."
+  }
+]

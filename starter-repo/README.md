@@ -3,6 +3,11 @@
 
 # [Tên nhóm] — [Tên lát cắt]
 
+**Bản chạy thử CP2 Track A3 — Nguyễn Minh Thành:** từ repo này chạy `cd starter-repo`, rồi `python run.py`.
+Chương trình tự minh họa đủ ba nhánh **khớp nguồn / mâu thuẫn / thiếu căn cứ** khi ở chế độ giả, rồi nhận thêm đầu vào.
+Chỉ dùng Python chuẩn, chưa gọi model thật; nguồn mẫu là synthetic, mọi kết quả chờ người duyệt.
+Hướng dẫn, hợp đồng JSON và sơ đồ bàn giao: [docs/a3-demo.md](docs/a3-demo.md).
+
 **Thành viên, lớp, track:** xem [TEAMS.md](TEAMS.md). **Điền TEAMS.md đúng format**: khi chấm và đánh giá, BTC quét file này để ghép điểm cho từng người.
 
 *Lát cắt = phần nhỏ nhất làm xong được trong hackathon: một người dùng · một việc · một quyết định AI · một kết quả.*
@@ -68,7 +73,7 @@ Gõ `dir` (Windows) hoặc `ls` (macOS / Linux): thấy `run.py` và `README.md`
 
 - Windows: gõ `python` mà mở Microsoft Store hoặc báo không có lệnh → dùng `py`. Chưa có Python: cài từ python.org, **tick "Add python.exe to PATH"**, mở lại PowerShell.
 - macOS: báo `command not found: python` là bình thường → dùng `python3`.
-- `python run.py` in ra "[câu trả lời giả — chưa nối model] …" là khung chạy đúng. Nối model thật: [docs/connect-model.md](docs/connect-model.md).
+- `python run.py` tự in ba ca demo A3 với dấu "[MÔ PHỎNG CP2 — chưa gọi model thật…]" khi ở chế độ giả. Nối model thật ở chặng CP3: [docs/connect-model.md](docs/connect-model.md).
 
 Trong README này lệnh viết là `python …`; máy nhóm cần `python3` hay `py` thì gõ thay.
 
@@ -96,7 +101,7 @@ Nhóm dùng stack khác (Node, Streamlit, notebook…): sửa hàm `run_app()` t
 
 | File | Viết gì | Bước guide |
 |---|---|---|
-| `codebase/agent.py` | `answer(text)` — luồng chính, đúng hình dạng ở `spec.md` §4. Khung có sẵn một workflow 2 bước *ví dụ* | 3.2 |
+| `codebase/agent.py` | `answer(text)` — kiểm đầu vào → đọc nguồn → đề xuất nhãn → kiểm trích dẫn → chuyển người duyệt; hợp đồng ở [docs/a3-demo.md](docs/a3-demo.md) để chủ spec chốt §4 | 3.2 |
 | `codebase/tools.py` | Công cụ của bài toán, mỗi công cụ một hàm có `@tool` | 2.2, 3.2 |
 | `codebase/ai.py` | `call_model(system, user)` — chỗ duy nhất gọi model. Chưa điền `.env` thì chạy **chế độ giả** | 3.3 |
 
@@ -115,7 +120,9 @@ Nhóm dùng stack khác (Node, Streamlit, notebook…): sửa hàm `run_app()` t
 
 2–3 dòng (bắt buộc): nhóm dùng công cụ AI nào để làm gì, người kiểm lại phần nào. Chi tiết: [docs/ai-usage.md](docs/ai-usage.md). Coding agent đọc [AGENTS.md](AGENTS.md).
 
-____
+Nguyễn Minh Thành dùng Codex để triển khai workflow, công cụ đọc nguồn, prompt, CLI và kiểm thử cho bản mô phỏng CP2 A3.
+Codex soạn ba đoạn nguồn synthetic và ba ca minh họa; chưa có xác nhận kiểm tay của thành viên nhóm.
+Không tạo bằng chứng phỏng vấn hay kết quả đánh giá model thật; chi tiết ở [docs/ai-usage.md](docs/ai-usage.md).
 
 ## File mẫu — điền ở bước nào
 

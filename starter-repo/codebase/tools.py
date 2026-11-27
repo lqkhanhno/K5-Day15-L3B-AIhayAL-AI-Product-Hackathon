@@ -1,18 +1,39 @@
-"""Công cụ của bài toán — NHÓM VIẾT. Điền ở guide bước 2.2 (thiết kế) và 3.2 (code).
+"""Nguồn cho demo A3; chỉ đọc, không gửi hoặc xuất bản dữ liệu."""
+import json
+from pathlib import Path
+import re
 
-Mỗi công cụ là một hàm Python có @tool. Docstring ghi đúng 4 ý như sơ đồ ở spec.md §4:
-    tên · input · output · có tác động ra ngoài không (gửi tin, sửa dữ liệu, chấm điểm…)
-Khung tự ghi mỗi lần gọi công cụ vào trace (tên, input, output rút gọn, thời gian, lỗi).
+from tracing import tool
 
-Số công cụ, kiểu công cụ do thiết kế của nhóm quyết định — có bài chỉ cần một công cụ tra cứu.
-Công cụ có tác động ra ngoài: KHÔNG tự làm. Trả về bản nháp chờ người duyệt (guide bước 2.2, "chỗ người duyệt").
-Dữ liệu công cụ đọc (bài mẫu, thông báo mẫu, lịch…): để trong data/ và mô tả ở data/DATA_CARD.md.
-"""
-from tracing import tool, TOOLS  # noqa: F401  (TOOLS: danh sách công cụ đã đăng ký, dùng khi viết vòng lặp agent)
+DEMO_SOURCES = Path(__file__).resolve().parents[1] / "data" / "demo_sources.json"
+
+
+def validate_sources(sources):
+    if not isinstance(sources, list) or len(sources) > 20:
+        raise ValueError("sources phải là danh sách tối đa 20 đoạn {code, text}.")
+    cleaned, codes = [], set()
+    for passage in sources:
+        if not isinstance(passage, dict):
+            raise ValueError("Mỗi đoạn nguồn phải có code và text.")
+        code, text = passage.get("code"), passage.get("text")
+        if not isinstance(code, str) or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,63}", code):
+            raise ValueError("Mã đoạn phải dài 1–64 ký tự: chữ không dấu, số, _, - hoặc dấu chấm.")
+        if code in codes:
+            raise ValueError("Mã đoạn nguồn bị trùng: " + code)
+        if not isinstance(text, str) or not text.strip() or len(text) > 5000:
+            raise ValueError("Nội dung mỗi đoạn phải dài 1–5.000 ký tự.")
+        codes.add(code)
+        cleaned.append({"code": code, "text": text.strip()})
+    return cleaned
 
 
 @tool
-def search_example(query: str) -> list:
-    """(ví dụ — thay bằng công cụ của nhóm) Tra dữ liệu mẫu theo câu hỏi.
-    Input: câu hỏi (str). Output: danh sách đoạn {"code", "text"}. Không tác động ra ngoài."""
-    return [{"code": "VD-1", "text": "(ví dụ) đoạn dữ liệu giả — thay bằng dữ liệu thật của bài toán"}]
+def get_sources() -> list:
+    """get_sources · Input: không có · Output: [{code, text}] từ file demo.
+    Không tác động ra ngoài; chỉ đọc nguồn synthetic cố định, không tra Internet.
+    """
+    try:
+        with DEMO_SOURCES.open(encoding="utf-8") as handle:
+            return validate_sources(json.load(handle))
+    except (OSError, ValueError) as exc:
+        raise ValueError("Không đọc được nguồn demo; bổ sung nguồn hợp lệ. " + str(exc)) from exc

@@ -11,5 +11,5 @@
 | 4 | Bằng chứng đầu — CP1: giả thuyết + nguồn sẽ kiểm · CP2: số đầu tiên + 1 trích dẫn | **Giả thuyết** — người duyệt mất thời gian tìm đoạn nguồn để kiểm nhận định trong bản nháp. Nhóm sẽ phỏng vấn ít nhất 3 người ngoài nhóm từng trực tiếp duyệt kịch bản pre-class về lần duyệt gần nhất, số nhận định cần tra lại và thời gian đối chiếu. |
 | 5 | **Lát cắt MỘT CÂU** (1 người dùng · 1 việc · 1 quyết định AI · 1 kết quả) | Khi người duyệt chọn một nhận định trong kịch bản pre-class, AI đối chiếu với tài liệu đã duyệt và trả về một nhận xét có nhãn khớp nguồn, mâu thuẫn hoặc thiếu căn cứ để người duyệt xử lý. |
 | 6 | AI tự làm đến đâu + 1 dòng lý do: sai thì ai chịu gì | AI gắn nhãn đề xuất và dẫn mã đoạn nguồn cho nhận định khớp hoặc mâu thuẫn. Khi thiếu căn cứ, hệ thống yêu cầu người duyệt kiểm lại. Người duyệt quyết định giữ hay sửa câu trước khi xuất bản vì bỏ sót lỗi có thể khiến học viên hiểu sai. |
-| 7 | Phân công có tên |  |
+| 7 | Phân công có tên | **Lê Quốc Khánh:** sơ đồ luồng, chỗ người duyệt, spec §4/§7 và tổng hợp bài nộp. **Lương Đức Anh:** phỏng vấn người duyệt, tổng hợp bằng chứng. **Nguyễn Nam Khánh:** đoạn nguồn có mã, data card, benchmark và metric. **Nguyễn Minh Thành:** bản chạy giả CP2 đi hết ba nhánh khớp nguồn / mâu thuẫn / thiếu căn cứ; bàn giao tại [docs/a3-demo.md](docs/a3-demo.md). |
 | — | *(CP2)* Đã đổi gì so với CP1 | |
