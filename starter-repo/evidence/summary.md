@@ -1,48 +1,13 @@
-# Tổng hợp bằng chứng pain
+# Tổng hợp bằng chứng pain · A3
 
-> Điền ở guide bước 1.2, xong trước **CP3 10:00 Thứ Bảy 28/11**. Chấm ở rubric R1.
-> Ba nguồn ngang nhau — tối thiểu **≥1 nguồn đạt ngưỡng**. Mạnh nhất: đào data ra insight → hỏi người dùng để kiểm lại (hoặc ngược lại).
+## Tiến độ CP2 · 27/11
 
-## 1. Nguồn đã dùng
+- **Khảo sát.** Đức Anh báo đã tạo [form khảo sát người chuẩn bị và duyệt bài giảng](https://docs.google.com/forms/d/e/1FAIpQLSeOVbCCEn564qpXljP-23PB7YIuRyXd0jzqhC38SZzwfsKWJQ/viewform). Đã soạn tin mời đăng Discord. Trạng thái theo [Issue #2](https://github.com/lqkhanhno/K5-Day15-L3B-AIhayAL-AI-Product-Hackathon/issues/2) là chưa gửi tin mời. Repo chưa có kết quả phản hồi.
+- **Phỏng vấn.** Chưa có lịch hẹn, ghi chép, số đầu tiên hoặc trích dẫn trong repo. Người cần hỏi là người từng trực tiếp duyệt kịch bản pre-class.
+- **Giả thuyết đang kiểm.** Người duyệt mất thời gian tìm đoạn nguồn và có thể bỏ sót nhận định cần sửa. Dữ liệu video và benchmark mô phỏng chỉ dùng để thử giải pháp.
 
-| Nguồn | Đạt ngưỡng? | File |
-|---|---|---|
-| Đào data (x/N, %, cách đếm chạy lại được, ≥5 ví dụ) | ☐ | `evidence/data-mining.md` |
-| Phỏng vấn (≥3 người ngoài nhóm, đúng người dùng) | ☐ | `evidence/interviews/P1.md`… |
-| Khảo sát (≥20 người ngoài nhóm, đúng người dùng) | ☐ | `evidence/survey/` |
+## Cách tổng hợp khi có câu trả lời
 
-## 2. Số chính
+Ghi vai trò, lần duyệt gần nhất, số lần gặp trong tháng và số phút thực tế mất để tra nguồn. Với khảo sát, chỉ tính người ngoài nhóm có kinh nghiệm trực tiếp phù hợp với lát cắt, lưu bộ câu hỏi và phản hồi đã ẩn danh. Với phỏng vấn, dùng mã P1, P2… trong [thư mục ghi chép](interviews/). Cập nhật số đầu tiên và một trích dẫn đã bỏ tên vào Canvas.
 
-- Đào data: __/__ (__%) …
-- Phỏng vấn: __/3 người gặp *(n nhỏ không ghi %)* · số lần / tháng: P1 __, P2 __, P3 __ · mỗi lần mất __–__ phút
-- Khảo sát: n = __ · __/__ (__%) …
-
-Phỏng vấn nhiều vai thì đếm theo từng vai, không cộng chung.
-
-| | Vai | Gặp pain? | Số lần / 1 tháng qua | Lần gần nhất mất | Đang xoay xở bằng |
-|---|---|---|---|---|---|
-| P1 | | | | | |
-| P2 | | | | | |
-| P3 | | | | | |
-
-## 3. ≥5 trích dẫn hoặc ví dụ nguyên văn (có nguồn, bỏ tên)
-
-1. "…" — P_ / dòng data __ / phiếu khảo sát __
-2.
-3.
-4.
-5.
-
-## 4. Các nguồn có khớp nhau không
-
-Data nói __; người dùng nói __. Khớp / lệch ở đâu, vì sao: __
-
-## 5. Kết luận
-
-Giả thuyết ở `evidence/hypothesis.md`: **đúng / sai / phải đổi** — vì __. Điều vẫn chưa biết: __
-
-## Lịch hẹn (dùng cho CP2 — chỉ ghi vai và giờ, không tên)
-
-| Vai | Giờ hẹn | Đã xong? |
-|---|---|---|
-| | | |
+Để đạt yêu cầu bằng chứng, cần ít nhất 3 phỏng vấn hoặc 20 phản hồi khảo sát đúng đối tượng ngoài nhóm, cùng ít nhất 5 trích dẫn hoặc ví dụ có nguồn. Hiện chưa thể tính impact bằng số.

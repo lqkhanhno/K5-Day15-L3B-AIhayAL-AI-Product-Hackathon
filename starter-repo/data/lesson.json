@@ -1,6 +1,6 @@
 {
-  "lesson_id": "A3-DEMO",
-  "title": "Quy trình duyệt kịch bản pre-class — bài minh họa CP2",
-  "source_status": "synthetic",
-  "passages_file": "demo_sources.json"
+  "lesson_id": "A3-V28",
+  "title": "Bài 28 - Đánh giá và chất lượng AI: eval, hallucination, guardrails và an toàn",
+  "source_status": "draft_unreviewed",
+  "passages_file": "video-eval-source.json"
 }

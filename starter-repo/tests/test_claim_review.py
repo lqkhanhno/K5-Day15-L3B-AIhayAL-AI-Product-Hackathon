@@ -46,6 +46,8 @@ class ClaimReviewTests(unittest.TestCase):
         return agent.answer(json.dumps({"claim": claim}, ensure_ascii=False))
 
     def test_three_demo_branches_and_trace(self):
+        video = json.loads((ROOT / "data" / "video-eval-source.json").read_text(encoding="utf-8"))
+        self.set_sources(video["segments"])
         cases = json.loads((ROOT / "data" / "demo_cases.json").read_text(encoding="utf-8"))
         self.assertEqual(len(cases), 3)
         for case, label in zip(cases, ["khop_nguon", "mau_thuan", "thieu_can_cu"]):

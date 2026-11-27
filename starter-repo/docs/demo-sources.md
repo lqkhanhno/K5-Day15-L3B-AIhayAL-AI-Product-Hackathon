@@ -3,7 +3,7 @@
 | Mục | Thông tin |
 |---|---|
 | File | `data/demo_sources.json` |
-| Mục đích | Nguồn cho bài A3-DEMO cấu hình tại `data/lesson.json`, được đọc qua `get_approved_passages()` |
+| Mục đích | Nguồn synthetic của bản Minh Thành thực hiện ban đầu, giữ làm fixture kiểm thử. Cấu hình tích hợp đọc `data/video-eval-source.json`. |
 | Xuất xứ | Codex tự soạn 3 câu quy trình minh họa từ lát cắt trong canvas; không trích tài liệu khóa học |
 | Ngày tạo | 27/11/2026 |
 | Nhãn | `synthetic`; không phải tài liệu đã duyệt, dữ liệu thật hay bằng chứng pain |

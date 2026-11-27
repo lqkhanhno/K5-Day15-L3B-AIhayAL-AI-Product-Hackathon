@@ -1,11 +1,11 @@
 > Đây là khung repo nộp bài. Điền mọi chỗ `____`, giữ nguyên tên các mục. **Mục 0 xoá đi sau khi tạo repo xong.**
 > Giờ, mốc, luật, rubric: xem `README.md`, `02-guide.md`, `03-rubric.md` trong repo đề (bộ đề BTC phát).
 
-# [Tên nhóm] — [Tên lát cắt]
+# AIhayAL — Rà nhận định trong kịch bản pre-class
 
 **Bản chạy thử CP2 Track A3 — Nguyễn Minh Thành:** từ repo này chạy `cd starter-repo`, rồi `python run.py`.
 Chương trình tự minh họa đủ ba nhánh **khớp nguồn / mâu thuẫn / thiếu căn cứ** khi ở chế độ giả, rồi nhận thêm đầu vào.
-Chỉ dùng Python chuẩn, chưa gọi model thật; nguồn mẫu là synthetic, mọi kết quả chờ người duyệt.
+Chỉ dùng Python chuẩn. Bản CP2 chạy giả trên 7 đoạn diễn giải từ phụ đề tự động, đang chờ duyệt nguồn. Mọi kết quả là đề xuất cho người duyệt.
 Hướng dẫn, hợp đồng JSON và sơ đồ bàn giao: [docs/a3-demo.md](docs/a3-demo.md).
 Theo spec §4 mới, đầu vào là một nhận định hoặc `{"claim":"…"}`; công cụ `get_approved_passages()` đọc nguồn từ `data/lesson.json`.
 Kết quả có `label`, `source_ids`, `reason`; không nhận `sources` trong đầu vào người dùng.
@@ -123,7 +123,7 @@ Nhóm dùng stack khác (Node, Streamlit, notebook…): sửa hàm `run_app()` t
 2–3 dòng (bắt buộc): nhóm dùng công cụ AI nào để làm gì, người kiểm lại phần nào. Chi tiết: [docs/ai-usage.md](docs/ai-usage.md). Coding agent đọc [AGENTS.md](AGENTS.md).
 
 Nguyễn Minh Thành dùng Codex để triển khai workflow, công cụ đọc nguồn, prompt, CLI và kiểm thử cho bản mô phỏng CP2 A3.
-Codex soạn ba đoạn nguồn synthetic và ba ca minh họa; chưa có xác nhận kiểm tay của thành viên nhóm.
+Codex hỗ trợ cả nguồn minh họa và bộ thử từ video. Các đoạn nguồn và nhãn của bộ thử đang chờ xác nhận của người phụ trách.
 Không tạo bằng chứng phỏng vấn hay kết quả đánh giá model thật; chi tiết ở [docs/ai-usage.md](docs/ai-usage.md).
 
 ## File mẫu — điền ở bước nào

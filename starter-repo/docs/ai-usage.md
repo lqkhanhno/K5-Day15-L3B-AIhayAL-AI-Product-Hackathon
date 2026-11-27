@@ -13,6 +13,6 @@ README của nhóm có mục "Dùng AI vào việc gì" (2–3 dòng, bắt bu�
 | Viết câu thử (benchmark) | Codex | Lấy phụ đề tự động video EjAT5n6r-UQ; viết 7 đoạn diễn giải có thời gian, 20 câu synthetic với nhãn đề xuất và 3 metrics | Chưa có người chuyên môn kiểm nguồn/20 nhãn; mọi câu ghi source=tu_viet; chưa chạy model hoặc chấm pass | Nguyễn Nam Khánh |
 | Sinh data `synthetic` (nếu có) | Codex | Soạn trực tiếp 3 đoạn nguồn và 3 ca minh họa CP2; không dùng làm bằng chứng pain | Không lấy mẫu ngẫu nhiên; chưa có xác nhận kiểm tay của thành viên nhóm | Nguyễn Minh Thành |
 | Chấm cột `pass` bằng LLM (nếu có) | | | Kiểm tra thủ công __ câu thử, khớp __/__ | |
-| Slide, văn bản | | | | |
+| Spec, Canvas và báo cáo | Codex | Soạn luồng, tổng hợp tiến độ GitHub, ghi lại kiểm tra tích hợp | Thành viên rà nội dung mình phụ trách và bổ sung kết quả thật khi có | Cả nhóm |
 
 **Không dùng AI để:** tạo người được phỏng vấn, trích dẫn, câu trả lời khảo sát; sửa kết quả các lượt đã chạy (`eval/run-*.csv`, `cost/simulate-*.csv`, `traces/`).

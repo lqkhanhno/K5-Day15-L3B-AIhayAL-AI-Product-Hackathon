@@ -1,14 +1,14 @@
 [
   {
     "name": "khớp nguồn",
-    "input": "Trong quy trình mẫu, người duyệt quyết định nội dung trước khi xuất bản."
+    "input": "Một vài câu demo được chuẩn bị kỹ không đại diện cho môi trường thực tế có lỗi gõ, tiếng lóng và đầu vào phá hoại."
   },
   {
     "name": "mâu thuẫn",
-    "input": "Trong quy trình mẫu, người duyệt không quyết định nội dung trước khi xuất bản."
+    "input": "Một vài câu demo được chuẩn bị kỹ đại diện cho môi trường thực tế có lỗi gõ, tiếng lóng và đầu vào phá hoại."
   },
   {
     "name": "thiếu căn cứ",
-    "input": "Trong quy trình mẫu, video dài đúng 12 phút."
+    "input": "Bài học quy định một ngưỡng chi phí trên mỗi lượt gọi."
   }
 ]

@@ -19,8 +19,8 @@ def load_lesson():
         for key in ("lesson_id", "title"):
             if not isinstance(lesson.get(key), str) or not lesson[key].strip():
                 raise ValueError("Cấu hình bài thiếu " + key + ".")
-        if lesson.get("source_status") not in ("synthetic", "approved"):
-            raise ValueError("source_status phải là synthetic hoặc approved.")
+        if lesson.get("source_status") not in ("synthetic", "draft_unreviewed", "approved"):
+            raise ValueError("source_status phải là synthetic, draft_unreviewed hoặc approved.")
         filename = lesson.get("passages_file")
         if not isinstance(filename, str) or not re.fullmatch(r"[A-Za-z0-9_-]+\.json", filename):
             raise ValueError("passages_file phải là tên file JSON trong data/.")
@@ -61,6 +61,9 @@ def get_approved_passages() -> list:
         if path.parent != DATA_DIR.resolve():
             raise ValueError("Nguồn phải nằm trong thư mục data/.")
         with path.open(encoding="utf-8") as handle:
-            return validate_sources(json.load(handle))
+            passages = json.load(handle)
+        if isinstance(passages, dict):
+            passages = passages.get("segments")
+        return validate_sources(passages)
     except (OSError, ValueError) as exc:
         raise ValueError("Không đọc được đoạn nguồn của bài; cần kiểm lại hoặc bổ sung nguồn. " + str(exc)) from exc

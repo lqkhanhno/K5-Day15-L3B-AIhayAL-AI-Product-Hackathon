@@ -1,42 +1,22 @@
-# Báo cáo đánh giá — lượt 1 → một cải tiến → lượt 2
+# Báo cáo đánh giá · A3
 
-> Điền ở guide bước 4.1. Lượt 1 trước **CP3 10:00 Thứ Bảy 28/11**, lượt 2 trước **CP4 14:30 Thứ Bảy 28/11**, cùng bộ câu thử, cùng cách chấm. Chấm ở rubric R5.
-> Số lấy từ `python run.py score eval/run-1.csv` (và `run-2.csv`) sau khi điền cột `pass`. **Kết quả thấp ghi thật vẫn đủ điểm.**
-> Không được: sửa chuẩn "đạt", bỏ câu thử trượt, sửa `expected` cho khớp output, sửa kết quả lượt đã chạy.
+## Kiểm tra tích hợp CP2 · 27/11
 
-## 1. Kết quả
+| Hạng mục | Kết quả thực tế |
+|---|---|
+| Luồng nhập liệu | Trước khi tích hợp, 20/20 đầu vào bị từ chối vì trường `video_id` không thuộc hợp đồng. Sau khi thống nhất JSON `claim`, 18 câu nội dung đi đến bước đọc nguồn và gọi model giả. Hai ca chèn chỉ dẫn được yêu cầu nhập lại và có 0 lần gọi model. |
+| Kiểm thử tự động | 20 kiểm thử Python chạy qua. |
+| Bộ chạy eval | `python run.py eval` xử lý đủ 20 câu ở chế độ fake. Khung ghi `run-mock.csv` và không tạo lượt chính thức. |
+| Demo CP2 | `python run.py` hiển thị ba nhãn trên nguồn `A3-V28` và ghi rõ nguồn chưa được duyệt. |
+| Độ phủ nguồn | 0/20 câu từ người dùng hoặc dữ liệu thật. Đoạn nguồn và nhãn nội dung chưa có xác nhận của người chuyên môn. |
 
-| Lượt | Run ID | Đạt / tổng | % | thuong | kho | tu_choi | So với chuẩn "đạt" |
-|---|---|---|---|---|---|---|---|
-| 1 | | __/__ | | __/__ | __/__ | __/__ | đạt / chưa |
-| 2 | | __/__ | | __/__ | __/__ | __/__ | đạt / chưa |
+Ví dụ từ kiểm tra giả: **V28-01** kỳ vọng khớp nguồn nhưng trả thiếu căn cứ vì cách diễn đạt khác chữ trong đoạn. **V28-08** kỳ vọng mâu thuẫn nhưng trả thiếu căn cứ vì phủ định được diễn đạt bằng một câu khác. Đây là giới hạn của cách so chữ trong mock. Hai ví dụ thuộc kiểm tra tích hợp, không tính vào lượt chấm chính thức.
 
-Kết quả từng câu: `eval/run-1.csv`, `eval/run-2.csv`. Trace: `traces/run-1.jsonl`, `traces/run-2.jsonl`.
+## Kết quả model thật
 
-## 2. Lỗi lượt 1 — gom thành nhóm có tên
+| Lượt | Run ID | Đạt / tổng | % | So với chuẩn đạt |
+|---|---|---|---|---|
+| 1 · CP3 | Chưa chạy | Chưa có | Chưa có | Chưa chấm |
+| 2 · CP4 | Chưa chạy | Chưa có | Chưa có | Chưa chấm |
 
-| Nhóm lỗi | Số câu | Câu |
-|---|---|---|
-| vd: bịa nguồn *(ví dụ)* | | |
-| vd: đoán khi thiếu thông tin *(ví dụ)* | | |
-| | | |
-
-**≥3 lỗi cụ thể:**
-
-| Câu | Input | Output | Vì sao sai |
-|---|---|---|---|
-| | | | |
-| | | | |
-| | | | |
-
-## 3. Một lần cải tiến
-
-- Nhắm vào nhóm lỗi: __ — vì sao là nhóm **đau nhất với người dùng**: __
-- Đã sửa gì (có thể vài thay đổi cùng nhắm nhóm lỗi đó): __
-- Kết quả: nhóm lỗi đó __/__ → __/__ · tổng __% → __%
-- Câu nào **tệ đi** sau khi sửa: __
-
-## 4. Còn lại
-
-- Lỗi chưa sửa + nguy hiểm thế nào: __
-- Nếu có thêm 1 tuần: __
+Sau khi nối model và chấm lượt 1, ghi ít nhất 3 lỗi có đầu vào, đầu ra và lý do. Chọn một lỗi để sửa rồi chạy lại cùng bộ thử. Cập nhật bảng bằng kết quả của `python run.py score`. [Hồ sơ đánh giá](README.md) · [Metric spec](metric_spec.yaml)

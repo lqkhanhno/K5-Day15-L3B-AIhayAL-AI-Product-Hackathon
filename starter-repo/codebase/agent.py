@@ -108,6 +108,8 @@ def _render(result, claim="", lesson=None, sources=(), status="review_required")
         lines.append("Bài đối chiếu: %s · %s" % (lesson["lesson_id"], lesson["title"]))
         if lesson["source_status"] == "synthetic":
             lines.append("Nguồn: SYNTHETIC minh họa CP2, chưa phải tài liệu đã duyệt thật.")
+        elif lesson["source_status"] == "draft_unreviewed":
+            lines.append("Nguồn: BẢN NHÁP từ phụ đề tự động, chưa được người duyệt xác nhận.")
     if claim:
         lines.append("Nhận định: " + claim)
     if status == "input_required":

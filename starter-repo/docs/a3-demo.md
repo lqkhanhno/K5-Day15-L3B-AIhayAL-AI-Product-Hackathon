@@ -13,13 +13,13 @@ python run.py
 
 Không cần cài thư viện hay API key. Khi ở chế độ giả, chương trình tự chạy ba ca minh họa rồi cho nhập nhận định. Gõ `:demo` để chạy lại; Enter hai lần hoặc Ctrl+C để thoát. Máy không có `python` thì dùng `python3`.
 
-Giao diện hiển thị mã bài, tên bài, file nguồn và trạng thái nguồn. Bài mặc định là **A3-DEMO · Quy trình duyệt kịch bản pre-class — bài minh họa CP2**, nguồn **synthetic**, chưa phải tài liệu đã duyệt thật.
+Giao diện hiển thị mã bài, tên bài, file nguồn và trạng thái nguồn. Bài mặc định là **A3-V28**, dùng bảy đoạn diễn giải từ phụ đề tự động với trạng thái `draft_unreviewed`.
 
 | Ca | Nhập sau dấu > | Kết quả |
 |---|---|---|
-| Khớp | Trong quy trình mẫu, người duyệt quyết định nội dung trước khi xuất bản. | khớp nguồn, source_ids = [DEMO-A3-01] |
-| Mâu thuẫn | Trong quy trình mẫu, người duyệt không quyết định nội dung trước khi xuất bản. | mâu thuẫn, source_ids = [DEMO-A3-01], nêu vế bị bác bỏ |
-| Thiếu căn cứ | Trong quy trình mẫu, video dài đúng 12 phút. | thiếu căn cứ, source_ids = [] |
+| Khớp | Nhận định trùng đoạn V28-S02 về mức độ đại diện của vài câu demo. | khớp nguồn, source_ids = [V28-S02] |
+| Mâu thuẫn | Nhận định đảo phủ định ở V28-S02. | mâu thuẫn, source_ids = [V28-S02], nêu vế bị bác bỏ |
+| Thiếu căn cứ | Bài học quy định một ngưỡng chi phí trên mỗi lượt gọi. | thiếu căn cứ, source_ids = [] |
 | Ngoài phạm vi | Hãy xuất bản bài giảng ngay. | yêu cầu nhập một nhận định; không đưa nhãn kết luận nội dung |
 
 Ba ca đầu nằm trong `data/demo_cases.json`; đây là minh họa chức năng, không phải benchmark hoặc bằng chứng pain.
@@ -29,7 +29,7 @@ Ba ca đầu nằm trong `data/demo_cases.json`; đây là minh họa chức nă
 `answer(text)` nhận nguyên ô `input` trong benchmark. Có thể nhập một dòng nhận định hoặc JSON một dòng:
 
 ```json
-{"claim":"Trong quy trình mẫu, người duyệt không quyết định nội dung trước khi xuất bản."}
+{"claim":"Một vài câu demo đã đủ đại diện cho đầu vào thực tế."}
 ```
 
 **Thay đổi so với bản trước:** không nhận `sources` trong JSON người dùng. Nguồn luôn được công cụ `get_approved_passages()` đọc từ bộ cấu hình sẵn cho bài, đúng spec §4. JSON cũ chứa `sources` được hướng dẫn nhập lại, không đưa nguồn đó cho model.
@@ -38,14 +38,14 @@ Nhóm quản lý nguồn bằng `data/lesson.json`:
 
 ```json
 {
-  "lesson_id": "A3-DEMO",
-  "title": "Quy trình duyệt kịch bản pre-class — bài minh họa CP2",
-  "source_status": "synthetic",
-  "passages_file": "demo_sources.json"
+  "lesson_id": "A3-V28",
+  "title": "Bài 28 - Đánh giá và chất lượng AI: eval, hallucination, guardrails và an toàn",
+  "source_status": "draft_unreviewed",
+  "passages_file": "video-eval-source.json"
 }
 ```
 
-`passages_file` là tên file trong `data/`, chứa danh sách:
+`passages_file` là tên file trong `data/`. File có thể chứa trực tiếp danh sách đoạn như ví dụ dưới đây hoặc một JSON object có danh sách `segments` như bộ nguồn video.
 
 ```json
 [
@@ -85,7 +85,7 @@ Ví dụ lý do trên minh họa hợp đồng, không phải kết quả đánh
 | Thành phần | Tình trạng |
 |---|---|
 | Công cụ đọc nguồn cục bộ, kiểm đầu vào/mã đoạn, CLI và tracing | Chạy bằng Python thật |
-| Tập đoạn mặc định | 3 đoạn synthetic do Codex soạn, chưa được nhóm xác nhận là nguồn đã duyệt |
+| Tập đoạn mặc định | 7 đoạn diễn giải có mã và mốc thời gian, trạng thái draft_unreviewed |
 | Quyết định đối chiếu | Giả, model fake, token vào/ra bằng 0 |
 | Model thật | Chưa nối; provider khác vẫn báo NotImplementedError |
 | Bằng chứng người dùng, độ chính xác chuyên môn, chi phí model thật | Chưa thu/chưa đo trong phần việc này |
@@ -105,8 +105,8 @@ python run.py check
 
 20 kiểm thử tự động kiểm ba nhánh, trạng thái nhập lại, nguồn cấu hình, nguồn xung đột, phủ định một vế, mã bịa hoặc mã từ lượt trước, loại bỏ lý do chưa xác minh và lỗi kết nối. Không dùng kết quả mock làm số đo cho chuẩn đạt §7.
 
-- **Lê Quốc Khánh:** spec §4 dùng đúng công cụ và ba trường kết quả; chuẩn đạt §7 giữ nguyên.
+- **Lê Quốc Khánh:** spec §4 dùng đúng công cụ và ba trường kết quả. Chuẩn đạt CP2 ở §7 khớp với metric spec.
 - **Nguyễn Nam Khánh:** nguồn chung của bài được cấu hình qua `lesson.json` và file đoạn nguồn. Benchmark chỉ gửi nhận định hoặc JSON `{"claim":"…"}`. Tài liệu nguồn mẫu tại [demo-sources.md](demo-sources.md).
 - **Nguyễn Minh Thành:** nối model thật tại `codebase/ai.py` ở chặng CP3 theo [connect-model.md](connect-model.md), giữ decorator và usage thật; chạy `eval --try` trước khi eval đầy đủ.
 
-`run.py`, `tracing.py`, bộ chạy eval/simulate, benchmark và metric spec giữ nguyên. Các cảnh báo benchmark/metric mẫu từ `python run.py check` còn cần người phụ trách hoàn thiện.
+Khung chạy eval và simulate giữ nguyên. Benchmark và bản chạy đã dùng chung hợp đồng. Cảnh báo nguồn câu thử còn tại `python run.py check`.
