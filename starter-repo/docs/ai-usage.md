@@ -10,7 +10,7 @@ README của nhóm có mục "Dùng AI vào việc gì" (2–3 dòng, bắt bu�
 | Prompt / thiết kế lời gọi mô hình | | | | |
 | Đào data (viết script đếm, gợi ý nhãn) | | | Kiểm tay __ dòng, khớp __ | |
 | Rà câu hỏi phỏng vấn / khảo sát | | Chỉ rà câu dẫn dắt | | |
-| Viết câu thử (benchmark) | | | Mỗi câu thử có `source`; câu thử AI viết được ghi rõ | |
+| Viết câu thử (benchmark) | Codex | Lấy phụ đề tự động video EjAT5n6r-UQ; viết 7 đoạn diễn giải có thời gian, 20 câu synthetic với nhãn đề xuất và 3 metrics | Chưa có người chuyên môn kiểm nguồn/20 nhãn; mọi câu ghi source=tu_viet; chưa chạy model hoặc chấm pass | Chưa phân công người duyệt |
 | Sinh data `synthetic` (nếu có) | | | Seed __ · kiểm tay __ dòng | |
 | Chấm cột `pass` bằng LLM (nếu có) | | | Kiểm tra thủ công __ câu thử, khớp __/__ | |
 | Slide, văn bản | | | | |
