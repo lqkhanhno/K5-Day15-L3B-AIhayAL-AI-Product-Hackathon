@@ -163,7 +163,9 @@ Cả nhóm dành 15 phút trước mỗi mốc để đối chiếu vấn đề,
 
 | Thời điểm | Đổi gì | Vì sao (trỏ về câu thử / lỗi / bằng chứng nào) |
 |---|---|---|
-| — | Chưa có mục cần ghi tại thời điểm CP2. | — |
+| 22:41 27/11/2026 (UTC+7) | Chuẩn bị lượt eval CP3 trên main 30 câu và phần kết nối thật của Thành; ghi trạng thái chờ API key, bảng bàn giao và phiếu chấm chéo trong eval/README.md. | Chưa có key hoặc lượt model thật trên máy này; giữ nguyên benchmark, metric spec và chuẩn §7. |
+| 22:45 27/11/2026 (UTC+7) | Chạy đủ 30 ca với OpenAI `gpt-5.4-nano-2026-03-17`, run `run-1@20261127-224225`; Codex chấm 20/30, chưa đạt CP2. Người dùng nhận chấm độc lập 5 ca, đang chờ kết quả. | Bàn giao lượt 1 tại eval/README.md, eval/run-1.csv và traces/run-1.jsonl; giữ nguyên đáp án, metric spec và chuẩn §7. |
+| 2026-11-27T23:20:21+07:00 | Chấm chéo 5 ca lượt 1: Codex (AI) và người dùng đồng ý 4/5; người dùng xác nhận giữ điểm 1 cho V28-21, bất đồng được lưu nguyên. | Bàn giao eval/README.md và eval/crosscheck-run-1.json; giữ 20/30, không sửa đáp án hoặc chuẩn §7. |
 | 27/11/2026 — chuẩn bị CP3 | Thành: thêm kết nối OpenAI/Gemini/Ollama tại `codebase/ai.py`; cấu hình dự kiến OpenAI/gpt-5.4-nano; 29 unit test qua, kiểm benchmark hợp lệ. Chưa có key, lượt gọi thật và video. [Bàn giao](docs/cp3-thanh-handoff.md). | Hoàn thiện bước gọi AI thật theo nhiệm vụ CP3; chưa có kết quả để báo x/30. |
 | 27/11/2026 — sau khi cấu hình key | Thành: OpenAI `gpt-5.4-nano-2026-03-17` chạy xong 3 câu thử nối, có token, không lỗi; quay MP4 thao tác thật đúng 30 giây qua cửa sổ dùng cùng `answer()`. [Bằng chứng demo](docs/cp3-live-20261127T144554571059Z.json): 1 lần gọi, 605 token vào / 71 ra. Chưa tải Drive/kiểm link, chưa chấm benchmark đầy đủ. | Cập nhật kết quả thực tế sau bước chuẩn bị; thử nối và demo chưa chứng minh đạt chuẩn §7. |
 | 27/11/2026 — bổ sung link video | Thành cung cấp thư mục Drive; đã tìm [video CP3](https://drive.google.com/file/d/1sh0NQ_hLLD2H2mUOyOTdfxqV1cJ0JKV1/view), xác nhận tải không đăng nhập HTTP 200 và giải mã toàn bộ MP4 30 giây không lỗi. Chưa kiểm nút phát trong trình duyệt ẩn danh. | Bổ sung link chia sẻ và kiểm truy cập cho bàn giao CP3. |

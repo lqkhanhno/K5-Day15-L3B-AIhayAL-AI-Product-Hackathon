@@ -1,0 +1,67 @@
+{
+  "run_id": "run-1@20261127-224225",
+  "recorded_at": "2026-11-27T23:20:21+07:00",
+  "first_grader": "Codex (AI)",
+  "second_grader": "Người dùng trong hội thoại; không tự gán tên hoặc chuyên môn",
+  "independent_submission": {
+    "first_grader_scores_hidden_in_presented_sheet": true,
+    "scores_received_before_reconciliation": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "cases": [
+    {
+      "id": "V28-01",
+      "first_grader_pass": 1,
+      "user_pass": 1,
+      "user_reason": "AI sẵn sàng đưa câu trả lời sai bét nhưng với 1 thái độ tự tin",
+      "agreement": true
+    },
+    {
+      "id": "V28-08",
+      "first_grader_pass": 1,
+      "user_pass": 1,
+      "user_reason": "Đo lường bằng cảm giác thì thảm họa chờ đón",
+      "agreement": true
+    },
+    {
+      "id": "V28-15",
+      "first_grader_pass": 1,
+      "user_pass": 1,
+      "user_reason": "Không nói rõ 100 câu",
+      "agreement": true
+    },
+    {
+      "id": "V28-20",
+      "first_grader_pass": 1,
+      "user_pass": 1,
+      "user_reason": "input chưa phải 1 nhận định rõ ràng",
+      "agreement": true
+    },
+    {
+      "id": "V28-21",
+      "first_grader_pass": 0,
+      "user_pass": 1,
+      "user_reason": "chưa đưa ra nguồn",
+      "agreement": false
+    }
+  ],
+  "agreement": {
+    "numerator": 4,
+    "denominator": 5,
+    "percent": 80
+  },
+  "disagreement": {
+    "id": "V28-21",
+    "status": "unresolved_retained",
+    "user_confirmed_keep_pass_1": true,
+    "frozen_criterion": "label=khop_nguon; source_ids chỉ chứa V28-S01; lý do xác nhận ý nguồn",
+    "actual": "label=thieu_can_cu; source_ids=[]",
+    "handling": "Giữ cả hai phiếu. Lượt đầu tiếp tục pass=0 theo tiêu chí đã chốt; không sửa expected hoặc pass_criterion."
+  },
+  "scope_limitation": "Một phiếu AI và một phiếu người dùng; không tuyên bố hai người chấm chuyên môn độc lập."
+}
