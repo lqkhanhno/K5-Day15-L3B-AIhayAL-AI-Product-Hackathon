@@ -1,0 +1,62 @@
+{
+  "video_id": "EjAT5n6r-UQ",
+  "url": "https://www.youtube.com/watch?v=EjAT5n6r-UQ",
+  "title": "Bài 28 - Đánh giá và chất lượng AI: eval, hallucination, guardrails và an toàn",
+  "duration_seconds": 449,
+  "retrieved_on": "2026-11-27",
+  "caption_language": "vi",
+  "caption_kind": "asr",
+  "representation": "AI-written paraphrases of readable caption passages; not a verbatim transcript",
+  "approval_status": "draft_unreviewed",
+  "limitations": [
+    "Phụ đề tự động thiếu nhiều thuật ngữ tiếng Anh; không tự điền thuật ngữ bị mất.",
+    "Khoảng 04:05–05:55 thiếu nội dung lời nói hữu ích; không dùng để tạo đáp án.",
+    "Chưa đối chiếu âm thanh hoặc hình/slide; chưa có người chuyên môn duyệt.",
+    "Chỉ đánh giá tính nhất quán với nguồn được cấp, không kiểm chứng độc lập tính đúng đắn của video.",
+    "Thiếu căn cứ chỉ áp dụng cho bộ đoạn nguồn, không kết luận toàn video không chứa thông tin đó."
+  ],
+  "segments": [
+    {
+      "code": "V28-S01",
+      "start_seconds": 81,
+      "end_seconds": 101,
+      "text": "Mô hình có thể tạo lời đáp nghe hợp lý nhưng không đúng sự thật, kể cả bịa một nghiên cứu."
+    },
+    {
+      "code": "V28-S02",
+      "start_seconds": 102,
+      "end_seconds": 127,
+      "text": "Một vài câu demo được chuẩn bị kỹ không đại diện cho môi trường thực tế có lỗi gõ, tiếng lóng và đầu vào phá hoại."
+    },
+    {
+      "code": "V28-S03",
+      "start_seconds": 134,
+      "end_seconds": 147,
+      "text": "Đánh giá sản phẩm AI cần xem xét tính đúng đắn và an toàn bằng phép đo rõ ràng, thay vì chỉ xác nhận hệ thống chạy được."
+    },
+    {
+      "code": "V28-S04",
+      "start_seconds": 162,
+      "end_seconds": 179,
+      "text": "Câu trả lời cần bám tài liệu, có dẫn nguồn và giới hạn phạm vi. Thiết kế phải cho phép AI thừa nhận chưa biết."
+    },
+    {
+      "code": "V28-S05",
+      "start_seconds": 181,
+      "end_seconds": 206,
+      "text": "Bộ dữ liệu đánh giá cần cả tình huống thông thường, hành vi phá hoại và phép thử ranh giới an toàn; không chỉ có câu dễ."
+    },
+    {
+      "code": "V28-S06",
+      "start_seconds": 396,
+      "end_seconds": 410,
+      "text": "Lỗi phát hiện khi vận hành cần được phân tích nguyên nhân rồi bổ sung trở lại bộ đánh giá để cải tiến liên tục."
+    },
+    {
+      "code": "V28-S07",
+      "start_seconds": 427,
+      "end_seconds": 447,
+      "text": "Phần kết giới thiệu việc tối ưu chi phí sẽ được bàn chi tiết trong bài tiếp theo."
+    }
+  ]
+}
