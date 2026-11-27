@@ -12,7 +12,7 @@ Hạn nội bộ: **08:30 ngày 28/11/2026 (giờ Việt Nam)**. CP3 của nhóm
 - Ngày 27/11/2026: đã kiểm [thư mục Drive do Thành cung cấp](https://drive.google.com/drive/folders/103IdP5_gMO_1R00NAaAuMCVybrXvmR5h) và tải đọc video **không đăng nhập, không cookie**: HTTP 200, `video/mp4`, 362.016 byte. `ffprobe` xác nhận 30,000 giây; `ffmpeg` giải mã toàn bộ không lỗi. Đây là kiểm truy cập và dữ liệu video; chưa kiểm nút phát trong trình duyệt ẩn danh. SHA-256: `0b40c093d62339c92d505d3cf70ae85bcbee3bc9b0d447655635c8995585cf56`.
 - Nguồn bài A3-V28 vẫn có trạng thái `draft_unreviewed`; người phụ trách cần kiểm nguồn trước khi diễn giải kết quả.
 
-## Cấu hình trên máy Thành và Nam Khánh
+## Cấu hình trên máy
 
 Chạy PowerShell từ thư mục gốc repo:
 
@@ -45,13 +45,13 @@ python run.py
 
 `eval --try` chỉ là thử kết nối, không tính là lượt 1. Xem `eval/run-try.csv` và `traces/run-try.jsonl`: model phải khác `fake`, token lớn hơn 0, cột lỗi trống; kiểm thêm đầu ra có nhãn, lý do và mã nguồn hợp lệ. Test giả lập HTTP không chứng minh model thật đã chạy.
 
-Nam Khánh dùng đúng cấu hình đó để chạy toàn bộ:
+Dùng đúng cấu hình đó để chạy toàn bộ:
 
 ```powershell
 python run.py eval --wait 4
 ```
 
-Khung tự cấp run ID và tên file. Không ghi đè lượt cũ; không mặc định kết quả sẽ là `run-1.csv` nếu đã có lượt trước. Nam Khánh và Đức Anh chấm theo chuẩn CP2, sau đó dùng `python run.py score eval/run-N.csv`. Không thay benchmark/chuẩn đạt để khớp output.
+Khung tự cấp run ID và tên file. Không ghi đè lượt cũ; không mặc định kết quả sẽ là `run-1.csv` nếu đã có lượt trước. Chấm theo chuẩn CP2, sau đó dùng `python run.py score eval/run-N.csv`. Không thay benchmark/chuẩn đạt để khớp output.
 
 ## Video thao tác thật 30 giây
 
@@ -69,9 +69,9 @@ Chuẩn bị trước: mở terminal ở `starter-repo`, chạy `python run.py`,
 
 Quay bằng công cụ ghi màn hình sẵn có. Lưu MP4, tải lên Drive với quyền “Bất kỳ ai có đường liên kết — Người xem” hoặc YouTube “Không công khai”. Mở link trong cửa sổ ẩn danh, khi không đăng nhập, và kiểm video phát được. Chưa kiểm thì ghi chưa kiểm.
 
-## Nội dung gửi Nam Khánh (bản nháp)
+## Nội dung 
 
-> Thành đã nối và thử OpenAI thật: model `gpt-5.4-nano-2026-03-17`, 3 câu thử kết nối chạy xong không lỗi và có token thật. 29 unit test qua, kiểm cấu trúc benchmark đạt. [Video 30 giây](https://drive.google.com/file/d/1sh0NQ_hLLD2H2mUOyOTdfxqV1cJ0JKV1/view) đã truy cập/tải không đăng nhập và giải mã được toàn bộ; chưa kiểm phát trong trình duyệt ẩn danh. Bằng chứng demo tại `docs/cp3-live-20261127T144554571059Z.json`. Cấu hình provider/model ở tài liệu này; key chuyển qua kênh riêng. Khánh cần chạy đủ 30 câu và cùng Đức Anh chấm theo chuẩn CP2; chưa có kết quả x/30 hoặc xác nhận đạt §7.
+> Đã nối và thử OpenAI thật: model `gpt-5.4-nano-2026-03-17`, 3 câu thử kết nối chạy xong không lỗi và có token thật. 29 unit test qua, kiểm cấu trúc benchmark đạt. [Video 30 giây](https://drive.google.com/file/d/1sh0NQ_hLLD2H2mUOyOTdfxqV1cJ0JKV1/view) đã truy cập/tải không đăng nhập và giải mã được toàn bộ; chưa kiểm phát trong trình duyệt ẩn danh. Bằng chứng demo tại `docs/cp3-live-20261127T144554571059Z.json`. Cấu hình provider/model ở tài liệu này; key chuyển qua kênh riêng. Cần chạy đủ 30 câu và chấm theo chuẩn CP2; chưa có kết quả x/30 hoặc xác nhận đạt §7.
 
 ## Tài liệu API đã đối chiếu
 
