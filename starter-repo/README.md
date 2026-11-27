@@ -113,9 +113,11 @@ Nhóm dùng stack khác (Node, Streamlit, notebook…): sửa hàm `run_app()` t
 
 ## Phần nào thật, phần nào giả
 
+Cập nhật phần Thành cho CP3: OpenAI đã chạy thật 3 câu thử kết nối, có token và không lỗi kỹ thuật; [video 30 giây trên Drive](https://drive.google.com/file/d/1sh0NQ_hLLD2H2mUOyOTdfxqV1cJ0JKV1/view) đã kiểm tải không đăng nhập và giải mã toàn bộ. Chưa chấm benchmark đầy đủ. Cấu hình, bằng chứng và phần còn thiếu: [bàn giao CP3](docs/cp3-thanh-handoff.md).
+
 | Thành phần | Thật / Giả | Ghi chú |
 |---|---|---|
-| Lời gọi AI ở quyết định trung tâm | **Thật** (bắt buộc từ CP3) | Model: ____ |
+| Lời gọi AI ở quyết định trung tâm | Đã gọi OpenAI thật | gpt-5.4-nano-2026-03-17; 3 câu thử kết nối và 1 lượt demo, chưa chấm §7 |
 |  |  |  |
 
 ## Dùng AI vào việc gì

@@ -164,6 +164,9 @@ Cả nhóm dành 15 phút trước mỗi mốc để đối chiếu vấn đề,
 | Thời điểm | Đổi gì | Vì sao (trỏ về câu thử / lỗi / bằng chứng nào) |
 |---|---|---|
 | — | Chưa có mục cần ghi tại thời điểm CP2. | — |
+| 27/11/2026 — chuẩn bị CP3 | Thành: thêm kết nối OpenAI/Gemini/Ollama tại `codebase/ai.py`; cấu hình dự kiến OpenAI/gpt-5.4-nano; 29 unit test qua, kiểm benchmark hợp lệ. Chưa có key, lượt gọi thật và video. [Bàn giao](docs/cp3-thanh-handoff.md). | Hoàn thiện bước gọi AI thật theo nhiệm vụ CP3; chưa có kết quả để báo x/30. |
+| 27/11/2026 — sau khi cấu hình key | Thành: OpenAI `gpt-5.4-nano-2026-03-17` chạy xong 3 câu thử nối, có token, không lỗi; quay MP4 thao tác thật đúng 30 giây qua cửa sổ dùng cùng `answer()`. [Bằng chứng demo](docs/cp3-live-20261127T144554571059Z.json): 1 lần gọi, 605 token vào / 71 ra. Chưa tải Drive/kiểm link, chưa chấm benchmark đầy đủ. | Cập nhật kết quả thực tế sau bước chuẩn bị; thử nối và demo chưa chứng minh đạt chuẩn §7. |
+| 27/11/2026 — bổ sung link video | Thành cung cấp thư mục Drive; đã tìm [video CP3](https://drive.google.com/file/d/1sh0NQ_hLLD2H2mUOyOTdfxqV1cJ0JKV1/view), xác nhận tải không đăng nhập HTTP 200 và giải mã toàn bộ MP4 30 giây không lỗi. Chưa kiểm nút phát trong trình duyệt ẩn danh. | Bổ sung link chia sẻ và kiểm truy cập cho bàn giao CP3. |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 

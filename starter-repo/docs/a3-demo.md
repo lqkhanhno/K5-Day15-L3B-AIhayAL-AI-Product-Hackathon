@@ -1,5 +1,7 @@
 # Bàn giao CP2 — Nguyễn Minh Thành · Track A3
 
+> Cập nhật CP3: OpenAI đã chạy thật 3 câu thử kết nối và một lượt demo, [video Drive 30 giây](https://drive.google.com/file/d/1sh0NQ_hLLD2H2mUOyOTdfxqV1cJ0JKV1/view) đã kiểm tải không đăng nhập và giải mã toàn bộ; chưa chấm benchmark đầy đủ. Xem [bàn giao CP3](cp3-thanh-handoff.md); các mô tả CP2 bên dưới là trạng thái của bản mô phỏng.
+
 Triển khai theo `spec.md` §4: một nhận định → đọc nguồn của một bài cấu hình sẵn → tối đa một lần gọi model → kiểm nhãn/mã đoạn → người duyệt quyết định.
 
 ## Chạy
@@ -87,7 +89,7 @@ Ví dụ lý do trên minh họa hợp đồng, không phải kết quả đánh
 | Công cụ đọc nguồn cục bộ, kiểm đầu vào/mã đoạn, CLI và tracing | Chạy bằng Python thật |
 | Tập đoạn mặc định | 7 đoạn diễn giải có mã và mốc thời gian, trạng thái draft_unreviewed |
 | Quyết định đối chiếu | Giả, model fake, token vào/ra bằng 0 |
-| Model thật | Chưa nối; provider khác vẫn báo NotImplementedError |
+| Model thật | OpenAI đã chạy thật; Gemini/Ollama chưa chạy dịch vụ thật. Xem bàn giao CP3 |
 | Bằng chứng người dùng, độ chính xác chuyên môn, chi phí model thật | Chưa thu/chưa đo trong phần việc này |
 
 Mock chuẩn hóa chữ rồi so câu: trùng nội dung → khớp; khác bởi đúng một từ “không” → mâu thuẫn. Có thể nhận ra phủ định của một vế tách bằng “và”, “nhưng” hoặc dấu chấm phẩy. Nguồn vừa xác nhận vừa bác bỏ → thiếu căn cứ; không nhận ra quan hệ cũng → thiếu căn cứ. Mock không hiểu diễn đạt tương đương hoặc lỗi kiến thức tinh vi.
