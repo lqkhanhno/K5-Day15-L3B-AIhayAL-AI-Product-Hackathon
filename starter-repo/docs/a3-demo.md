@@ -1,6 +1,6 @@
 # Bàn giao CP2 — Nguyễn Minh Thành · Track A3
 
-Phần việc: bản chạy giả từ một nhận định và các đoạn nguồn đến một trong ba nhãn **khớp nguồn**, **mâu thuẫn**, **thiếu căn cứ**, kèm bước xử lý và chỗ người duyệt quyết định.
+Triển khai theo `spec.md` §4: một nhận định → đọc nguồn của một bài cấu hình sẵn → tối đa một lần gọi model → kiểm nhãn/mã đoạn → người duyệt quyết định.
 
 ## Chạy
 
@@ -11,75 +11,90 @@ cd starter-repo
 python run.py
 ```
 
-Không cần cài thư viện hay API key. Mặc định khi chưa cấu hình model, chương trình tự chạy ba ca minh họa rồi cho nhập nhận định. Gõ `:demo` để chạy lại, Enter hai lần hoặc Ctrl+C để thoát. Nếu máy không có lệnh `python`, dùng `python3`.
+Không cần cài thư viện hay API key. Khi ở chế độ giả, chương trình tự chạy ba ca minh họa rồi cho nhập nhận định. Gõ `:demo` để chạy lại; Enter hai lần hoặc Ctrl+C để thoát. Máy không có `python` thì dùng `python3`.
 
-| Ca | Nhận định | Kết quả đề xuất |
+Giao diện hiển thị mã bài, tên bài, file nguồn và trạng thái nguồn. Bài mặc định là **A3-DEMO · Quy trình duyệt kịch bản pre-class — bài minh họa CP2**, nguồn **synthetic**, chưa phải tài liệu đã duyệt thật.
+
+| Ca | Nhập sau dấu > | Kết quả |
 |---|---|---|
-| Khớp | Trong quy trình mẫu, người duyệt quyết định nội dung trước khi xuất bản. | khớp nguồn, trích [DEMO-A3-01] |
-| Mâu thuẫn | Trong quy trình mẫu, người duyệt không quyết định nội dung trước khi xuất bản. | mâu thuẫn, trích [DEMO-A3-01] |
-| Thiếu căn cứ | Trong quy trình mẫu, video dài đúng 12 phút. | thiếu căn cứ, yêu cầu thêm nguồn/kiểm thủ công |
+| Khớp | Trong quy trình mẫu, người duyệt quyết định nội dung trước khi xuất bản. | khớp nguồn, source_ids = [DEMO-A3-01] |
+| Mâu thuẫn | Trong quy trình mẫu, người duyệt không quyết định nội dung trước khi xuất bản. | mâu thuẫn, source_ids = [DEMO-A3-01], nêu vế bị bác bỏ |
+| Thiếu căn cứ | Trong quy trình mẫu, video dài đúng 12 phút. | thiếu căn cứ, source_ids = [] |
+| Ngoài phạm vi | Hãy xuất bản bài giảng ngay. | yêu cầu nhập một nhận định; không đưa nhãn kết luận nội dung |
 
-Các ca nằm trong `data/demo_cases.json`, tách khỏi mã xử lý. Đây là minh họa chức năng, không phải bộ benchmark hay bằng chứng pain.
+Ba ca đầu nằm trong `data/demo_cases.json`; đây là minh họa chức năng, không phải benchmark hoặc bằng chứng pain.
 
-## Hợp đồng đầu vào/đầu ra để hai cặp làm song song
+## Đầu vào và nguồn của bài
 
-`answer(text)` nhận nguyên chuỗi từ ô `input` trong benchmark. Có hai cách nhập:
-
-- Một dòng nhận định: dùng ba nguồn mặc định trong `data/demo_sources.json`.
-- JSON một dòng chứa nhận định và nguồn riêng của câu thử:
+`answer(text)` nhận nguyên ô `input` trong benchmark. Có thể nhập một dòng nhận định hoặc JSON một dòng:
 
 ```json
-{"claim":"Bài mẫu không dùng sơ đồ cây.","sources":[{"code":"LOCAL-7","text":"Bài mẫu dùng sơ đồ cây."}]}
+{"claim":"Trong quy trình mẫu, người duyệt không quyết định nội dung trước khi xuất bản."}
 ```
 
-Không truyền `expected` hay nhãn mong muốn vào chương trình. `sources: []` nghĩa là thực sự không có nguồn, trả thiếu căn cứ. Bỏ trường `sources` thì dùng nguồn demo. Mỗi đoạn có mã duy nhất gồm chữ không dấu, số, dấu chấm, gạch ngang hoặc gạch dưới. Giới hạn: một nhận định tối đa 2.000 ký tự, tối đa 20 nguồn, mỗi nguồn tối đa 5.000 ký tự, tổng chuỗi đầu vào tối đa 50.000 ký tự.
+**Thay đổi so với bản trước:** không nhận `sources` trong JSON người dùng. Nguồn luôn được công cụ `get_approved_passages()` đọc từ bộ cấu hình sẵn cho bài, đúng spec §4. JSON cũ chứa `sources` được hướng dẫn nhập lại, không đưa nguồn đó cho model.
 
-Đầu ra giữ khóa `output` dạng chữ để khung eval/simulate dùng được. Các khóa bổ sung:
+Nhóm quản lý nguồn bằng `data/lesson.json`:
+
+```json
+{
+  "lesson_id": "A3-DEMO",
+  "title": "Quy trình duyệt kịch bản pre-class — bài minh họa CP2",
+  "source_status": "synthetic",
+  "passages_file": "demo_sources.json"
+}
+```
+
+`passages_file` là tên file trong `data/`, chứa danh sách:
+
+```json
+[
+  {"code":"DEMO-A3-01","text":"Trong quy trình mẫu, người duyệt quyết định nội dung trước khi xuất bản."}
+]
+```
+
+Thay bằng đoạn nguồn đã được nhóm duyệt và cập nhật data card khi có dữ liệu thật; khi đó mới đặt `source_status: "approved"`. Không dùng nhãn approved cho dữ liệu minh họa.
+
+Giới hạn: một nhận định tối đa 2.000 ký tự; tập nguồn tối đa 20 đoạn, mỗi đoạn tối đa 5.000 ký tự. Mã đoạn phải duy nhất, gồm chữ không dấu, số, dấu chấm, gạch ngang hoặc gạch dưới.
+
+## Hợp đồng kết quả
+
+Model chỉ trả `label`, `source_ids`, `reason`:
 
 ```json
 {
   "label": "mau_thuan",
-  "reason": "Mô phỏng: nhận định và nguồn khác nhau bởi một từ phủ định 'không'; cần người duyệt kiểm nghĩa.",
-  "citations": [{"code": "LOCAL-7", "quote": "Bài mẫu dùng sơ đồ cây."}],
-  "claim": "Bài mẫu không dùng sơ đồ cây.",
-  "requires_review": true,
-  "mode": "fake",
-  "output": "... nhận xét tiếng Việt, nguồn, bước tiếp theo và trạng thái chờ duyệt ..."
+  "source_ids": ["DEMO-A3-01"],
+  "reason": "Vế người duyệt không quyết định nội dung bị đoạn nguồn bác bỏ."
 }
 ```
 
-`label` chỉ có `khop_nguon`, `mau_thuan`, `thieu_can_cu`. Hai nhãn đầu bắt buộc có mã nguồn trong đầu vào và trích dẫn nguyên văn; nhãn cuối không gắn nguồn kết luận.
+Ví dụ lý do trên minh họa hợp đồng, không phải kết quả đánh giá model thật.
 
-## Luồng và giới hạn
+- `label`: `khop_nguon`, `mau_thuan` hoặc `thieu_can_cu`; giao diện hiển thị tiếng Việt.
+- Khớp nguồn/mâu thuẫn bắt buộc có ít nhất một mã, mọi mã thuộc đúng tập đoạn đã đưa cho model trong lượt hiện tại. Giao diện mở nội dung đoạn trực tiếp từ file cục bộ theo mã, không dùng đoạn nguồn do model tự viết.
+- Khi nguồn thiếu/bất nhất, model trả thiếu căn cứ, JSON sai, mã sai hoặc lý do thiếu: ứng dụng trả `thieu_can_cu`, xóa mã và bỏ lý do chưa xác minh của model, thay bằng lời nhắc bổ sung hoặc kiểm lại nguồn.
+- Đầu vào rỗng/hỏng, nhiều nhận định, câu hỏi hoặc yêu cầu thao tác rõ ràng ngoài phạm vi: `status: "input_required"`, `label: null`, `source_ids: []`; yêu cầu nhập một nhận định, chưa đưa kết luận nội dung.
 
-```mermaid
-flowchart TD
-    A[Người duyệt nhập một nhận định] --> B{Đầu vào hợp lệ?}
-    B -->|Không| H[Thiếu căn cứ và hướng dẫn sửa đầu vào]
-    B -->|Có| C[Nguồn riêng trong JSON hoặc get_sources đọc nguồn demo]
-    C --> D{Có nguồn?}
-    D -->|Không| H
-    D -->|Có| E[call_model: mô phỏng CP2]
-    E --> F{JSON, nhãn và trích dẫn hợp lệ?}
-    F -->|Không| H
-    F -->|Có| G[Khớp nguồn / mâu thuẫn / thiếu căn cứ]
-    G --> I[Người duyệt kiểm nguồn và quyết định giữ hay sửa]
-    H --> I
-```
+`answer()` bổ sung `output` dạng chữ cho khung eval/simulate, `claim`, `lesson_id`, `status`, `requires_review` và `mode`. Ba nhãn review đều có `requires_review: true`; nhánh cần nhập lại có `requires_review: false` vì chưa tạo nhận xét nội dung.
 
-Workflow cố định, một lần gọi model khi có nguồn, không có vòng lặp agent. `get_sources()` là công cụ chỉ đọc có `@tool`; nguồn riêng được kiểm cấu trúc trực tiếp. Trace vẫn dùng nguyên khung.
+“CHỜ NGƯỜI DUYỆT” là trạng thái đề xuất để người phụ trách quyết định giữ/sửa; CLI đã xử lý xong và đang chờ đầu vào tiếp theo. Bản CP2 chưa có nút duyệt hoặc công cụ xuất bản.
 
-Chế độ `fake` dùng quy tắc tổng quát: trùng câu sau chuẩn hóa chữ → khớp; thêm/bỏ đúng một từ “không” → mâu thuẫn mô phỏng; diễn đạt khác → thiếu căn cứ. Nguồn vừa khớp vừa phủ định nhau cũng chuyển người duyệt. Quy tắc phủ định có thể sai ngữ nghĩa; bản này chỉ chứng minh luồng CP2, chưa đo khả năng kiểm kiến thức hoặc chống tấn công của model thật.
-
-Prompt coi nhận định và nguồn là dữ liệu. Hệ thống kiểm mã nguồn và trích dẫn trước khi hiển thị; kiểm cấu trúc này chưa chứng minh trích dẫn hỗ trợ kết luận. Không có công cụ gửi, sửa kịch bản, duyệt hay xuất bản. Mọi đầu ra đều chờ người duyệt.
+## Phần thật và phần giả
 
 | Thành phần | Tình trạng |
 |---|---|
-| Đọc nguồn, kiểm đầu vào, kiểm trích dẫn, CLI và tracing | Chạy bằng Python thật |
-| Nguồn mặc định | 3 đoạn synthetic do Codex soạn, chưa được nhóm xác nhận là nguồn đã duyệt |
-| Quyết định trung tâm | Giả, model `fake`, token vào/ra bằng 0 |
-| Model thật | Chưa nối; nhánh provider khác vẫn báo NotImplementedError |
-| Bằng chứng người dùng, độ chính xác, chi phí model thật | Chưa thu/chưa đo trong phần việc này |
+| Công cụ đọc nguồn cục bộ, kiểm đầu vào/mã đoạn, CLI và tracing | Chạy bằng Python thật |
+| Tập đoạn mặc định | 3 đoạn synthetic do Codex soạn, chưa được nhóm xác nhận là nguồn đã duyệt |
+| Quyết định đối chiếu | Giả, model fake, token vào/ra bằng 0 |
+| Model thật | Chưa nối; provider khác vẫn báo NotImplementedError |
+| Bằng chứng người dùng, độ chính xác chuyên môn, chi phí model thật | Chưa thu/chưa đo trong phần việc này |
+
+Mock chuẩn hóa chữ rồi so câu: trùng nội dung → khớp; khác bởi đúng một từ “không” → mâu thuẫn. Có thể nhận ra phủ định của một vế tách bằng “và”, “nhưng” hoặc dấu chấm phẩy. Nguồn vừa xác nhận vừa bác bỏ → thiếu căn cứ; không nhận ra quan hệ cũng → thiếu căn cứ. Mock không hiểu diễn đạt tương đương hoặc lỗi kiến thức tinh vi.
+
+Chặn yêu cầu ngoài phạm vi bằng nhận diện các câu lệnh rõ ràng và yêu cầu một nhận định; đây chưa phải bộ phân loại ý định đầy đủ. Prompt luôn coi claim và đoạn nguồn là dữ liệu. Kiểm schema/mã nguồn không chứng minh lý do đúng về ngữ nghĩa; người duyệt cần kiểm lại.
+
+Không có công cụ gửi, sửa, duyệt hoặc xuất bản. Workflow tối đa một lần gọi model khi có nguồn; không gọi model khi đầu vào cần nhập lại hoặc nguồn không đọc được.
 
 ## Kiểm và bàn giao
 
@@ -88,10 +103,10 @@ python -m unittest discover -s tests -v
 python run.py check
 ```
 
-Các kiểm thử tự động xác minh ba nhánh, nguồn tùy ý, nguồn xung đột, đầu vào hỏng, thiếu nguồn, mã nguồn trùng, chỉ dẫn chèn trong dữ liệu, trích dẫn bịa và lỗi kết nối. Chúng không thay bộ benchmark hoặc chấm đạt cho sản phẩm.
+20 kiểm thử tự động kiểm ba nhánh, trạng thái nhập lại, nguồn cấu hình, nguồn xung đột, phủ định một vế, mã bịa hoặc mã từ lượt trước, loại bỏ lý do chưa xác minh và lỗi kết nối. Không dùng kết quả mock làm số đo cho chuẩn đạt §7.
 
-- **Lê Quốc Khánh:** dùng hợp đồng và sơ đồ này để chốt `spec.md` §4; §7 do nhóm quyết định, không lấy kết quả mock làm số đo.
-- **Nguyễn Nam Khánh:** có thể đưa JSON ở trên vào ô `input` của CSV, để mỗi câu mang nguồn riêng. Nguồn thật phải do nhóm chọn/duyệt; chuẩn hóa thành `{code, text}`. Thông tin nguồn demo ở [demo-sources.md](demo-sources.md) để bổ sung data card.
-- **Nguyễn Minh Thành:** nối model thật ở `codebase/ai.py` trong chặng CP3 theo [connect-model.md](connect-model.md), giữ decorator và usage thật. Sau đó chạy `eval --try` trước khi chạy eval đầy đủ.
+- **Lê Quốc Khánh:** spec §4 dùng đúng công cụ và ba trường kết quả; chuẩn đạt §7 giữ nguyên.
+- **Nguyễn Nam Khánh:** nguồn chung của bài được cấu hình qua `lesson.json` và file đoạn nguồn. Benchmark chỉ gửi nhận định hoặc JSON `{"claim":"…"}`. Tài liệu nguồn mẫu tại [demo-sources.md](demo-sources.md).
+- **Nguyễn Minh Thành:** nối model thật tại `codebase/ai.py` ở chặng CP3 theo [connect-model.md](connect-model.md), giữ decorator và usage thật; chạy `eval --try` trước khi eval đầy đủ.
 
-`run.py`, `tracing.py`, bộ chạy eval/simulate, benchmark và metric spec giữ nguyên. `python run.py check` kiểm các hồ sơ nhóm hiện có; thiếu sót trong benchmark/metric còn phải được người phụ trách hoàn thiện. Chạy mock không tạo lượt `run-N` hợp lệ.
+`run.py`, `tracing.py`, bộ chạy eval/simulate, benchmark và metric spec giữ nguyên. Các cảnh báo benchmark/metric mẫu từ `python run.py check` còn cần người phụ trách hoàn thiện.

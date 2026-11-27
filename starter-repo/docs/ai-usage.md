@@ -6,8 +6,8 @@ README của nhóm có mục "Dùng AI vào việc gì" (2–3 dòng, bắt bu�
 
 | Việc | Công cụ AI | AI làm gì | Người kiểm/sửa gì | Ai phụ trách |
 |---|---|---|---|---|
-| Code bản chạy thử | Codex | Viết workflow A3, công cụ đọc nguồn, CLI, kiểm trích dẫn và kiểm thử tự động | Đã chạy kiểm tự động; Nguyễn Minh Thành cần đọc/kiểm tay trước khi nộp, chưa có xác nhận | Nguyễn Minh Thành |
-| Prompt / thiết kế lời gọi mô hình | Codex | Soạn prompt trả JSON, coi nguồn là dữ liệu và chuyển người khi thiếu căn cứ; quyết định CP2 đang dùng mock | Chưa kiểm với model thật | Nguyễn Minh Thành |
+| Code bản chạy thử | Codex | Viết workflow A3; cập nhật theo spec §4 với get_approved_passages, cấu hình bài, source_ids, nhánh cần nhập nhận định và xóa lý do chưa xác minh | Đã chạy 20 kiểm thử tự động; Nguyễn Minh Thành cần đọc/kiểm tay trước khi nộp, chưa có xác nhận | Nguyễn Minh Thành |
+| Prompt / thiết kế lời gọi mô hình | Codex | Soạn prompt trả label/source_ids/reason, coi nguồn là dữ liệu và chuyển người khi thiếu căn cứ; quyết định CP2 đang dùng mock | Chưa kiểm với model thật | Nguyễn Minh Thành |
 | Đào data (viết script đếm, gợi ý nhãn) | | | Kiểm tay __ dòng, khớp __ | |
 | Rà câu hỏi phỏng vấn / khảo sát | | Chỉ rà câu dẫn dắt | | |
 | Viết câu thử (benchmark) | | | Mỗi câu thử có `source`; câu thử AI viết được ghi rõ | |

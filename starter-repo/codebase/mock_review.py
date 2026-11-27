@@ -1,8 +1,4 @@
-"""Mô phỏng CP2 bằng quy tắc chữ; không phải suy luận AI hoặc benchmark thật.
-
-Không chứa câu thử hay bảng expected. Chỉ nhận ra trùng câu và thêm/bỏ đúng
-một từ 'không' giữa hai câu; diễn đạt khác luôn chuyển người duyệt.
-"""
+"""Quy tắc chữ cho demo CP2; không phải model thật, không đọc benchmark."""
 import re
 import unicodedata
 
@@ -13,7 +9,7 @@ def _normalize(text):
 
 
 def _opposite(left, right):
-    # Chỉ hỗ trợ một phép phủ định trực tiếp, không đoán quan hệ ngữ nghĩa.
+    """Nhận ra một từ phủ định trực tiếp; không chứng minh quan hệ ngữ nghĩa."""
     def remove_not(text):
         return re.sub(r"(?<!\w)không\s+", "", text)
     return left != right and (
@@ -23,19 +19,28 @@ def _opposite(left, right):
 
 
 def mock_review(payload):
-    claim = _normalize(payload["claim"])
-    matches, conflicts = [], []
+    original_claim = payload["claim"]
+    claim = _normalize(original_claim)
+    clauses = [claim] + re.split(r"\s+(?:và|nhưng)\s+|;\s*", claim)
+    matches, conflicts, contradicted = [], [], []
     for passage in payload["sources"]:
         source = _normalize(passage["text"])
-        citation = {"code": passage["code"], "quote": passage["text"]}
         if claim == source:
-            matches.append(citation)
-        elif _opposite(claim, source):
-            conflicts.append(citation)
+            matches.append(passage["code"])
+        else:
+            for clause in clauses:
+                if _opposite(clause, source):
+                    conflicts.append(passage["code"])
+                    contradicted.append('Vế “%s” bị đoạn [%s] bác bỏ: “%s”.'
+                                        % (clause, passage["code"], passage["text"]))
+                    break
     if matches and conflicts:
-        return {"label": "thieu_can_cu", "reason": "Các nguồn vừa khớp vừa phủ định nhau; người duyệt cần xác minh nguồn.", "citations": []}
+        return {"label": "thieu_can_cu", "source_ids": [], "reason": "Các nguồn chưa nhất quán; cần kiểm lại nguồn."}
     if matches:
-        return {"label": "khop_nguon", "reason": "Mô phỏng: nhận định trùng nội dung đoạn nguồn sau khi chuẩn hóa chữ.", "citations": matches}
+        return {"label": "khop_nguon", "source_ids": matches,
+                "reason": 'Mô phỏng: nguồn xác nhận nhận định “%s” qua nội dung trùng sau chuẩn hóa chữ.' % original_claim}
     if conflicts:
-        return {"label": "mau_thuan", "reason": "Mô phỏng: nhận định và nguồn khác nhau bởi một từ phủ định 'không'; cần người duyệt kiểm nghĩa.", "citations": conflicts}
-    return {"label": "thieu_can_cu", "reason": "Mô phỏng không xác định được quan hệ với nguồn; không suy đoán kiến thức ngoài.", "citations": []}
+        return {"label": "mau_thuan", "source_ids": conflicts,
+                "reason": "Mô phỏng phủ định chữ, cần người duyệt kiểm nghĩa: " + " ".join(contradicted)}
+    return {"label": "thieu_can_cu", "source_ids": [],
+            "reason": "Mô phỏng không xác định được quan hệ; cần bổ sung hoặc kiểm lại nguồn."}

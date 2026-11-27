@@ -33,6 +33,7 @@ def main() -> int:
         import tracing
         from agent import answer
         from ai import MODEL_PROVIDER
+        from tools import load_lesson
     except Exception as e:  # lỗi cú pháp, thiếu thư viện… trong codebase/
         print("Không nạp được codebase/ — lỗi ở %s: %s: %s" % (_where(e), type(e).__name__, e))
         print("Sửa lỗi rồi chạy lại. Cách nối model: docs/connect-model.md")
@@ -59,8 +60,14 @@ def main() -> int:
             review(case["input"])
 
     print("AIhayAL · Track A3 · Rà một nhận định pre-class · Nguyễn Minh Thành")
-    print("Nguồn mặc định: 3 đoạn SYNTHETIC trong data/demo_sources.json, chưa phải tài liệu đã duyệt.")
-    print("Nhập một nhận định, hoặc JSON một dòng: " + '{"claim":"…","sources":[{"code":"S1","text":"…"}]}')
+    try:
+        lesson = load_lesson()
+        print("Bài đối chiếu: %s · %s" % (lesson["lesson_id"], lesson["title"]))
+        print("Tập đoạn nguồn: data/%s · trạng thái: %s" % (lesson["passages_file"], lesson["source_status"]))
+    except ValueError as exc:
+        print("[Cần cấu hình bài] " + str(exc))
+    print("Nhập MỘT nhận định, hoặc JSON một dòng: " + '{"claim":"…"}')
+    print("Chỉ đối chiếu nguồn cấu hình sẵn của bài; không nhận sources trong đầu vào.")
     print(":demo = xem 3 nhánh · Thoát: Ctrl+C (hoặc Enter 2 lần với dòng trống).")
     if MODEL_PROVIDER == "fake":
         print("Chế độ MÔ PHỎNG CP2; chỉ so chữ/phủ định đơn giản, chưa kiểm kiến thức bằng AI.")

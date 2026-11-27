@@ -7,6 +7,8 @@
 Chương trình tự minh họa đủ ba nhánh **khớp nguồn / mâu thuẫn / thiếu căn cứ** khi ở chế độ giả, rồi nhận thêm đầu vào.
 Chỉ dùng Python chuẩn, chưa gọi model thật; nguồn mẫu là synthetic, mọi kết quả chờ người duyệt.
 Hướng dẫn, hợp đồng JSON và sơ đồ bàn giao: [docs/a3-demo.md](docs/a3-demo.md).
+Theo spec §4 mới, đầu vào là một nhận định hoặc `{"claim":"…"}`; công cụ `get_approved_passages()` đọc nguồn từ `data/lesson.json`.
+Kết quả có `label`, `source_ids`, `reason`; không nhận `sources` trong đầu vào người dùng.
 
 **Thành viên, lớp, track:** xem [TEAMS.md](TEAMS.md). **Điền TEAMS.md đúng format**: khi chấm và đánh giá, BTC quét file này để ghép điểm cho từng người.
 
