@@ -2,13 +2,16 @@
 
 ## Tình trạng tại CP3 · 28/11
 
+**Lương Đức Anh** phụ trách thu bằng chứng. Quốc Khánh tổng hợp kết quả vào Canvas và spec. [Phân công trên Issue #2](https://github.com/lqkhanhno/K5-Day15-L3B-AIhayAL-AI-Product-Hackathon/issues/2)
+
 **Giả thuyết.** Người duyệt phải lần lại tài liệu để đối chiếu nhận định, làm chậm việc duyệt và có thể bỏ sót lỗi kiến thức.
 
-- **Khảo sát.** Đã tạo form và soạn lời mời. Issue #2 chưa có xác nhận gửi lời mời. Repo chưa có phản hồi hợp lệ được tổng hợp. [Form khảo sát](https://docs.google.com/forms/d/e/1FAIpQLSeOVbCCEn564qpXljP-23PB7YIuRyXd0jzqhC38SZzwfsKWJQ/viewform) · [Issue #2](https://github.com/lqkhanhno/K5-Day15-L3B-AIhayAL-AI-Product-Hackathon/issues/2)
+- **Khảo sát.** Đã tạo form và soạn lời mời. Issue #2 chưa có xác nhận gửi lời mời. Form công khai mở được. Repo và Issue #2 chưa có bản xuất phản hồi. [Bộ câu hỏi và cách lọc phản hồi](survey/questions.md) · [Form khảo sát](https://docs.google.com/forms/d/e/1FAIpQLSeOVbCCEn564qpXljP-23PB7YIuRyXd0jzqhC38SZzwfsKWJQ/viewform)
 - **Phỏng vấn.** Repo chưa có ghi chép từ người từng trực tiếp duyệt kịch bản pre-class.
+- **Bối cảnh từ đề A3.** Đề A3 của BTC đặt trọng tâm vào kiểm kiến thức, tìm nguồn cho từng nhận định và xác định người duyệt. Nhóm cần hỏi người duyệt về lần làm việc gần nhất, tần suất và thời gian thực tế. [Đề Track A3](../../tracks/track-a-edtech.md#a3--sản-xuất-bài-giảng-bằng-ai)
 - **Dữ liệu BTC.** Tệp pre-class ghi hoạt động học viên. Bộ này không ghi các lượt người duyệt dò nguồn cho kịch bản. [Mô tả bộ dữ liệu](../../data/preclass/README.md)
 
-**Kết luận tại CP3.** Chưa có nguồn đạt ngưỡng hoặc 5 trích dẫn hay ví dụ nguyên văn. Giả thuyết còn chờ kiểm chứng và bảng impact chưa có số đo. Xem cách tính tại §2 của [spec](../spec.md).
+**Kết luận tại CP3.** Chưa có nguồn đạt ngưỡng và chưa có đủ 5 trích dẫn hoặc ví dụ nguyên văn. Giả thuyết còn chờ kiểm chứng và bảng impact chưa có số đo. Xem cách tính tại §2 của [spec](../spec.md).
 
 ## Cách tổng hợp khi có câu trả lời
 

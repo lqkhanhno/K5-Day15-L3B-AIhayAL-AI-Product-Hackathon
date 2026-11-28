@@ -173,6 +173,7 @@ Cả nhóm dành 15 phút trước mỗi mốc để đối chiếu vấn đề,
 | 22:45 27/11/2026 (UTC+7) | Chạy 30 ca trên OpenAI. Phiếu chấm bằng AI ghi 20/30, dưới chuẩn CP2. | Đo lượt đầu trên bộ câu thử đã chốt. [Báo cáo lượt 1](eval/report.md) |
 | 23:20 27/11/2026 (UTC+7) | Đối chiếu một phiếu chấm của người dùng với phiếu chấm bằng AI trên 5 ca. | Hai phiếu khớp 4/5, còn bất đồng ở V28-21. [Bản ghi](eval/crosscheck-run-1.json) |
 | 28/11/2026 | Tích hợp hồ sơ CP3 và xác nhận video phát trong tab ẩn danh. Rà lại tài liệu và ghi tình trạng bằng chứng trong Canvas và spec. | Xác nhận link demo dùng được. Bảng impact còn chờ dữ liệu người dùng. [Bằng chứng](evidence/summary.md) |
+| 28/11/2026 | Lưu câu hỏi khảo sát và cách lọc phản hồi theo đúng vai trò người duyệt. | Để tổng hợp nhất quán khi có dữ liệu. [Hồ sơ khảo sát](evidence/survey/questions.md) |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 
