@@ -1,7 +1,7 @@
 # Dàn slide trình bày Demo Day
 
 > Làm ở guide bước 5.1. Luật: **không có bằng chứng thì không có slide** — mỗi trang ≥1 con số / trích dẫn có nguồn / kết quả đo.
-> [Bản PDF 8 trang](../../demo-slides.pdf) ở thư mục gốc repo. Trình bày toàn bộ đề tài Track A3. Trang chi phí dùng dự báo từ token lượt 2.
+> [Bản PDF 8 trang](../../demo-slides.pdf) ở thư mục gốc repo. Trình bày toàn bộ đề tài Track A3. Trang chi phí dùng số token từ 50 phiên bổ sung sau CP4 và tỷ lệ đạt lượt 2.
 
 | # | Trang | Có gì | Số lấy từ | Xong |
 |---|---|---|---|---|
@@ -10,7 +10,7 @@
 | 3 | Giải pháp | Lát cắt một câu · sơ đồ · AI tự làm đến đâu, vì sao | `spec.md` §4 | ✓ |
 | 4 | Demo live | 1 trường hợp thường + 1 trường hợp khó (lấy từ bộ câu thử); mạng hỏng → video dự phòng | `eval/benchmark.csv` | ✓ |
 | 5 | **Đánh giá thế nào** | Dataset · bộ câu thử · metric · lượt 1 → lượt 2 so với chuẩn "đạt" (kèm run ID) · lỗi chính | `eval/README.md`, `eval/report.md`, [số liệu trước/sau](eval-results.md) | ✓ |
-| 6 | **Chi phí khi dùng thật** | Chi phí / task thành công · 3 kịch bản · so với impact | `cost/cost-estimate.md` | Dự báo |
+| 6 | **Chi phí khi dùng thật** | Chi phí / task thành công · 3 kịch bản · so với impact | `cost/cost-estimate.md` | ✓ sau CP4 |
 | 7 | Kết luận | Go / iterate / stop — dẫn số ở trang 1, 5, 6 | — | ✓ |
 | 8 | Nếu có thêm một tuần | Sửa lỗi bỏ sót mâu thuẫn, đo thời gian với người duyệt, so hai model | `eval/report.md` · `evidence/summary.md` · `cost/cost-estimate.md` | ✓ |
 

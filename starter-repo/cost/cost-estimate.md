@@ -1,8 +1,22 @@
 # Chi phí khi dùng thật · AIhayAL A3
 
-## Phạm vi và trạng thái CP4
+## Mô phỏng bổ sung sau CP4
 
-Một phiên rà một nhận định của người duyệt kịch bản pre-class. Ước tính dưới đây dùng token API đã ghi ở lượt đánh giá 2 và đơn giá trả phí. **Chưa có lượt mô phỏng ≥50 phiên thật.** Lượt thử kết nối 3 phiên bị OpenAI từ chối xác thực (HTTP 401). [Lượt 2 và token](../eval/run-2-metrics.json) · [Cấu hình mô phỏng](personas.yaml)
+Nhóm chạy **50/50 phiên** lúc 14:55 28/11/2026 (UTC+0700) với seed 42, mỗi phiên rà một nhận định. Lượt `simulate-1@20261128-145218` dùng `gpt-5.4-nano-2026-03-17`. API ghi **47 lần gọi**, **36.119 token vào** và **6.578 token ra**. Có 3 phiên được xử lý ở bước kiểm đầu vào, không phát sinh token. Số phiên lỗi là 0. [CSV mô phỏng](simulate-1.csv) · [Tóm tắt do khung sinh](simulate-1-summary.md) · [Trace](../traces/simulate-1.jsonl)
+
+Phiên trung bình tốn **0,00030893 USD** theo giá trả phí của nano. Dùng tỷ lệ đạt **21/30 (70%)** của lượt 2 cùng model, chi phí ước tính là **0,00044132 USD/tác vụ đạt**. Chi phí tính trên toàn bộ 50 phiên. Tỷ lệ đạt đến từ benchmark, còn token và lượt gọi là số ghi trong 50 phiên mô phỏng.
+
+| Kịch bản | Người duyệt *(tự ước tính)* | Nano USD/tháng | Mini USD/tháng, áp giá lên token nano |
+|---|---:|---:|---:|
+| Thấp | 2 | 0,00463 | 0,01701 |
+| Cơ sở | 4 | 0,00927 | 0,03402 |
+| Cao | 8 | 0,01854 | 0,06805 |
+
+Chi phí/tháng lấy số người nhân với tổng chi phí bình quân theo từng nhóm người duyệt, có trọng số theo tỉ trọng và tần suất sử dụng. Kịch bản cơ sở của nano tương ứng **0,00232 USD/người/tháng**. Cột mini chỉ so đơn giá trên cùng token, nên chi phí mỗi tác vụ đạt của mini vẫn chưa được đo. Thời gian tiết kiệm của người duyệt cần phép đo riêng.
+
+## Số dự báo tại mốc CP4
+
+Một phiên rà một nhận định của người duyệt kịch bản pre-class. Ước tính dưới đây dùng token API đã ghi ở lượt đánh giá 2 và đơn giá trả phí. Tại mốc CP4, lát cắt chưa có lượt mô phỏng ≥50 phiên. Lượt thử kết nối 3 phiên bị OpenAI từ chối xác thực (HTTP 401). [Lượt 2 và token](../eval/run-2-metrics.json) · [Cấu hình mô phỏng](personas.yaml)
 
 ## Đầu vào
 
@@ -32,7 +46,7 @@ Chi phí/tháng = số người duyệt × 7,6 lượt/người × chi phí bìn
 
 Ví dụ để thử độ nhạy, nếu mỗi lượt thủ công mất 3 phút *(tự ước tính)* thì kịch bản cơ sở có 4 × 7,6 × 3 = **91,2 phút công việc/tháng**. Nhóm chưa đo thời gian thực tế hoàn thành cùng một nhận định trước và sau khi dùng bản thử. Số 91,2 là thời gian công việc giả định, còn thời gian tiết kiệm chưa có số đo. Chi phí trên chỉ gồm token API, chưa gồm hosting hay thời gian của người duyệt. Đề xuất tiếp tục thử với người duyệt trước khi đánh giá hiệu quả triển khai.
 
-## Chạy mô phỏng để thay số dự báo
+## Lệnh chạy lại mô phỏng
 
 Dùng cấu hình OpenAI của nhóm cho đúng model `gpt-5.4-nano-2026-03-17`. Chạy trong `starter-repo`:
 

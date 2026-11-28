@@ -125,6 +125,8 @@ Bộ thử có 30 câu gồm 20 câu tự viết và 10 nhận định trích t�
 
 **Ước tính CP4.** Lượt 2 dùng GPT-5.4 nano và qua 21/30 câu. Áp đơn giá lên token đã ghi, chi phí API ước tính **0,00042660 USD/tác vụ đạt** và **0,00908 USD/tháng** ở kịch bản cơ sở. Bảng chi phí có ba kịch bản và giá so sánh hai model. Chưa có lượt mô phỏng ≥50 phiên gọi model thật. [Báo cáo chi phí](cost/cost-estimate.md)
 
+**Bổ sung sau CP4.** Lượt `simulate-1@20261128-145218` hoàn tất 50 phiên, 0 lỗi, trên cùng GPT-5.4 nano. Từ token mô phỏng và tỷ lệ đạt 70% của lượt 2, nhóm ước tính **0,00044132 USD/tác vụ đạt**. Chi phí tháng vẫn dự báo theo giả định quy mô. [Bảng mới](cost/cost-estimate.md)
+
 ## §9. Rủi ro & an toàn
 
 | Rủi ro | Kiểm soát trong lát cắt |
@@ -181,4 +183,4 @@ Cả nhóm dành 15 phút trước mỗi mốc để đối chiếu vấn đề,
 
 | Thời điểm | Đổi gì | Vì sao |
 |---|---|---|
-| — | Chưa có mục cần ghi tại thời điểm CP2. | — |
+| 14:55 28/11/2026 (UTC+0700) | Bổ sung lượt mô phỏng chi phí `simulate-1@20261128-145218` và cập nhật slide 6–7. | Xác thực API đã thành công, có 50 phiên đo token cùng model với lượt 2. Số dự báo tại mốc CP4 được lưu trong [báo cáo](cost/cost-estimate.md). |
