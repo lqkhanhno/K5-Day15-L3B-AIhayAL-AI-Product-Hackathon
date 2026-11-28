@@ -2,6 +2,8 @@
 
 Hạn nội bộ: **08:30 ngày 28/11/2026 (giờ Việt Nam)**. CP3 của nhóm: **10:00 cùng ngày**.
 
+Sau phần thử nối và quay video của Thành, nhóm đã chạy và chấm đủ 30 câu. Kết quả `run-1@20261127-224225` là **20/30** theo phiếu Codex. [Báo cáo lượt 1](../eval/report.md) · [Bàn giao CP3](../spec.md).
+
 ## Tình trạng thực tế
 
 - Đã viết kết nối Gemini, OpenAI và Ollama tại `codebase/ai.py`, dùng thư viện chuẩn Python.
@@ -55,7 +57,7 @@ Khung tự cấp run ID và tên file. Không ghi đè lượt cũ; không mặc
 
 ## Video thao tác thật 30 giây
 
-Link bàn giao: [cp3-thanh-demo.mp4](https://drive.google.com/file/d/1sh0NQ_hLLD2H2mUOyOTdfxqV1cJ0JKV1/view). Video nằm trong [thư mục hackathon](https://drive.google.com/drive/folders/103IdP5_gMO_1R00NAaAuMCVybrXvmR5h). Không cần commit MP4 vào repo. Thành nên mở link trong cửa sổ ẩn danh và bấm phát lần cuối trước khi gửi.
+Link bàn giao: [cp3-thanh-demo.mp4](https://drive.google.com/file/d/1sh0NQ_hLLD2H2mUOyOTdfxqV1cJ0JKV1/view). Video nằm trong [thư mục hackathon](https://drive.google.com/drive/folders/103IdP5_gMO_1R00NAaAuMCVybrXvmR5h). Không cần commit MP4 vào repo. Ngày 28/11/2026, Quốc Khánh xác nhận đã mở link và phát được video trong tab Chrome ẩn danh, không cần đăng nhập.
 
 Video hiện có được quay từ cửa sổ `python codebase/demo_window.py`, dùng nguyên `agent.answer()` và tracing của CLI. Bấm nút đối chiếu để gọi API thật; giao diện không hiển thị key. Hướng dẫn bên dưới là cách quay lại bằng CLI nếu cần.
 
@@ -69,9 +71,9 @@ Chuẩn bị trước: mở terminal ở `starter-repo`, chạy `python run.py`,
 
 Quay bằng công cụ ghi màn hình sẵn có. Lưu MP4, tải lên Drive với quyền “Bất kỳ ai có đường liên kết — Người xem” hoặc YouTube “Không công khai”. Mở link trong cửa sổ ẩn danh, khi không đăng nhập, và kiểm video phát được. Chưa kiểm thì ghi chưa kiểm.
 
-## Nội dung 
+## Nội dung bàn giao từ bước thử kết nối
 
-> Đã nối và thử OpenAI thật: model `gpt-5.4-nano-2026-03-17`, 3 câu thử kết nối chạy xong không lỗi và có token thật. 29 unit test qua, kiểm cấu trúc benchmark đạt. [Video 30 giây](https://drive.google.com/file/d/1sh0NQ_hLLD2H2mUOyOTdfxqV1cJ0JKV1/view) đã truy cập/tải không đăng nhập và giải mã được toàn bộ; chưa kiểm phát trong trình duyệt ẩn danh. Bằng chứng demo tại `docs/cp3-live-20261127T144554571059Z.json`. Cấu hình provider/model ở tài liệu này; key chuyển qua kênh riêng. Cần chạy đủ 30 câu và chấm theo chuẩn CP2; chưa có kết quả x/30 hoặc xác nhận đạt §7.
+> Đã nối và thử OpenAI thật: model `gpt-5.4-nano-2026-03-17`, 3 câu thử kết nối chạy xong không lỗi và có token thật. 29 unit test qua, kiểm cấu trúc benchmark đạt. [Video 30 giây](https://drive.google.com/file/d/1sh0NQ_hLLD2H2mUOyOTdfxqV1cJ0JKV1/view) đã tải không đăng nhập, giải mã toàn bộ và được Quốc Khánh phát thử trong tab ẩn danh. Bằng chứng demo tại `docs/cp3-live-20261127T144554571059Z.json`. Cấu hình provider/model ở tài liệu này; key chuyển qua kênh riêng. Kết quả chấm cả bộ 30 câu sau bước thử kết nối có trong [báo cáo lượt 1](../eval/report.md).
 
 ## Tài liệu API đã đối chiếu
 
