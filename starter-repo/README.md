@@ -115,6 +115,8 @@ Nhóm dùng stack khác (Node, Streamlit, notebook…): sửa hàm `run_app()` t
 
 CP3 đã có [video thao tác thật 30 giây](https://drive.google.com/file/d/1sh0NQ_hLLD2H2mUOyOTdfxqV1cJ0JKV1/view) và lượt đánh giá `run-1@20261127-224225`, đạt **20/30 (66,67%)** theo chấm bằng AI. [Spec và hồ sơ CP3](spec.md) · [Báo cáo lượt 1](eval/report.md).
 
+Lượt 2 đạt **21/30 (70%)**. Sau CP4, nhóm chạy đủ **50 phiên mô phỏng** và cập nhật chi phí cùng slide Demo Day.
+
 | Thành phần | Thật / Giả | Ghi chú |
 |---|---|---|
 | Lời gọi AI ở quyết định trung tâm | Đã gọi OpenAI thật | `gpt-5.4-nano-2026-03-17`, ghi token do API trả về. [Cấu hình và video](docs/cp3-thanh-handoff.md) |
@@ -126,7 +128,7 @@ CP3 đã có [video thao tác thật 30 giây](https://drive.google.com/file/d/1
 
 Nguyễn Minh Thành dùng Codex để triển khai workflow, công cụ đọc nguồn, prompt, CLI và kiểm thử cho bản mô phỏng CP2 A3.
 Codex hỗ trợ cả nguồn minh họa và bộ thử từ video. Các đoạn nguồn và nhãn của bộ thử đang chờ xác nhận của người phụ trách.
-Không tạo bằng chứng phỏng vấn hay kết quả đánh giá model thật; chi tiết ở [docs/ai-usage.md](docs/ai-usage.md).
+Phản hồi khảo sát lấy từ form của nhóm. Đầu ra đánh giá lưu từ lượt gọi model thật và báo cáo ghi rõ phần chấm bằng AI. Xem [docs/ai-usage.md](docs/ai-usage.md).
 
 ## File mẫu — điền ở bước nào
 

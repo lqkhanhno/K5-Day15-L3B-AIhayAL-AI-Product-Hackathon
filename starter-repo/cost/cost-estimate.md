@@ -2,7 +2,7 @@
 
 ## Mô phỏng bổ sung sau CP4
 
-Nhóm chạy **50/50 phiên** lúc 14:55 28/11/2026 (UTC+0700) với seed 42, mỗi phiên rà một nhận định. Lượt `simulate-1@20261128-145218` dùng `gpt-5.4-nano-2026-03-17`. API ghi **47 lần gọi**, **36.119 token vào** và **6.578 token ra**. Có 3 phiên được xử lý ở bước kiểm đầu vào, không phát sinh token. Số phiên lỗi là 0. [CSV mô phỏng](simulate-1.csv) · [Tóm tắt do khung sinh](simulate-1-summary.md) · [Trace](../traces/simulate-1.jsonl)
+Nhóm hoàn tất **50/50 phiên** lúc 14:55 28/11/2026 (UTC+0700) với seed 42, mỗi phiên rà một nhận định. Lượt `simulate-1@20261128-145218` dùng `gpt-5.4-nano-2026-03-17`. Lượt mô phỏng ghi **47 lần gọi model**, **36.119 token vào** và **6.578 token ra**. Có 3 phiên được xử lý ở bước kiểm đầu vào, không phát sinh token. Số phiên lỗi là 0. [CSV mô phỏng](simulate-1.csv) · [Tóm tắt do khung sinh](simulate-1-summary.md) · [Trace](../traces/simulate-1.jsonl)
 
 Phiên trung bình tốn **0,00030893 USD** theo giá trả phí của nano. Dùng tỷ lệ đạt **21/30 (70%)** của lượt 2 cùng model, chi phí ước tính là **0,00044132 USD/tác vụ đạt**. Chi phí tính trên toàn bộ 50 phiên. Tỷ lệ đạt đến từ benchmark, còn token và lượt gọi là số ghi trong 50 phiên mô phỏng.
 
@@ -16,7 +16,7 @@ Chi phí/tháng lấy số người nhân với tổng chi phí bình quân theo
 
 ## Số dự báo tại mốc CP4
 
-Một phiên rà một nhận định của người duyệt kịch bản pre-class. Ước tính dưới đây dùng token API đã ghi ở lượt đánh giá 2 và đơn giá trả phí. Tại mốc CP4, lát cắt chưa có lượt mô phỏng ≥50 phiên. Lượt thử kết nối 3 phiên bị OpenAI từ chối xác thực (HTTP 401). [Lượt 2 và token](../eval/run-2-metrics.json) · [Cấu hình mô phỏng](personas.yaml)
+Một phiên rà một nhận định của người duyệt kịch bản pre-class. Ước tính dưới đây dùng token API đã ghi ở lượt đánh giá 2 và đơn giá trả phí. Tại thời điểm nộp CP4, nhóm chưa hoàn tất mô phỏng ≥50 phiên. Lượt thử kết nối 3 phiên bị OpenAI từ chối xác thực (HTTP 401). [Lượt 2 và token](../eval/run-2-metrics.json) · [Cấu hình mô phỏng](personas.yaml)
 
 ## Đầu vào
 
@@ -55,4 +55,4 @@ python run.py simulate --try 3
 python run.py simulate --rate-from eval/run-2.csv --wait 4
 ```
 
-Đối chiếu 50 phiên, model API trả về, số token, lỗi và `run_id` của đầu ra `cost/simulate-N.csv`. Nếu hoàn tất, lấy chi phí phiên thực đo và chia cho 21/30 để cập nhật báo cáo và slide 6. [Hướng dẫn nối model](../docs/connect-model.md)
+Đối chiếu 50 phiên, model API trả về, số token, lỗi và `run_id` của đầu ra `cost/simulate-N.csv`. Dùng số chi phí bình quân mỗi phiên của lượt mới, chia cho 21/30 nếu model vẫn trùng lượt đánh giá 2. Lưu lần chạy dưới mã lượt mới. [Hướng dẫn nối model](../docs/connect-model.md)

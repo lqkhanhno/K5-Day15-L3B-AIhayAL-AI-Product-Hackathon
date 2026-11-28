@@ -123,7 +123,7 @@ Bộ thử có 30 câu gồm 20 câu tự viết và 10 nhận định trích t�
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
 
-**Ước tính CP4.** Lượt 2 dùng GPT-5.4 nano và qua 21/30 câu. Áp đơn giá lên token đã ghi, chi phí API ước tính **0,00042660 USD/tác vụ đạt** và **0,00908 USD/tháng** ở kịch bản cơ sở. Bảng chi phí có ba kịch bản và giá so sánh hai model. Chưa có lượt mô phỏng ≥50 phiên gọi model thật. [Báo cáo chi phí](cost/cost-estimate.md)
+**Ước tính tại mốc CP4.** Lượt 2 dùng GPT-5.4 nano và qua 21/30 câu. Áp đơn giá lên token đã ghi, chi phí API ước tính **0,00042660 USD/tác vụ đạt** và **0,00908 USD/tháng** ở kịch bản cơ sở. Bảng chi phí có ba kịch bản và giá so sánh hai model. Khi đó nhóm chưa hoàn tất mô phỏng ≥50 phiên trên bản chạy thật. [Báo cáo chi phí](cost/cost-estimate.md)
 
 **Bổ sung sau CP4.** Lượt `simulate-1@20261128-145218` hoàn tất 50 phiên, 0 lỗi, trên cùng GPT-5.4 nano. Từ token mô phỏng và tỷ lệ đạt 70% của lượt 2, nhóm ước tính **0,00044132 USD/tác vụ đạt**. Chi phí tháng vẫn dự báo theo giả định quy mô. [Bảng mới](cost/cost-estimate.md)
 
@@ -132,7 +132,7 @@ Bộ thử có 30 câu gồm 20 câu tự viết và 10 nhận định trích t�
 | Rủi ro | Kiểm soát trong lát cắt |
 |---|---|
 | Gắn nhãn sai hoặc dẫn nhầm nguồn | Kiểm mã đoạn theo tập nguồn của lượt hiện tại. Người duyệt mở đoạn, kiểm quan hệ với nhận định, rồi quyết định giữ hay sửa. |
-| Nguồn thiếu, chưa duyệt hoặc xung đột | Hiển thị trạng thái nguồn. Khi thiếu căn cứ, yêu cầu bổ sung đoạn liên quan hoặc kiểm thủ công. Tập phụ đề CP2 đang ở trạng thái `draft_unreviewed`. |
+| Nguồn thiếu, chưa duyệt hoặc xung đột | Hiển thị trạng thái nguồn. Khi thiếu căn cứ, yêu cầu bổ sung đoạn liên quan hoặc kiểm thủ công. Tập đoạn trích từ phụ đề vẫn ở trạng thái `draft_unreviewed`. |
 | Chỉ dẫn chèn trong nhận định hoặc đoạn nguồn | Xử lý văn bản đầu vào như dữ liệu. Bản thử chỉ có công cụ đọc nguồn. Các thao tác sửa, gửi và xuất bản nằm ngoài quyền của hệ thống. |
 | Lộ dữ liệu khi lưu phụ đề, tài liệu lớp hoặc phản hồi khảo sát | Repo giữ trích đoạn ngắn và bộ câu thử. Ghi chép người dùng dùng mã vai trò và bỏ tên, thông tin liên hệ trước khi lưu công khai. Khi nối model thật, chỉ gửi nhận định và đoạn tài liệu đã được phép dùng. |
 
@@ -184,3 +184,4 @@ Cả nhóm dành 15 phút trước mỗi mốc để đối chiếu vấn đề,
 | Thời điểm | Đổi gì | Vì sao |
 |---|---|---|
 | 14:55 28/11/2026 (UTC+0700) | Bổ sung lượt mô phỏng chi phí `simulate-1@20261128-145218` và cập nhật slide 6–7. | Xác thực API đã thành công, có 50 phiên đo token cùng model với lượt 2. Số dự báo tại mốc CP4 được lưu trong [báo cáo](cost/cost-estimate.md). |
+| 15:00 28/11/2026 (UTC+0700) | Rà câu chữ tài liệu và cập nhật lời thuyết trình cho 4 thành viên. | Làm rõ thời điểm bổ sung số liệu mô phỏng và thống nhất lời nói với bản slide Demo Day. |

@@ -1,0 +1,92 @@
+AI HAY AL | LỜI THUYẾT TRÌNH DEMO DAY
+Track A3 · Rà một nhận định trước khi duyệt bài pre-class
+Dùng cùng demo-slides.pdf, 8 trang. Thời lượng đề xuất 5–6 phút, kể cả demo.
+
+PHÂN VAI
+Đức Anh mở bài, trình bày khảo sát và phạm vi (slide 1–2).
+Minh Thành giải thích luồng và thao tác trực tiếp (slide 3–4).
+Nam Khánh trình bày đánh giá và phân tích lỗi (slide 5).
+Quốc Khánh trình bày chi phí, quyết định và kết bài (slide 6–8).
+
+ĐỨC ANH | SLIDE 1 · NGƯỜI DÙNG (35 GIÂY)
+
+Em chào hội đồng. Nhóm em là AI hay AL, làm Track A3. Trước khi xuất bản một bài pre-class, người duyệt có thể gặp một nhận định mà họ chưa chắc đúng. Họ phải tìm đoạn tài liệu liên quan, đọc lại và quyết định giữ hay sửa. Nhóm em chọn hỗ trợ đúng bước đối chiếu này.
+
+Khảo sát có 9 lượt sau khi loại hai lượt thử. Một người từng làm nội dung AI20K cho biết điều khó là “Kiểm tra lại kết quả ai”. Đây là tín hiệu ban đầu. Nhóm còn thiếu người được xác minh là trực tiếp duyệt pre-class.
+
+ĐỨC ANH | SLIDE 2 · VÌ SAO CHỌN MỘT NHẬN ĐỊNH (30 GIÂY)
+
+Nhóm cân nhắc rà từng nhận định, rà cả kịch bản và soạn kịch bản mới. Nhóm chọn rà từng nhận định vì người duyệt có thể mở đúng đoạn và kiểm từng đề xuất.
+
+Con số 91,2 phút mỗi tháng trên slide là khối lượng công việc giả định. Nhóm sẽ đo cùng một nhận định bằng cách thủ công và bằng công cụ để biết có tiết kiệm thời gian hay không. Mời Thành trình bày luồng và hai ca demo.
+
+MINH THÀNH | SLIDE 3 · GIẢI PHÁP (35 GIÂY)
+
+Người duyệt nhập một nhận định. Hệ thống lấy các đoạn nguồn đã cấu hình cho bài và gọi model để đề xuất nhãn, mã đoạn và lý do. Ba nhãn là khớp nguồn, mâu thuẫn và thiếu căn cứ. Hệ thống kiểm mã thuộc tập đoạn của lượt đó trước khi hiển thị. Khi căn cứ chưa đủ hoặc mã sai, hệ thống yêu cầu kiểm lại. Người duyệt là người quyết định cuối cùng.
+
+MINH THÀNH | SLIDE 4 · HAI CA DEMO (60–90 GIÂY)
+
+[Mở cửa sổ demo. Đọc nhận định trong lúc thao tác. Đoạn trong ngoặc vuông là hướng dẫn.]
+
+[Ca 1. Nhập nguyên câu “Một vài câu demo được chuẩn bị kỹ không đại diện cho môi trường thực tế có lỗi gõ, tiếng lóng và đầu vào phá hoại.” Bấm đối chiếu. Kỳ vọng khớp nguồn, mã V28-S02.]
+
+Ở ca này, em muốn người duyệt nhìn được cả nhãn, lý do và đoạn nguồn. Hội đồng có thể xem ở đây cách họ mở đoạn S02 để kiểm lại nhận định.
+
+[Ca 2. Nhập “LLM-as-judge luôn chính xác hơn người chấm chuyên môn.” Bấm đối chiếu. Kỳ vọng thiếu căn cứ, mã rỗng.]
+
+Tập nguồn không so sánh hai cách chấm này. Với kết quả thiếu căn cứ, người duyệt cần kiểm thêm trước khi dùng nhận định trong bài.
+
+[Nếu nhãn hoặc mã ra khác kỳ vọng, chỉ vào điểm khác rồi nói “Đầu ra vừa rồi cần được người duyệt kiểm lại. Kỳ vọng của ca này là …” Nếu API lỗi, mở video dự phòng 30 giây đã gắn ở slide 4. Video ghi ca khớp nguồn. Giải thích ca thiếu căn cứ bằng slide hoặc kết quả V28-16 trong báo cáo.]
+
+Hai ca vừa rồi minh họa cách dùng. Mời Nam Khánh cho hội đồng xem kết quả trên cả bộ 30 câu.
+
+NAM KHÁNH | SLIDE 5 · ĐÁNH GIÁ (55 GIÂY)
+
+Bộ thử gồm 30 câu, trong đó 20 câu tự viết và 10 câu từ tài liệu công khai. Hai lượt dùng cùng bộ thử, cùng GPT-5.4 nano và cùng chuẩn CP2. Sau khi siết yêu cầu về căn cứ, tổng đạt tăng từ 20 lên 21 trên 30, vẫn dưới ngưỡng 80%.
+
+Điểm quan trọng là bắt đúng mâu thuẫn giảm từ 5 trên 6 xuống 3 trên 6. Ví dụ V28-08 nói rằng lời đáp nghe hợp lý thì chắc chắn đúng. Đoạn S01 bác bỏ điều này, nhưng lượt 2 trả thiếu căn cứ. Dẫn đúng nguồn cũng giảm từ 12 trên 16 xuống 10 trên 16. Lượt 2 được chấm bằng AI và còn chờ phiếu chấm độc lập của người. Mời Quốc Khánh trình bày nhóm tính chi phí thế nào từ kết quả này.
+
+QUỐC KHÁNH | SLIDE 6 · CHI PHÍ (45 GIÂY)
+
+Sau mốc CP4, nhóm chạy đủ 50 phiên qua bản chạy thật và không có lỗi kỹ thuật. Có 47 lần gọi GPT-5.4 nano và 3 phiên xử lý ở bước kiểm đầu vào. Nhóm tính giá token của cả 50 phiên, rồi chia chi phí trung bình một phiên cho tỷ lệ đạt 70% của lượt đánh giá 2. Kết quả là khoảng 0,00044 USD cho một tác vụ đạt.
+
+Kịch bản cơ sở giả định 4 người duyệt, dự báo chi phí API khoảng 0,00927 USD mỗi tháng. Cột mini áp đơn giá khác lên cùng lượng token để so sánh. Nhóm chưa đo tỷ lệ đạt của mini và chưa đo thời gian tiết kiệm cho người duyệt.
+
+QUỐC KHÁNH | SLIDE 7 · QUYẾT ĐỊNH (25 GIÂY)
+
+Nhóm chọn tiếp tục thử có người duyệt. Chi phí API dự báo thấp, nhưng khảo sát còn nhỏ và lượt 2 bỏ sót thêm ca mâu thuẫn. Nếu một nhận định sai lọt vào bài pre-class, người học có thể học sai. Vì vậy nhóm giữ bước người duyệt kiểm nguồn và quyết định trước khi xuất bản.
+
+QUỐC KHÁNH | SLIDE 8 · NẾU CÓ THÊM MỘT TUẦN (25 GIÂY)
+
+Nhóm sẽ sửa lỗi bỏ sót mâu thuẫn và kiểm trên các nhận định mới. Tiếp theo, nhóm mời ba người duyệt thử cùng một nhận định theo hai cách để so thời gian và quyết định. Cuối cùng, nhóm chạy nano và mini trên cùng tác vụ để so chất lượng, độ trễ và chi phí. Nhóm em cảm ơn hội đồng.
+
+HỎI ĐÁP NHANH
+
+Hỏi — Vì sao bản nộp CP4 lúc đầu chưa có đủ 50 phiên?
+Đáp — Lúc chốt CP4, lượt thử mô phỏng gặp lỗi xác thực API. Nhóm ghi dự báo dựa trên token của lượt đánh giá 2. Sau CP4, nhóm xác thực lại và chạy xong 50 phiên, lưu riêng log và cập nhật số chi phí.
+
+Hỏi — 50 phiên sao chỉ có 47 lần gọi model?
+Đáp — Cả 50 phiên đều đi qua bản chạy thử. Ba đầu vào được xử lý ở bước kiểm tra nên không cần gọi model. Nhóm tính chi phí trung bình trên cả 50 phiên.
+
+Hỏi — 50 phiên có chứng minh người duyệt tiết kiệm thời gian không?
+Đáp — 50 phiên cho số token và chi phí API. Để đo phút tiết kiệm, cần người duyệt thực hiện cùng một nhận định bằng hai cách rồi so thời gian và kết quả.
+
+Hỏi — Khảo sát đã chứng minh vấn đề chưa?
+Đáp — Chưa. Có 9 lượt và 5 trích dẫn sơ bộ, còn thiếu người đúng vai được xác minh. Nhóm dùng khảo sát để định hướng bài toán và tiếp tục hỏi người duyệt về lần dò nguồn cụ thể.
+
+Hỏi — Vì sao tổng tăng mà vẫn ưu tiên sửa?
+Đáp — Tổng tăng một câu nhưng khả năng bắt mâu thuẫn giảm từ 5/6 xuống 3/6. Với kịch bản trước khi xuất bản, bỏ sót câu sai là lỗi nhóm ưu tiên xử lý.
+
+Hỏi — Có mã đoạn thì kết luận đã đáng tin chưa?
+Đáp — Mã hợp lệ cho biết đoạn thuộc tập nguồn. Người duyệt vẫn kiểm đoạn có thực sự hỗ trợ kết luận hay không. Tập đoạn phụ đề hiện còn ở trạng thái chờ duyệt.
+
+SỐ LIỆU ĐỂ TRA NHANH
+Lượt 1  run-1@20261127-224225   20/30 (66,67%)
+Lượt 2  run-2@20261128-114555   21/30 (70%)
+Mô phỏng  simulate-1@20261128-145218   50 phiên, 47 lần gọi, 0 lỗi
+Token mô phỏng  36.119 vào, 6.578 ra
+Chi phí nano  0,00044132 USD/tác vụ đạt
+Cơ sở nano  0,00927 USD/tháng, giả định 4 người trực tiếp duyệt
+
+Tra nguồn trong starter-repo/evidence/summary.md, starter-repo/eval/report.md,
+starter-repo/cost/cost-estimate.md và starter-repo/cost/simulate-1.csv.
