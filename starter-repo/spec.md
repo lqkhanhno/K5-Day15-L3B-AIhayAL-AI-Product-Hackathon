@@ -1,8 +1,12 @@
 # AI SPEC — Rà nhận định trong kịch bản pre-class · AIhayAL
 
-**Track A · A3 — Sản xuất bài giảng pre-class.** AIhayAL thiết kế công cụ rà một nhận định trước khi xuất bản. Bản CP2 chạy luồng giả với tập đoạn nguồn đang chờ duyệt.
+**Track A · A3 — Sản xuất bài giảng pre-class.** AIhayAL thiết kế công cụ rà một nhận định trước khi xuất bản. Bản CP3 đã gọi model thật với tập đoạn nguồn đang chờ duyệt.
 
 **Hồ sơ CP2.** [Canvas](canvas.md) · [Tiến độ bằng chứng](evidence/summary.md) · [Benchmark 30 câu](eval/benchmark.csv) · [Metric spec](eval/metric_spec.yaml) · [Data Card](data/DATA_CARD.md) · [Hướng dẫn chạy thử](docs/a3-demo.md)
+
+**Bàn giao CP3.** [Video thao tác thật 30 giây](https://drive.google.com/file/d/1sh0NQ_hLLD2H2mUOyOTdfxqV1cJ0JKV1/view) · [Bằng chứng pain](evidence/summary.md) · [Benchmark 30 câu](eval/benchmark.csv) · [Kết quả lượt 1](eval/run-1.csv) · [Điểm và phân tích lỗi](eval/report.md). Quốc Khánh đã phát thử video trong tab ẩn danh ngày 28/11.
+
+Lượt `run-1@20261127-224225` dùng OpenAI `gpt-5.4-nano-2026-03-17`, đạt **20/30 câu (66,67%)** theo chấm bằng AI và chưa đạt chuẩn CP2. Bộ thử có 21 câu khó, 2 câu từ chối và 10 câu từ tài liệu công khai. Khảo sát có 9 lượt sau khi loại 2 lượt thử. Bằng chứng pain và bảng impact còn chờ dữ liệu đủ ngưỡng từ người trực tiếp duyệt kịch bản.
 
 ## §0. Hiện tại việc này diễn ra thế nào *(guide 1.1)*
 
@@ -18,14 +22,14 @@
 - **Người dùng chính.** Người trực tiếp duyệt nội dung kịch bản pre-class của đội sản xuất bài giảng AI20K.
 - **Việc cần làm.** Đối chiếu một nhận định chuyên môn trong kịch bản với đoạn tài liệu đã duyệt trước khi quyết định giữ hay yêu cầu sửa.
 - **Vấn đề giả thuyết.** Khi duyệt kịch bản pre-class, người duyệt phải dò lại tài liệu để kiểm từng nhận định. Việc tìm đúng đoạn có thể kéo dài thời gian duyệt và khiến lỗi kiến thức bị bỏ sót.
-- **Tiến độ bằng chứng.** Nhóm đã tạo form và soạn lời mời. Theo ghi nhận hiện có, lời mời chưa gửi. Repo chưa có phản hồi, ghi chép phỏng vấn, số liệu đầu tiên hay trích dẫn để kết luận giả thuyết. Mục tiêu là khảo sát ít nhất 20 người ngoài nhóm có kinh nghiệm trực tiếp duyệt kịch bản. Các câu hỏi đo lần duyệt gần nhất, số lần gặp trong tháng, số nhận định phải tra và số phút dò nguồn. [Tổng hợp bằng chứng](evidence/summary.md)
+- **Tiến độ bằng chứng tại CP3.** Đức Anh bàn giao 9 lượt khảo sát sau khi loại 2 lượt thử. Trong 9 lượt, 1 người tự khai từng làm nội dung cho AI20K, 3 người làm cho khóa khác và 5 người chưa từng. Các trích dẫn sơ bộ đã được lưu. Chưa xác minh tư cách ngoài nhóm hoặc việc trực tiếp duyệt kịch bản pre-class. Mục tiêu là khảo sát ít nhất 20 người ngoài nhóm có kinh nghiệm trực tiếp duyệt kịch bản hoặc phỏng vấn ít nhất 3 người phù hợp, kèm tối thiểu 5 trích dẫn hoặc ví dụ nguyên văn đã bỏ tên. [Tổng hợp bằng chứng](evidence/summary.md)
 - **Dữ liệu phục vụ bản thử.** Benchmark và các đoạn video dùng để kiểm cách hệ thống đối chiếu. Kết quả chạy thử chưa đo được thời gian dò nguồn trong công việc thực tế. [Data Card](data/DATA_CARD.md)
 
 ## §2. Impact & quyết định chọn *(guide 1.3)*
 
 | Hướng | Người gặp · lần/tháng · thời gian mỗi lần | Impact/tháng | Quyết định CP2 |
 |---|---|---|---|
-| Rà một nhận định trong kịch bản | Đo ở người trực tiếp duyệt. Hỏi số lượt tra nguồn và số phút mỗi lượt. Chưa có số đo. | Chờ dữ liệu khảo sát hoặc phỏng vấn. | **Chọn.** Một nhận định, một tập nguồn cố định và ba nhãn giúp nhóm kiểm từng quyết định. |
+| Rà một nhận định trong kịch bản | 1 người tự khai làm nội dung AI20K: 8–10 lần kiểm tra/tháng, 15–30 phút cho lần kiểm tra gần nhất ([S04](evidence/survey/responses-draft.md)). Chưa xác minh người này trực tiếp duyệt kịch bản pre-class hay ngoài nhóm; thời gian không phải cho một nhận định. | Chưa tính được: chưa biết số người duyệt và thời gian tra nguồn cho mỗi nhận định. Không nhân các số khảo sát khác đơn vị. | **Chọn.** Một nhận định, một tập nguồn cố định và ba nhãn giúp nhóm kiểm từng quyết định. |
 | Rà cả kịch bản rồi gom các chỗ cần sửa | Cần đo số kịch bản, số nhận định mỗi bản và thời gian rà cả bản. Chưa có số đo. | Chờ dữ liệu. | Để sau. Cần tách nhận định và xử lý nhiều đoạn nguồn trong cùng một lượt. |
 | Soạn kịch bản mới kèm nguồn | Cần khảo sát người soạn về tần suất viết và thời gian bổ sung nguồn. Chưa có số đo. | Chờ dữ liệu. | Để sau. Công việc chính chuyển sang viết kịch bản và cần quy trình duyệt riêng. |
 
@@ -77,6 +81,8 @@ flowchart TD
 
 **Phạm vi bản CP2.** Công cụ `get_approved_passages()` đọc bộ nguồn theo `data/lesson.json`. Cấu hình hiện dùng 7 đoạn diễn giải từ phụ đề video và hiển thị rõ trạng thái chưa được duyệt. Bộ thử gửi nhận định dưới dạng `{"claim":"…"}`. Nguồn được cấu hình trong repo. Bước gắn nhãn ở CP2 dùng model giả so chữ và phủ định, token bằng 0. Kết quả có `label`, `source_ids`, `reason`. Yêu cầu thao tác ngoài phạm vi trả `input_required` và đề nghị nhập lại nhận định. [Hướng dẫn demo](docs/a3-demo.md)
 
+**Bản CP3.** Luồng đã gọi OpenAI `gpt-5.4-nano-2026-03-17` và ghi token do API trả về. Video cho thấy một lượt từ nhập nhận định tới nhãn, mã đoạn và lý do để người duyệt xử lý. [Bàn giao của Minh Thành](docs/cp3-thanh-handoff.md) · [Bản ghi lượt demo](docs/cp3-live-20261127T144554571059Z.json)
+
 ## §5. Chỗ khó — 4 lớp + ≥6 kịch bản + 2 tấn công *(guide 2.3)*
 
 | Kịch bản | Lớp | Hành vi mong muốn | Câu kiểm |
@@ -113,7 +119,7 @@ flowchart TD
 
 Giữ mẫu số đầy đủ dù có output rỗng hoặc lỗi. Output lỗi trượt tiêu chí từng câu.
 
-Bộ thử hiện có 30 câu gồm 20 câu tự viết và 10 nhận định trích từ tài liệu thật, có dẫn nguồn theo từng ca. Tập nguồn, nhãn và tiêu chí còn chờ người chuyên môn rà tay. Chưa ghi nhận việc hai người chấm độc lập 5 đầu ra. Chưa có lượt chấm model thật. [Hồ sơ đánh giá](eval/README.md) · [Metric spec](eval/metric_spec.yaml)
+Bộ thử có 30 câu gồm 20 câu tự viết và 10 nhận định trích từ tài liệu thật, có dẫn nguồn theo từng ca. Lượt model thật `run-1@20261127-224225` qua 20/30 câu theo chấm bằng AI. Mâu thuẫn qua 5/6, báo nhầm 1/10, dẫn đúng nguồn 12/16, từ chối qua 2/2 và có 0 mã hiển thị nằm ngoài tập nguồn. Đối chiếu với một phiếu chấm của người dùng cho kết quả khớp 4/5 và còn bất đồng ở V28-21. Tập nguồn và nhãn còn chờ người chuyên môn rà. [Hồ sơ đánh giá](eval/README.md) · [Metric spec](eval/metric_spec.yaml)
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
 
@@ -156,14 +162,19 @@ Cả nhóm dành 15 phút trước mỗi mốc để đối chiếu vấn đề,
 - **18:40–19:15** · Rà chéo và đối chiếu 5 đầu ra. Nếu khớp dưới 4/5, làm rõ tiêu chí rồi chấm lại. Cả nhóm chốt chuẩn đạt bằng số trước khi nộp.
 - **19:15–19:30** · Chạy `python run.py` và `python run.py check`, kiểm nội dung và link theo checklist CP2, rồi đội trưởng nộp.
 
-- **Dùng AI.** Codex hỗ trợ viết luồng, chọn đoạn nguồn, chuẩn bị benchmark và tổng hợp tài liệu. Các nhãn và trích đoạn đối chiếu đang chờ người chuyên môn rà. [Khai báo dùng AI](docs/ai-usage.md)
+- [Khai báo công cụ AI và phần đã được kiểm tra](docs/ai-usage.md).
 - Nhật ký thay đổi — **mọi thay đổi sau CP2 19:30 Thứ Sáu 27/11 phải có dòng ở đây**:
 
 **CP2 → CP4** (vd thu hẹp lát cắt, hỏi thêm người dùng, lần cải tiến trước lượt 2)
 
 | Thời điểm | Đổi gì | Vì sao (trỏ về câu thử / lỗi / bằng chứng nào) |
 |---|---|---|
-| — | Chưa có mục cần ghi tại thời điểm CP2. | — |
+| 27/11/2026 | Nối model, thử thành công ba ca với OpenAI và quay video thao tác 30 giây. | Kiểm luồng và token trước khi chạy cả bộ. [Bàn giao kỹ thuật](docs/cp3-thanh-handoff.md) |
+| 22:45 27/11/2026 (UTC+7) | Chạy 30 ca trên OpenAI. Phiếu chấm bằng AI ghi 20/30, dưới chuẩn CP2. | Đo lượt đầu trên bộ câu thử đã chốt. [Báo cáo lượt 1](eval/report.md) |
+| 23:20 27/11/2026 (UTC+7) | Đối chiếu một phiếu chấm của người dùng với phiếu chấm bằng AI trên 5 ca. | Hai phiếu khớp 4/5, còn bất đồng ở V28-21. [Bản ghi](eval/crosscheck-run-1.json) |
+| 28/11/2026 | Tích hợp hồ sơ CP3 và xác nhận video phát trong tab ẩn danh. Rà lại tài liệu và ghi tình trạng bằng chứng trong Canvas và spec. | Xác nhận link demo dùng được. Bảng impact còn chờ dữ liệu người dùng. [Bằng chứng](evidence/summary.md) |
+| 28/11/2026 | Lưu câu hỏi khảo sát và cách lọc phản hồi theo đúng vai trò người duyệt. | Để tổng hợp nhất quán khi có dữ liệu. [Hồ sơ khảo sát](evidence/survey/questions.md) |
+| 28/11/2026 | Bổ sung 9 lượt khảo sát sơ bộ của Đức Anh vào hồ sơ CP3. | Ghi rõ giới hạn mẫu và cập nhật tình trạng bằng chứng trong spec và Canvas. [Hồ sơ khảo sát](evidence/summary.md) |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 

@@ -113,10 +113,12 @@ Nhóm dùng stack khác (Node, Streamlit, notebook…): sửa hàm `run_app()` t
 
 ## Phần nào thật, phần nào giả
 
+CP3 đã có [video thao tác thật 30 giây](https://drive.google.com/file/d/1sh0NQ_hLLD2H2mUOyOTdfxqV1cJ0JKV1/view) và lượt đánh giá `run-1@20261127-224225`, đạt **20/30 (66,67%)** theo chấm bằng AI. [Spec và hồ sơ CP3](spec.md) · [Báo cáo lượt 1](eval/report.md).
+
 | Thành phần | Thật / Giả | Ghi chú |
 |---|---|---|
-| Lời gọi AI ở quyết định trung tâm | **Thật** (bắt buộc từ CP3) | Model: ____ |
-|  |  |  |
+| Lời gọi AI ở quyết định trung tâm | Đã gọi OpenAI thật | `gpt-5.4-nano-2026-03-17`, ghi token do API trả về. [Cấu hình và video](docs/cp3-thanh-handoff.md) |
+| Tập đoạn đối chiếu | Trích đoạn diễn giải từ bài pre-class | Cấu hình đang ở trạng thái `draft_unreviewed`. [Data Card](data/DATA_CARD.md) |
 
 ## Dùng AI vào việc gì
 

@@ -1,5 +1,7 @@
 # Bàn giao CP2 — Nguyễn Minh Thành · Track A3
 
+> OpenAI đã chạy đủ 30 câu ở CP3. Xem [báo cáo lượt 1](../eval/report.md) và [video thao tác 30 giây](https://drive.google.com/file/d/1sh0NQ_hLLD2H2mUOyOTdfxqV1cJ0JKV1/view). Tài liệu bên dưới mô tả bản mô phỏng CP2.
+
 Triển khai theo `spec.md` §4: một nhận định → đọc nguồn của một bài cấu hình sẵn → tối đa một lần gọi model → kiểm nhãn/mã đoạn → người duyệt quyết định.
 
 ## Chạy
@@ -86,8 +88,8 @@ Ví dụ lý do trên minh họa hợp đồng, không phải kết quả đánh
 |---|---|
 | Công cụ đọc nguồn cục bộ, kiểm đầu vào/mã đoạn, CLI và tracing | Chạy bằng Python thật |
 | Tập đoạn mặc định | 7 đoạn diễn giải có mã và mốc thời gian, trạng thái draft_unreviewed |
-| Quyết định đối chiếu | Giả, model fake, token vào/ra bằng 0 |
-| Model thật | Chưa nối; provider khác vẫn báo NotImplementedError |
+| Quyết định đối chiếu trong bản CP2 | Model giả, token vào/ra bằng 0 |
+| Model thật | OpenAI đã chạy thật; Gemini/Ollama chưa chạy dịch vụ thật. Xem bàn giao CP3 |
 | Bằng chứng người dùng, độ chính xác chuyên môn, chi phí model thật | Chưa thu/chưa đo trong phần việc này |
 
 Mock chuẩn hóa chữ rồi so câu: trùng nội dung → khớp; khác bởi đúng một từ “không” → mâu thuẫn. Có thể nhận ra phủ định của một vế tách bằng “và”, “nhưng” hoặc dấu chấm phẩy. Nguồn vừa xác nhận vừa bác bỏ → thiếu căn cứ; không nhận ra quan hệ cũng → thiếu căn cứ. Mock không hiểu diễn đạt tương đương hoặc lỗi kiến thức tinh vi.
@@ -109,4 +111,4 @@ python run.py check
 - **Nguyễn Nam Khánh:** nguồn chung của bài được cấu hình qua `lesson.json` và file đoạn nguồn. Benchmark chỉ gửi nhận định hoặc JSON `{"claim":"…"}`. Tài liệu nguồn mẫu tại [demo-sources.md](demo-sources.md).
 - **Nguyễn Minh Thành:** nối model thật tại `codebase/ai.py` ở chặng CP3 theo [connect-model.md](connect-model.md), giữ decorator và usage thật; chạy `eval --try` trước khi eval đầy đủ.
 
-Khung chạy eval và simulate giữ nguyên. Benchmark và bản chạy đã dùng chung hợp đồng. Cảnh báo nguồn câu thử còn tại `python run.py check`.
+Benchmark và bản chạy dùng chung hợp đồng đầu vào.

@@ -1,5 +1,7 @@
 # Nối model vào `codebase/ai.py`
 
+> Repo nhóm đã triển khai các nhánh OpenAI/Gemini/Ollama. Làm theo [bàn giao CP3 của Thành](cp3-thanh-handoff.md) để cấu hình và chạy; không cần chép lại code mẫu bên dưới. Các ví dụ dưới đây là tài liệu khung tham khảo.
+
 > Làm ở guide bước 3.3. **Nên xong tối Thứ Sáu 27/11 trước khi ngủ** (sáng Thứ Bảy 28/11 không có lớp). Kẹt quá 20 phút thì hỏi ngay.
 
 Mục tiêu: `call_model()` trong `codebase/ai.py` gọi model thật và trả về câu trả lời kèm **số token** đo được. Prompt và luồng là phần nhóm tự viết trong `codebase/agent.py`. File này chỉ lo phần kết nối.

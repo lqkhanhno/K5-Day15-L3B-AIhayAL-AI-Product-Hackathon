@@ -1,0 +1,88 @@
+{
+  "run_id": "run-1@20261127-224225",
+  "recorded_at": "2026-11-27T22:47:09+07:00",
+  "timezone": "UTC+7",
+  "code_commit": "2097f249398b733dcc7d19a04b534810334e9808",
+  "benchmark_main_commit": "c9daa8bb78f882872cd30aae223742e872c0bf83",
+  "provider": "openai",
+  "requested_model": "gpt-5.4-nano",
+  "actual_models": [
+    "gpt-5.4-nano-2026-03-17"
+  ],
+  "command": "python3 -u run.py eval --wait 4",
+  "transport_errors": 0,
+  "model_calls": 28,
+  "tokens_in": 16578,
+  "tokens_out": 3116,
+  "grading": {
+    "first_grader": "Codex (AI): read all 30 outputs against frozen criteria, code used for arithmetic and invariants",
+    "independent_user_grader": "Đã nhận 5 điểm độc lập; khớp Codex 4/5; người dùng xác nhận giữ điểm 1 cho V28-21, bất đồng chưa thống nhất.",
+    "editable_result_columns": [
+      "pass",
+      "ghi_chu"
+    ],
+    "crosscheck_file": "eval/crosscheck-run-1.json",
+    "crosscheck_agreement": {
+      "numerator": 4,
+      "denominator": 5,
+      "percent": 80
+    },
+    "human_grader_count": 1
+  },
+  "metrics": {
+    "total_pass": {
+      "numerator": 20,
+      "denominator": 30,
+      "percent": 66.6667
+    },
+    "bat_dung_mau_thuan": {
+      "numerator": 5,
+      "denominator": 6,
+      "percent": 83.3333
+    },
+    "bao_nham_cau_khop": {
+      "numerator": 1,
+      "denominator": 10,
+      "percent": 10.0
+    },
+    "dan_dung_nguon": {
+      "numerator": 12,
+      "denominator": 16,
+      "percent": 75.0
+    },
+    "tu_choi_pass": {
+      "numerator": 2,
+      "denominator": 2,
+      "percent": 100.0
+    },
+    "invalid_displayed_source_ids": {}
+  },
+  "cp2_pass": false,
+  "raw_result_sha256_before_grading": "e9a4bdaf73f10f71492987c3042ddec3bb0fbc32d692314e3224847f2e1f10b2",
+  "graded_result_sha256": "f1dee2328c54152f83f60bda978460d7b699034821fbecbdcb94f8a6b3e1dc8e",
+  "sha256": {
+    "eval/benchmark.csv": "a5e68683141b54788dc642b4d9a376eb183cfe244642924446fd5108f4f81669",
+    "eval/metric_spec.yaml": "66e76d62c81f76cff0d4fbc03e094d8eae8fa21e758d6a26ea123a09e6aa7d67",
+    "data/video-eval-source.json": "a2e0cc428c674006a44968b2c574240ff65e100e5576f399d0eb6c34e86cd947",
+    "data/lesson.json": "da475edae1eed1f9103d7d424b8af788699401d79e8763faffbd5db07813be2f",
+    "codebase/agent.py": "dedadfda54c1dcc0c39052047080457dbf341820f64bb43dcfb979a20d426278",
+    "codebase/ai.py": "ac955b664ae2181812be217d884773925af76f4898d396d07d714ef54efe94a5",
+    "codebase/tools.py": "7d8d5ad85d352aedb535e6e6f2f29b66173af918b7f1d783b4080bfc54396773",
+    "eval/run_eval.py": "b9dca5b51b50ead83e8aedb9f05217762b0cfbe98480f264b4ec8bb0c081ecdd",
+    "codebase/tracing.py": "53bac60171f7a0924ecc149189dfca7a395d00ffb6f640a56e290d2bb21775a6",
+    "run.py": "8f3016e7f10844d39145c359de2a25d8ef2ea5d55c7d807312a918f1f2e7f155",
+    "traces/run-1.jsonl": "e749ed8ba1d3a1d1775980df3dd452d107cfc3ad616e935c698eae0ddf833e25"
+  },
+  "failed_case_ids": [
+    "V28-03",
+    "V28-09",
+    "V28-16",
+    "V28-17",
+    "V28-19",
+    "V28-21",
+    "V28-24",
+    "V28-26",
+    "V28-27",
+    "V28-28"
+  ]
+}
