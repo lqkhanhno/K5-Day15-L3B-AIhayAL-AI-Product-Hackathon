@@ -16,17 +16,16 @@ Ví dụ từ kiểm tra giả: **V28-01** kỳ vọng khớp nguồn nhưng tr�
 
 | Lượt | Run ID | Đạt / tổng | % | So với chuẩn đạt |
 |---|---|---|---|---|
-| 1 · CP3 | `run-1@20261127-224225` | 20/30 | 66,67% | Không đạt chuẩn CP2 theo chấm Codex; chấm chéo Codex/người dùng khớp 4/5; còn bất đồng V28-21 |
+| 1 · CP3 | `run-1@20261127-224225` | 20/30 | 66,67% | Chưa đạt chuẩn CP2 theo chấm bằng AI |
 | 2 · CP4 | Chưa chạy | Chưa có | Chưa có | Chưa chấm |
 
-Sau khi nối model và chấm lượt 1, ghi ít nhất 3 lỗi có đầu vào, đầu ra và lý do. Chọn một lỗi để sửa rồi chạy lại cùng bộ thử. Cập nhật bảng bằng kết quả của `python run.py score`. [Hồ sơ đánh giá](README.md) · [Metric spec](metric_spec.yaml)
-
+[Hồ sơ đánh giá](README.md) · [Metric spec](metric_spec.yaml)
 
 ## Lượt 1 thật · 27/11/2026
 
 Model: `gpt-5.4-nano-2026-03-17`; provider OpenAI, cấu hình tên gọi `gpt-5.4-nano`. Lệnh `python3 -u run.py eval --wait 4`, đủ 30 câu, 0 lỗi kỹ thuật. 28 lần gọi model, 16.578 token vào / 3.116 token ra; V28-14 và V28-20 chặn trước model. File: [run-1.csv](run-1.csv), [trace](../traces/run-1.jsonl), [score](run-1-score.txt), [số đo](run-1-metrics.json).
 
-Chấm lượt đầu bởi Codex (AI), không phải xác nhận của người chuyên môn. Người dùng đã chấm độc lập 5 ca và giữ cả 5 điểm đạt. Phiếu Codex khớp 4/5; bất đồng V28-21 chưa thống nhất. Đây là đối chiếu AI/người dùng, không phải hai người chấm chuyên môn độc lập. Tỷ lệ qua bộ thử 20/30 (66,67%); mâu thuẫn 5/6; báo nhầm khớp 1/10; dẫn đúng nguồn 12/16; từ chối 2/2; mã hiển thị ngoài tập nguồn 0. Không đạt chuẩn CP2. Giữ nguyên expected, pass_criterion, benchmark và chuẩn đạt.
+Kết quả chấm bằng AI ghi 20/30 câu qua (66,67%), gồm 5/6 câu mâu thuẫn qua, 1/10 ca báo nhầm trong nhóm khớp nguồn, 12/16 ca dẫn đúng nguồn, 2/2 ca từ chối qua và 0 mã hiển thị ngoài tập nguồn. [Cách chấm và kết quả chi tiết](README.md)
 
 ### Các lỗi thực tế tiêu biểu
 
@@ -48,4 +47,4 @@ Có thể thử prompt yêu cầu nguồn phải xác nhận đủ từng vế h
 
 ### Kết quả chấm chéo
 
-Người dùng chấm V28-01, V28-08, V28-15, V28-20, V28-21 lần lượt 1, 1, 1, 1, 1; phiếu Codex lần lượt 1, 1, 1, 1, 0. Đồng ý 4/5 (80%). Người dùng xác nhận giữ điểm 1 cho V28-21 với lý do “chưa đưa ra nguồn”; theo tiêu chí CP2, output ca này phải khớp nguồn S01 nhưng thực tế trả thiếu căn cứ/mã rỗng nên phiếu Codex giữ 0. Không tự chuyển điểm người dùng thành điểm Codex hoặc tuyên bố đã thống nhất. Chi tiết: [bản ghi hai phiếu](crosscheck-run-1.json). Tổng file run-1.csv giữ 20/30.
+Phiếu chấm bằng AI và phiếu của một người dùng khớp 4/5. Ca V28-21 còn bất đồng giữa hai phiếu. [Kết quả từng ca](crosscheck-run-1.json)

@@ -6,7 +6,7 @@
 
 **Bàn giao CP3.** [Video thao tác thật 30 giây](https://drive.google.com/file/d/1sh0NQ_hLLD2H2mUOyOTdfxqV1cJ0JKV1/view) · [Bằng chứng pain](evidence/summary.md) · [Benchmark 30 câu](eval/benchmark.csv) · [Kết quả lượt 1](eval/run-1.csv) · [Điểm và phân tích lỗi](eval/report.md). Quốc Khánh đã phát thử video trong tab ẩn danh ngày 28/11.
 
-Lượt `run-1@20261127-224225` dùng OpenAI `gpt-5.4-nano-2026-03-17`, đạt **20/30 câu (66,67%)** theo phiếu Codex và chưa đạt chuẩn CP2. Bộ thử có 21 câu khó, 2 câu từ chối và 10 câu từ tài liệu công khai. Phần bằng chứng pain và bảng impact còn chờ dữ liệu từ người từng trực tiếp duyệt kịch bản.
+Lượt `run-1@20261127-224225` dùng OpenAI `gpt-5.4-nano-2026-03-17`, đạt **20/30 câu (66,67%)** theo chấm bằng AI và chưa đạt chuẩn CP2. Bộ thử có 21 câu khó, 2 câu từ chối và 10 câu từ tài liệu công khai. Phần bằng chứng pain và bảng impact còn chờ dữ liệu từ người từng trực tiếp duyệt kịch bản.
 
 ## §0. Hiện tại việc này diễn ra thế nào *(guide 1.1)*
 
@@ -119,7 +119,7 @@ flowchart TD
 
 Giữ mẫu số đầy đủ dù có output rỗng hoặc lỗi. Output lỗi trượt tiêu chí từng câu.
 
-Bộ thử có 30 câu gồm 20 câu tự viết và 10 nhận định trích từ tài liệu thật, có dẫn nguồn theo từng ca. Lượt model thật `run-1@20261127-224225` qua 20/30 câu theo phiếu Codex. Mâu thuẫn qua 5/6, báo nhầm 1/10, dẫn đúng nguồn 12/16, từ chối qua 2/2 và có 0 mã hiển thị nằm ngoài tập nguồn. Người dùng và Codex chấm chéo khớp 4/5, còn bất đồng ở V28-21. Tập nguồn và nhãn còn chờ người chuyên môn rà. [Hồ sơ đánh giá](eval/README.md) · [Metric spec](eval/metric_spec.yaml)
+Bộ thử có 30 câu gồm 20 câu tự viết và 10 nhận định trích từ tài liệu thật, có dẫn nguồn theo từng ca. Lượt model thật `run-1@20261127-224225` qua 20/30 câu theo chấm bằng AI. Mâu thuẫn qua 5/6, báo nhầm 1/10, dẫn đúng nguồn 12/16, từ chối qua 2/2 và có 0 mã hiển thị nằm ngoài tập nguồn. Đối chiếu với một phiếu chấm của người dùng cho kết quả khớp 4/5 và còn bất đồng ở V28-21. Tập nguồn và nhãn còn chờ người chuyên môn rà. [Hồ sơ đánh giá](eval/README.md) · [Metric spec](eval/metric_spec.yaml)
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
 
@@ -162,20 +162,17 @@ Cả nhóm dành 15 phút trước mỗi mốc để đối chiếu vấn đề,
 - **18:40–19:15** · Rà chéo và đối chiếu 5 đầu ra. Nếu khớp dưới 4/5, làm rõ tiêu chí rồi chấm lại. Cả nhóm chốt chuẩn đạt bằng số trước khi nộp.
 - **19:15–19:30** · Chạy `python run.py` và `python run.py check`, kiểm nội dung và link theo checklist CP2, rồi đội trưởng nộp.
 
-- **Dùng AI.** Codex hỗ trợ viết luồng, chọn đoạn nguồn, chuẩn bị benchmark và tổng hợp tài liệu. Các nhãn và trích đoạn đối chiếu đang chờ người chuyên môn rà. [Khai báo dùng AI](docs/ai-usage.md)
+- [Khai báo công cụ AI và phần đã được kiểm tra](docs/ai-usage.md).
 - Nhật ký thay đổi — **mọi thay đổi sau CP2 19:30 Thứ Sáu 27/11 phải có dòng ở đây**:
 
 **CP2 → CP4** (vd thu hẹp lát cắt, hỏi thêm người dùng, lần cải tiến trước lượt 2)
 
 | Thời điểm | Đổi gì | Vì sao (trỏ về câu thử / lỗi / bằng chứng nào) |
 |---|---|---|
-| 22:41 27/11/2026 (UTC+7) | Chuẩn bị lượt eval CP3 trên main 30 câu và phần kết nối thật của Thành; ghi trạng thái chờ API key, bảng bàn giao và phiếu chấm chéo trong eval/README.md. | Chưa có key hoặc lượt model thật trên máy này; giữ nguyên benchmark, metric spec và chuẩn §7. |
-| 22:45 27/11/2026 (UTC+7) | Chạy đủ 30 ca với OpenAI `gpt-5.4-nano-2026-03-17`, run `run-1@20261127-224225`; Codex chấm 20/30, chưa đạt CP2. Người dùng nhận chấm độc lập 5 ca, đang chờ kết quả. | Bàn giao lượt 1 tại eval/README.md, eval/run-1.csv và traces/run-1.jsonl; giữ nguyên đáp án, metric spec và chuẩn §7. |
-| 2026-11-27T23:20:21+07:00 | Chấm chéo 5 ca lượt 1: Codex (AI) và người dùng đồng ý 4/5; người dùng xác nhận giữ điểm 1 cho V28-21, bất đồng được lưu nguyên. | Bàn giao eval/README.md và eval/crosscheck-run-1.json; giữ 20/30, không sửa đáp án hoặc chuẩn §7. |
-| 27/11/2026 — chuẩn bị CP3 | Thành: thêm kết nối OpenAI/Gemini/Ollama tại `codebase/ai.py`; cấu hình dự kiến OpenAI/gpt-5.4-nano; 29 unit test qua, kiểm benchmark hợp lệ. Chưa có key, lượt gọi thật và video. [Bàn giao](docs/cp3-thanh-handoff.md). | Hoàn thiện bước gọi AI thật theo nhiệm vụ CP3; chưa có kết quả để báo x/30. |
-| 27/11/2026 — sau khi cấu hình key | Thành: OpenAI `gpt-5.4-nano-2026-03-17` chạy xong 3 câu thử nối, có token, không lỗi; quay MP4 thao tác thật đúng 30 giây qua cửa sổ dùng cùng `answer()`. [Bằng chứng demo](docs/cp3-live-20261127T144554571059Z.json): 1 lần gọi, 605 token vào / 71 ra. Chưa tải Drive/kiểm link, chưa chấm benchmark đầy đủ. | Cập nhật kết quả thực tế sau bước chuẩn bị; thử nối và demo chưa chứng minh đạt chuẩn §7. |
-| 27/11/2026 — bổ sung link video | Thành cung cấp thư mục Drive; đã tìm [video CP3](https://drive.google.com/file/d/1sh0NQ_hLLD2H2mUOyOTdfxqV1cJ0JKV1/view), xác nhận tải không đăng nhập HTTP 200 và giải mã toàn bộ MP4 30 giây không lỗi. Chưa kiểm nút phát trong trình duyệt ẩn danh. | Bổ sung link chia sẻ và kiểm truy cập cho bàn giao CP3. |
-| 28/11/2026 — bàn giao CP3 | Codex hỗ trợ Quốc Khánh tích hợp kết nối model, video và lượt đánh giá 1 vào nhánh bàn giao. Cập nhật spec, Canvas và trạng thái bằng chứng. | Lượt 1 qua 20/30 theo phiếu Codex. Quốc Khánh xác nhận phát được video trong tab ẩn danh. Chưa có dữ liệu người dùng để tính impact. |
+| 27/11/2026 | Nối model, thử thành công ba ca với OpenAI và quay video thao tác 30 giây. | Kiểm luồng và token trước khi chạy cả bộ. [Bàn giao kỹ thuật](docs/cp3-thanh-handoff.md) |
+| 22:45 27/11/2026 (UTC+7) | Chạy 30 ca trên OpenAI. Phiếu chấm bằng AI ghi 20/30, dưới chuẩn CP2. | Đo lượt đầu trên bộ câu thử đã chốt. [Báo cáo lượt 1](eval/report.md) |
+| 23:20 27/11/2026 (UTC+7) | Đối chiếu một phiếu chấm của người dùng với phiếu chấm bằng AI trên 5 ca. | Hai phiếu khớp 4/5, còn bất đồng ở V28-21. [Bản ghi](eval/crosscheck-run-1.json) |
+| 28/11/2026 | Tích hợp hồ sơ CP3 và xác nhận video phát trong tab ẩn danh. Rà lại tài liệu và ghi tình trạng bằng chứng trong Canvas và spec. | Xác nhận link demo dùng được. Bảng impact còn chờ dữ liệu người dùng. [Bằng chứng](evidence/summary.md) |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 

@@ -113,7 +113,7 @@ Nhóm dùng stack khác (Node, Streamlit, notebook…): sửa hàm `run_app()` t
 
 ## Phần nào thật, phần nào giả
 
-CP3 đã có [video thao tác thật 30 giây](https://drive.google.com/file/d/1sh0NQ_hLLD2H2mUOyOTdfxqV1cJ0JKV1/view) và lượt đánh giá `run-1@20261127-224225`, đạt **20/30 (66,67%)** theo phiếu Codex. [Spec và hồ sơ CP3](spec.md) · [Báo cáo lượt 1](eval/report.md).
+CP3 đã có [video thao tác thật 30 giây](https://drive.google.com/file/d/1sh0NQ_hLLD2H2mUOyOTdfxqV1cJ0JKV1/view) và lượt đánh giá `run-1@20261127-224225`, đạt **20/30 (66,67%)** theo chấm bằng AI. [Spec và hồ sơ CP3](spec.md) · [Báo cáo lượt 1](eval/report.md).
 
 | Thành phần | Thật / Giả | Ghi chú |
 |---|---|---|

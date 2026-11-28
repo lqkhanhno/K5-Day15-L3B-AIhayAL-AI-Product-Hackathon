@@ -1,16 +1,14 @@
 # Tổng hợp bằng chứng pain · A3
 
-## Tiến độ CP2 · 27/11
+## Tình trạng tại CP3 · 28/11
 
-- **Khảo sát.** Đức Anh báo đã tạo [form khảo sát người chuẩn bị và duyệt bài giảng](https://docs.google.com/forms/d/e/1FAIpQLSeOVbCCEn564qpXljP-23PB7YIuRyXd0jzqhC38SZzwfsKWJQ/viewform). Đã soạn tin mời đăng Discord. Trạng thái theo [Issue #2](https://github.com/lqkhanhno/K5-Day15-L3B-AIhayAL-AI-Product-Hackathon/issues/2) là chưa gửi tin mời. Repo chưa có kết quả phản hồi.
-- **Phỏng vấn.** Chưa có lịch hẹn, ghi chép, số đầu tiên hoặc trích dẫn trong repo. Người cần hỏi là người từng trực tiếp duyệt kịch bản pre-class.
-- **Giả thuyết đang kiểm.** Người duyệt mất thời gian tìm đoạn nguồn và có thể bỏ sót nhận định cần sửa. Dữ liệu video và benchmark mô phỏng chỉ dùng để thử giải pháp.
+**Giả thuyết.** Người duyệt phải lần lại tài liệu để đối chiếu nhận định, làm chậm việc duyệt và có thể bỏ sót lỗi kiến thức.
 
-## Tiến độ CP3 · 28/11
+- **Khảo sát.** Đã tạo form và soạn lời mời. Issue #2 chưa có xác nhận gửi lời mời. Repo chưa có phản hồi hợp lệ được tổng hợp. [Form khảo sát](https://docs.google.com/forms/d/e/1FAIpQLSeOVbCCEn564qpXljP-23PB7YIuRyXd0jzqhC38SZzwfsKWJQ/viewform) · [Issue #2](https://github.com/lqkhanhno/K5-Day15-L3B-AIhayAL-AI-Product-Hackathon/issues/2)
+- **Phỏng vấn.** Repo chưa có ghi chép từ người từng trực tiếp duyệt kịch bản pre-class.
+- **Dữ liệu BTC.** Tệp pre-class ghi hoạt động học viên. Bộ này không ghi các lượt người duyệt dò nguồn cho kịch bản. [Mô tả bộ dữ liệu](../../data/preclass/README.md)
 
-- [Issue #2](https://github.com/lqkhanhno/K5-Day15-L3B-AIhayAL-AI-Product-Hackathon/issues/2) chưa xác nhận đã gửi lời mời. Repo chưa có bản tổng hợp phản hồi khảo sát hợp lệ hoặc ghi chép phỏng vấn. Phản hồi dùng để thử form được loại khỏi bằng chứng.
-- [Data BTC về pre-class](../../data/preclass/README.md) ghi hành vi học viên và đã loại tài khoản giảng viên, lab coach và tài khoản kiểm thử. Bộ này không ghi các lượt người duyệt dò nguồn cho kịch bản.
-- Còn thiếu một nguồn đạt ngưỡng và ít nhất 5 trích dẫn hoặc ví dụ nguyên văn đã bỏ tên. Giả thuyết về thời gian dò nguồn chưa được kiểm chứng và bảng impact chưa có số đo. Xem cách tính tại §2 của [spec](../spec.md).
+**Kết luận tại CP3.** Chưa có nguồn đạt ngưỡng hoặc 5 trích dẫn hay ví dụ nguyên văn. Giả thuyết còn chờ kiểm chứng và bảng impact chưa có số đo. Xem cách tính tại §2 của [spec](../spec.md).
 
 ## Cách tổng hợp khi có câu trả lời
 
