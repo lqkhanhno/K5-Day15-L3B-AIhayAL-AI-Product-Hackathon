@@ -175,6 +175,7 @@ Cả nhóm dành 15 phút trước mỗi mốc để đối chiếu vấn đề,
 | 2026-11-28T11:52+07:00 | Dùng commit `32e490a` (PR #9) siết điều kiện căn cứ và chạy lượt 2 cùng 30 câu/cùng model. Kết quả chấm bằng AI là 21/30 so với 20/30; bắt mâu thuẫn giảm 5/6→3/6, chưa đạt CP2. | Bàn giao run-2, trace, báo cáo và số đo cho Quốc Khánh; 5 ca sửa, 4 ca mới trượt. Giữ nguyên expected, metric và chuẩn §7. [Kết quả](eval/report.md) |
 | 28/11/2026 | Định dạng kết quả giao diện demo: nhãn màu, nhận định, lý do, trích đoạn nguồn và bước duyệt; model/token ở cuối. Kiểm các trạng thái bằng widget Tkinter ẩn và 30 unit test qua. | Giúp người duyệt đọc kết quả rõ hơn khi demo; nội dung kết luận lấy từ workflow hiện có. [Bàn giao CP4](docs/cp4-thanh-handoff.md) |
 | 28/11/2026 | Lập cấu hình chi phí, ước tính từ token lượt 2 và hoàn thiện slide CP4. | Chuẩn bị bàn giao chi phí trên ba kịch bản. Ghi rõ khảo sát chính còn sơ bộ và chưa có mô phỏng 50 phiên thật. [Chi phí](cost/cost-estimate.md) · [Slide](../demo-slides.pdf) |
+| 28/11/2026 | Cập nhật slide Demo Day để trình bày toàn bộ đề tài. | Trang kết luận dẫn lại bằng chứng, chất lượng và chi phí. Trang cuối nêu các thử nghiệm sản phẩm tiếp theo. [Slide Demo Day](../demo-slides.pdf) |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 
