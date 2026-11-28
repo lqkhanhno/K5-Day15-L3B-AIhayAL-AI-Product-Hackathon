@@ -29,7 +29,7 @@ Lượt `run-1@20261127-224225` dùng OpenAI `gpt-5.4-nano-2026-03-17`, đạt *
 
 | Hướng | Người gặp · lần/tháng · thời gian mỗi lần | Impact/tháng | Quyết định CP2 |
 |---|---|---|---|
-| Rà một nhận định trong kịch bản | Đo ở người trực tiếp duyệt. Hỏi số lượt tra nguồn và số phút mỗi lượt. Chưa có số đo. | Chờ dữ liệu khảo sát hoặc phỏng vấn. | **Chọn.** Một nhận định, một tập nguồn cố định và ba nhãn giúp nhóm kiểm từng quyết định. |
+| Rà một nhận định trong kịch bản | 1 người tự khai làm nội dung AI20K: 8–10 lần kiểm tra/tháng, 15–30 phút cho lần kiểm tra gần nhất ([S04](evidence/survey/responses-draft.md)). Chưa xác minh người này trực tiếp duyệt kịch bản pre-class hay ngoài nhóm; thời gian không phải cho một nhận định. | Chưa tính được: chưa biết số người duyệt và thời gian tra nguồn cho mỗi nhận định. Không nhân các số khảo sát khác đơn vị. | **Chọn.** Một nhận định, một tập nguồn cố định và ba nhãn giúp nhóm kiểm từng quyết định. |
 | Rà cả kịch bản rồi gom các chỗ cần sửa | Cần đo số kịch bản, số nhận định mỗi bản và thời gian rà cả bản. Chưa có số đo. | Chờ dữ liệu. | Để sau. Cần tách nhận định và xử lý nhiều đoạn nguồn trong cùng một lượt. |
 | Soạn kịch bản mới kèm nguồn | Cần khảo sát người soạn về tần suất viết và thời gian bổ sung nguồn. Chưa có số đo. | Chờ dữ liệu. | Để sau. Công việc chính chuyển sang viết kịch bản và cần quy trình duyệt riêng. |
 
