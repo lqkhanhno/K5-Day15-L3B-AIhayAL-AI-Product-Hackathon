@@ -69,6 +69,16 @@ class ClaimReviewTests(unittest.TestCase):
                 self.assertFalse(summary["errors"])
                 self.assertEqual(bool(result["source_ids"]), label != "thieu_can_cu")
 
+    def test_model_prompt_requires_full_support_and_direct_contradiction(self):
+        raw = json.dumps({"label": "thieu_can_cu", "source_ids": [], "reason": "Nguồn chưa xác nhận đủ các vế."})
+        with patch.object(agent, "call_model", return_value={"text": raw}) as model:
+            result = self.review("Nhận định có hai vế.", [{"code": "P1", "text": "Nguồn chỉ xác nhận một vế."}])
+        prompt = model.call_args.args[0]
+        self.assertIn("xác nhận đủ mọi vế trọng yếu", prompt)
+        self.assertIn("trực tiếp bác bỏ", prompt)
+        self.assertIn("Không suy rộng", prompt)
+        self.assertEqual(result["label"], "thieu_can_cu")
+
     def test_configured_sources_are_not_hardcoded(self):
         source = {"code": "LOCAL-7", "text": "Bài mẫu dùng sơ đồ cây."}
         result = self.review("Bài mẫu không dùng sơ đồ cây.", [source])
