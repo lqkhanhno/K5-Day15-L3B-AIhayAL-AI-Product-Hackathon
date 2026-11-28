@@ -1,6 +1,6 @@
 # Khảo sát quy trình kiểm duyệt nội dung bài học
 
-**Lương Đức Anh** phụ trách khảo sát. Bộ câu hỏi có phân nhánh, được ghi trong [Issue #2 ngày 27/11/2026](https://github.com/lqkhanhno/K5-Day15-L3B-AIhayAL-AI-Product-Hackathon/issues/2#issuecomment-7217568806). Form truy cập được qua [link trả lời](https://docs.google.com/forms/d/e/1FAIpQLSeOVbCCEn564qpXljP-23PB7YIuRyXd0jzqhC38SZzwfsKWJQ/viewform). Issue chưa ghi ngày gửi lời mời hoặc ngày chốt khảo sát.
+**Lương Đức Anh** phụ trách khảo sát. Bộ câu hỏi có phân nhánh, được ghi trong [Issue #2 ngày 27/11/2026](https://github.com/lqkhanhno/K5-Day15-L3B-AIhayAL-AI-Product-Hackathon/issues/2#issuecomment-7217568806). Form truy cập được qua [link trả lời](https://docs.google.com/forms/d/e/1FAIpQLSeOVbCCEn564qpXljP-23PB7YIuRyXd0jzqhC38SZzwfsKWJQ/viewform). Form được cập nhật trong lúc thu thập. Câu ví dụ nhận định được thêm sau khi đã có một số phản hồi. [Ghi nhận trong PR #8](https://github.com/lqkhanhno/K5-Day15-L3B-AIhayAL-AI-Product-Hackathon/pull/8)
 
 ## Câu hỏi đã ghi nhận
 

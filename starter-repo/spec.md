@@ -6,7 +6,7 @@
 
 **Bàn giao CP3.** [Video thao tác thật 30 giây](https://drive.google.com/file/d/1sh0NQ_hLLD2H2mUOyOTdfxqV1cJ0JKV1/view) · [Bằng chứng pain](evidence/summary.md) · [Benchmark 30 câu](eval/benchmark.csv) · [Kết quả lượt 1](eval/run-1.csv) · [Điểm và phân tích lỗi](eval/report.md). Quốc Khánh đã phát thử video trong tab ẩn danh ngày 28/11.
 
-Lượt `run-1@20261127-224225` dùng OpenAI `gpt-5.4-nano-2026-03-17`, đạt **20/30 câu (66,67%)** theo chấm bằng AI và chưa đạt chuẩn CP2. Bộ thử có 21 câu khó, 2 câu từ chối và 10 câu từ tài liệu công khai. Phần bằng chứng pain và bảng impact còn chờ dữ liệu từ người từng trực tiếp duyệt kịch bản.
+Lượt `run-1@20261127-224225` dùng OpenAI `gpt-5.4-nano-2026-03-17`, đạt **20/30 câu (66,67%)** theo chấm bằng AI và chưa đạt chuẩn CP2. Bộ thử có 21 câu khó, 2 câu từ chối và 10 câu từ tài liệu công khai. Khảo sát có 9 lượt sau khi loại 2 lượt thử. Bằng chứng pain và bảng impact còn chờ dữ liệu đủ ngưỡng từ người trực tiếp duyệt kịch bản.
 
 ## §0. Hiện tại việc này diễn ra thế nào *(guide 1.1)*
 
@@ -22,7 +22,7 @@ Lượt `run-1@20261127-224225` dùng OpenAI `gpt-5.4-nano-2026-03-17`, đạt *
 - **Người dùng chính.** Người trực tiếp duyệt nội dung kịch bản pre-class của đội sản xuất bài giảng AI20K.
 - **Việc cần làm.** Đối chiếu một nhận định chuyên môn trong kịch bản với đoạn tài liệu đã duyệt trước khi quyết định giữ hay yêu cầu sửa.
 - **Vấn đề giả thuyết.** Khi duyệt kịch bản pre-class, người duyệt phải dò lại tài liệu để kiểm từng nhận định. Việc tìm đúng đoạn có thể kéo dài thời gian duyệt và khiến lỗi kiến thức bị bỏ sót.
-- **Tiến độ bằng chứng tại CP3.** Nhóm đã tạo form và soạn lời mời. Issue #2 chưa xác nhận đã gửi lời mời. Repo chưa có phản hồi hợp lệ, ghi chép phỏng vấn hoặc trích dẫn để kiểm chứng giả thuyết. Mục tiêu là khảo sát ít nhất 20 người ngoài nhóm có kinh nghiệm trực tiếp duyệt kịch bản hoặc phỏng vấn ít nhất 3 người phù hợp, kèm tối thiểu 5 trích dẫn hoặc ví dụ nguyên văn đã bỏ tên. [Tổng hợp bằng chứng](evidence/summary.md)
+- **Tiến độ bằng chứng tại CP3.** Đức Anh bàn giao 9 lượt khảo sát sau khi loại 2 lượt thử. Trong 9 lượt, 1 người tự khai từng làm nội dung cho AI20K, 3 người làm cho khóa khác và 5 người chưa từng. Các trích dẫn sơ bộ đã được lưu. Chưa xác minh tư cách ngoài nhóm hoặc việc trực tiếp duyệt kịch bản pre-class. Mục tiêu là khảo sát ít nhất 20 người ngoài nhóm có kinh nghiệm trực tiếp duyệt kịch bản hoặc phỏng vấn ít nhất 3 người phù hợp, kèm tối thiểu 5 trích dẫn hoặc ví dụ nguyên văn đã bỏ tên. [Tổng hợp bằng chứng](evidence/summary.md)
 - **Dữ liệu phục vụ bản thử.** Benchmark và các đoạn video dùng để kiểm cách hệ thống đối chiếu. Kết quả chạy thử chưa đo được thời gian dò nguồn trong công việc thực tế. [Data Card](data/DATA_CARD.md)
 
 ## §2. Impact & quyết định chọn *(guide 1.3)*
@@ -174,6 +174,7 @@ Cả nhóm dành 15 phút trước mỗi mốc để đối chiếu vấn đề,
 | 23:20 27/11/2026 (UTC+7) | Đối chiếu một phiếu chấm của người dùng với phiếu chấm bằng AI trên 5 ca. | Hai phiếu khớp 4/5, còn bất đồng ở V28-21. [Bản ghi](eval/crosscheck-run-1.json) |
 | 28/11/2026 | Tích hợp hồ sơ CP3 và xác nhận video phát trong tab ẩn danh. Rà lại tài liệu và ghi tình trạng bằng chứng trong Canvas và spec. | Xác nhận link demo dùng được. Bảng impact còn chờ dữ liệu người dùng. [Bằng chứng](evidence/summary.md) |
 | 28/11/2026 | Lưu câu hỏi khảo sát và cách lọc phản hồi theo đúng vai trò người duyệt. | Để tổng hợp nhất quán khi có dữ liệu. [Hồ sơ khảo sát](evidence/survey/questions.md) |
+| 28/11/2026 | Bổ sung 9 lượt khảo sát sơ bộ của Đức Anh vào hồ sơ CP3. | Ghi rõ giới hạn mẫu và cập nhật tình trạng bằng chứng trong spec và Canvas. [Hồ sơ khảo sát](evidence/summary.md) |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 
