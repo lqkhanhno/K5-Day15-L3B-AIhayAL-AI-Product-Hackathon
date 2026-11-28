@@ -33,7 +33,7 @@ Lượt `run-1@20261127-224225` dùng OpenAI `gpt-5.4-nano-2026-03-17`, đạt *
 | Rà cả kịch bản rồi gom các chỗ cần sửa | Cần đo số kịch bản, số nhận định mỗi bản và thời gian rà cả bản. Chưa có số đo. | Chờ dữ liệu. | Để sau. Cần tách nhận định và xử lý nhiều đoạn nguồn trong cùng một lượt. |
 | Soạn kịch bản mới kèm nguồn | Cần khảo sát người soạn về tần suất viết và thời gian bổ sung nguồn. Chưa có số đo. | Chờ dữ liệu. | Để sau. Công việc chính chuyển sang viết kịch bản và cần quy trình duyệt riêng. |
 
-**Cách tính cho hướng đã chọn.** Số người trực tiếp duyệt × số lượt phải tra nguồn mỗi người mỗi tháng × số phút tra trung vị mỗi lượt = ước lượng số phút tra nguồn của nhóm mỗi tháng. Khi thử với người dùng, đo cùng một nhận định ở quy trình thủ công và bản thử để ước lượng phần thời gian tiết kiệm. Nhóm ít, vừa và nhiều lượt sẽ được chia theo tần suất quan sát được. [Kế hoạch lấy số](evidence/summary.md)
+**Cách tính cho hướng đã chọn.** Số người trực tiếp duyệt × số lượt phải tra nguồn mỗi người mỗi tháng × số phút tra trung vị mỗi lượt = ước lượng số phút tra nguồn của nhóm mỗi tháng. Kịch bản cơ sở dùng 4 × 7,6 × 3 = 91,2 phút công việc/tháng *(tự ước tính)*. Khảo sát chính chưa cho số phút theo nhận định. Nhóm sẽ đo cùng một nhận định trong quy trình thủ công và bản thử để xác định thời gian tiết kiệm. [Khảo sát chính](evidence/summary.md) · [Giả định kịch bản](cost/cost-estimate.md)
 
 ## §3. Giải pháp tương tự *(guide 2.1)*
 
@@ -123,10 +123,7 @@ Bộ thử có 30 câu gồm 20 câu tự viết và 10 nhận định trích t�
 
 ## §8. Chi phí khi dùng thật *(guide 4.2)*
 
-**Tiến độ CP2.** Model giả ghi token bằng 0. Chi phí triển khai và chi phí một tác vụ thành công chưa có số đo.
-
-- **Đầu vào cần thu.** Lượt rà/tháng của người duyệt ít, vừa và nhiều. Quy mô sử dụng cho ba kịch bản thấp, cơ sở và cao. Token vào/ra, số lượt gọi thực tế và giá của ít nhất hai mức model.
-- **Cách tính.** Chạy mô phỏng ít nhất 50 phiên sau khi nối model thật. Lấy chi phí trung bình mỗi phiên chia tỷ lệ tác vụ đạt của lượt đánh giá 2 để ra chi phí một tác vụ thành công. So sánh chi phí theo người mỗi tháng với thời gian tiết kiệm đo được ở §2. [Báo cáo chi phí](cost/cost-estimate.md)
+**Ước tính CP4.** Lượt 2 dùng GPT-5.4 nano và qua 21/30 câu. Áp đơn giá lên token đã ghi, chi phí API ước tính **0,00042660 USD/tác vụ đạt** và **0,00908 USD/tháng** ở kịch bản cơ sở. Bảng chi phí có ba kịch bản và giá so sánh hai model. Chưa có lượt mô phỏng ≥50 phiên gọi model thật. [Báo cáo chi phí](cost/cost-estimate.md)
 
 ## §9. Rủi ro & an toàn
 
@@ -177,6 +174,7 @@ Cả nhóm dành 15 phút trước mỗi mốc để đối chiếu vấn đề,
 | 28/11/2026 | Bổ sung 9 lượt khảo sát sơ bộ của Đức Anh vào hồ sơ CP3. | Ghi rõ giới hạn mẫu và cập nhật tình trạng bằng chứng trong spec và Canvas. [Hồ sơ khảo sát](evidence/summary.md) |
 | 2026-11-28T11:52+07:00 | Dùng commit `32e490a` (PR #9) siết điều kiện căn cứ và chạy lượt 2 cùng 30 câu/cùng model. Kết quả chấm bằng AI là 21/30 so với 20/30; bắt mâu thuẫn giảm 5/6→3/6, chưa đạt CP2. | Bàn giao run-2, trace, báo cáo và số đo cho Quốc Khánh; 5 ca sửa, 4 ca mới trượt. Giữ nguyên expected, metric và chuẩn §7. [Kết quả](eval/report.md) |
 | 28/11/2026 | Định dạng kết quả giao diện demo: nhãn màu, nhận định, lý do, trích đoạn nguồn và bước duyệt; model/token ở cuối. Kiểm các trạng thái bằng widget Tkinter ẩn và 30 unit test qua. | Giúp người duyệt đọc kết quả rõ hơn khi demo; nội dung kết luận lấy từ workflow hiện có. [Bàn giao CP4](docs/cp4-thanh-handoff.md) |
+| 28/11/2026 | Lập cấu hình chi phí, ước tính từ token lượt 2 và hoàn thiện slide CP4. | Chuẩn bị bàn giao chi phí trên ba kịch bản. Ghi rõ khảo sát chính còn sơ bộ và chưa có mô phỏng 50 phiên thật. [Chi phí](cost/cost-estimate.md) · [Slide](../demo-slides.pdf) |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 

@@ -158,5 +158,5 @@ Không tạo bằng chứng phỏng vấn hay kết quả đánh giá model th�
 | 4 | Bản chạy thử làm trọn lát cắt | `codebase/` · lệnh ở mục "Lệnh" |
 | 5 | Định nghĩa "tốt" + bộ câu thử | `data/DATA_CARD.md` · `eval/` |
 | 6 | Mô phỏng chi phí khi dùng thật | `cost/` |
-| 7 | Slide + demo + video dự phòng | `demo-slides.pdf` ở thư mục gốc · link video: ____ |
+| 7 | Slide + demo + video dự phòng | [Slide CP4](../demo-slides.pdf) · [Video dự phòng đã thử trong tab ẩn danh](https://drive.google.com/file/d/1sh0NQ_hLLD2H2mUOyOTdfxqV1cJ0JKV1/view) |
 | + | *Bonus:* người dùng thử | `validation/log.md` |
