@@ -1,0 +1,8 @@
+Chấm eval/run-2.csv
+Run ID: run-2@20261128-114555 · model: gpt-5.4-nano-2026-03-17
+Tổng: 21/30 đạt (70%)
+Theo type (đạt / số câu):
+  thuong   6/7 (86%)
+  kho      13/21 (62%)
+  tu_choi  2/2 (100%)
+Chép các số này vào eval/report.md và bảng các lượt chạy trong eval/README.md.

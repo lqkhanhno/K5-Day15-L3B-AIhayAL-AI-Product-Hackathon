@@ -175,6 +175,7 @@ Cả nhóm dành 15 phút trước mỗi mốc để đối chiếu vấn đề,
 | 28/11/2026 | Tích hợp hồ sơ CP3 và xác nhận video phát trong tab ẩn danh. Rà lại tài liệu và ghi tình trạng bằng chứng trong Canvas và spec. | Xác nhận link demo dùng được. Bảng impact còn chờ dữ liệu người dùng. [Bằng chứng](evidence/summary.md) |
 | 28/11/2026 | Lưu câu hỏi khảo sát và cách lọc phản hồi theo đúng vai trò người duyệt. | Để tổng hợp nhất quán khi có dữ liệu. [Hồ sơ khảo sát](evidence/survey/questions.md) |
 | 28/11/2026 | Bổ sung 9 lượt khảo sát sơ bộ của Đức Anh vào hồ sơ CP3. | Ghi rõ giới hạn mẫu và cập nhật tình trạng bằng chứng trong spec và Canvas. [Hồ sơ khảo sát](evidence/summary.md) |
+| 2026-11-28T11:52+07:00 | Dùng commit32e490a (PR #9) siết điều kiện căn cứ và chạy lượt 2 cùng 30 câu/cùng model. Codex chấm 21/30 so với 20/30; bắt mâu thuẫn giảm 5/6→3/6, chưa đạt CP2. | Bàn giao run-2, trace, báo cáo và số đo cho Quốc Khánh; 5 ca sửa, 4 ca mới trượt. Giữ nguyên expected, metric và chuẩn §7. [Kết quả](eval/report.md) |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 

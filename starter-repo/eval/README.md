@@ -49,3 +49,37 @@ Phiếu chấm bằng AI và phiếu của một người dùng khớp **4/5 (80
 - [Số đo và SHA-256 phục vụ kiểm lại](run-1-metrics.json) · [Kết quả lệnh score](run-1-score.txt) · [Phân tích lỗi](report.md).
 - Theo type: thường 6/7, khó 12/21, từ chối 2/2. Theo nhãn mong đợi: khớp nguồn 7/10, mâu thuẫn 5/6, thiếu căn cứ 6/12, yêu cầu nhập lại 2/2. Các ca thiếu căn cứ đúng tiêu chí đã được tính đạt.
 - Các ca trượt: V28-03, V28-09, V28-16, V28-17, V28-19, V28-21, V28-24, V28-26, V28-27, V28-28.
+
+
+## Lượt 2 · CP4 · 2026-11-28T11:52+07:00
+
+- PR #9, đúng commit Thành bàn giao: `32e490a839eed81b77f481e7af7b39c78da06a77`. Thay đổi prompt yêu cầu xác nhận đủ từng vế, bác bỏ trực tiếp và không suy rộng nguồn. Không chỉnh prompt sau khi xem kết quả lượt 2.
+- Run ID: **`run-2@20261128-114555`**. Model API trả về **`gpt-5.4-nano-2026-03-17`**, giống hệt lượt 1; cấu hình gọi `MODEL_PROVIDER=openai`, `MODEL_NAME=gpt-5.4-nano`, timeout 120.
+- Chạy `PYTHONUNBUFFERED=1 python3 run.py eval --wait 4`: **30/30 ca**, **0 lỗi kỹ thuật**, 28 lần gọi model; V28-14 và V28-20 chặn trước model.
+- **Codex (AI) chấm** cả 30 ca theo expected, pass_criterion và chuẩn CP2. Chỉ sửa pass/ghi_chu. Chưa có người chấm độc lập lượt 2; kết quả chấm chéo 4/5 của lượt 1 không được tính lại cho lượt 2. Metric spec vẫn ghi grader=nguoi nên điểm AI này cần người kiểm, không được trình bày thành hai người chấm độc lập.
+- Đã xác nhận bằng SHA-256: cùng benchmark 30 câu, đáp án, tiêu chí, 7 đoạn nguồn, cấu hình bài, provider và khung chạy như lượt 1. Nội dung điều kiện/ngưỡng CP2 không đổi; dòng tiến độ trong §7 đã được main cập nhật trước đó. Lượt 1 và trace lượt 1 giữ nguyên.
+
+**Kết quả: 20/30 → 21/30, tăng 1 câu (+3,33 điểm phần trăm), vẫn chưa đạt CP2.**
+
+| Chỉ số | Lượt 1 | Lượt 2 | Chuẩn CP2 | Lượt 2 |
+|---|---|---|---|---|
+| Qua toàn bộ tiêu chí | 20/30 (66,67%) | **21/30 (70%)** | ≥80% | Không đạt |
+| Bắt đúng mâu thuẫn, tính toàn bộ tiêu chí | 5/6 (83,33%) | **3/6 (50%)** | ≥90% | Không đạt |
+| Báo nhầm câu khớp | 1/10 (10%) | **0/10 (0%)** | ≤10% | Đạt |
+| Dẫn đúng nguồn theo danh sách của từng ca | 12/16 (75%) | **10/16 (62,5%)** | ≥90% | Không đạt |
+| Ca từ chối qua | 2/2 (100%) | **2/2 (100%)** | 100% | Đạt |
+| Mã hiển thị ngoài tập nguồn của lượt | 0 | **0** | 0 | Đạt |
+
+| Nhóm | Số ca | ID |
+|---|---:|---|
+| Lượt 1 trượt → lượt 2 đạt | 5 | V28-03, V28-16, V28-17, V28-21, V28-27 |
+| Lượt 1 đạt → lượt 2 trượt | 4 | V28-02, V28-08, V28-12, V28-22 |
+| Cả hai lượt đều trượt | 5 | V28-09, V28-19, V28-24, V28-26, V28-28 |
+| Cả hai lượt đều đạt | 16 | Xem bảng đối chiếu từng ca |
+
+
+Dẫn đúng nguồn không chỉ là mã tồn tại trong tập nguồn chung: tất cả mã trả về phải nằm trong danh sách chấp nhận của chính ca đó. Vì vậy ca đúng nhãn nhưng dẫn dư mã vẫn trượt, không nới tiêu chí sau khi xem output. Các ca thiếu căn cứ đáp ứng tiêu chí được tính đạt; lượt 2 nhóm này đạt 9/12, so với 6/12 lượt 1.
+
+Tệp bàn giao: [run-2.csv](run-2.csv) · [trace](../traces/run-2.jsonl) · [score](run-2-score.txt) · [metrics và hashes](run-2-metrics.json) · [đối chiếu 30 ca](run-1-to-2-comparison.csv). [Bàn giao cho Quốc Khánh](../docs/cp4-eval-handoff.md) · [Số liệu slide đánh giá](../slides/eval-results.md).
+
+Token thật từ usage API: **21.506 vào / 3.726 ra**, tổng 25.232, 28 lần gọi. Tỷ lệ đạt benchmark **21/30**, trong đó 19 ca đạt có gọi model và 2 ca đạt do chặn trước model. Chỉ là dữ liệu tính chi phí của lượt benchmark, không thay thế mô phỏng persona/tháng. Chưa tính tiền khi chưa gắn đơn giá phù hợp.

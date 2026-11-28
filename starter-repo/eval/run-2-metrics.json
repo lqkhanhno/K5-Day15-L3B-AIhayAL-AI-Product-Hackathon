@@ -1,0 +1,167 @@
+{
+  "run_id": "run-2@20261128-114555",
+  "recorded_at": "2026-11-28T11:50:37+07:00",
+  "code_commit": "32e490a839eed81b77f481e7af7b39c78da06a77",
+  "pr": 9,
+  "provider": "openai",
+  "requested_model": "gpt-5.4-nano",
+  "actual_models": [
+    "gpt-5.4-nano-2026-03-17"
+  ],
+  "command": "PYTHONUNBUFFERED=1 python3 run.py eval --wait 4",
+  "first_grader": "Codex (AI), semantic inspection of all 30 outputs against frozen criteria; arithmetic checked by code",
+  "human_review": "Not performed for run2; run1 crosscheck 4/5 cannot be reused as run2 review",
+  "run1": {
+    "run_id": "run-1@20261127-224225",
+    "models": [
+      "gpt-5.4-nano-2026-03-17"
+    ],
+    "cases": 30,
+    "errors": 0,
+    "model_calls": 28,
+    "tokens_in": 16578,
+    "tokens_out": 3116,
+    "summed_latency_seconds": 65.022,
+    "metrics": {
+      "total_pass": {
+        "numerator": 20,
+        "denominator": 30,
+        "percent": 66.666667
+      },
+      "bat_dung_mau_thuan": {
+        "numerator": 5,
+        "denominator": 6,
+        "percent": 83.333333
+      },
+      "bao_nham_cau_khop": {
+        "numerator": 1,
+        "denominator": 10,
+        "percent": 10.0
+      },
+      "dan_dung_nguon": {
+        "numerator": 12,
+        "denominator": 16,
+        "percent": 75.0
+      },
+      "tu_choi_pass": {
+        "numerator": 2,
+        "denominator": 2,
+        "percent": 100.0
+      },
+      "invalid_displayed_source_ids": {}
+    },
+    "cp2_pass": false,
+    "failed_case_ids": [
+      "V28-03",
+      "V28-09",
+      "V28-16",
+      "V28-17",
+      "V28-19",
+      "V28-21",
+      "V28-24",
+      "V28-26",
+      "V28-27",
+      "V28-28"
+    ]
+  },
+  "run2": {
+    "run_id": "run-2@20261128-114555",
+    "models": [
+      "gpt-5.4-nano-2026-03-17"
+    ],
+    "cases": 30,
+    "errors": 0,
+    "model_calls": 28,
+    "tokens_in": 21506,
+    "tokens_out": 3726,
+    "summed_latency_seconds": 62.896,
+    "metrics": {
+      "total_pass": {
+        "numerator": 21,
+        "denominator": 30,
+        "percent": 70.0
+      },
+      "bat_dung_mau_thuan": {
+        "numerator": 3,
+        "denominator": 6,
+        "percent": 50.0
+      },
+      "bao_nham_cau_khop": {
+        "numerator": 0,
+        "denominator": 10,
+        "percent": 0.0
+      },
+      "dan_dung_nguon": {
+        "numerator": 10,
+        "denominator": 16,
+        "percent": 62.5
+      },
+      "tu_choi_pass": {
+        "numerator": 2,
+        "denominator": 2,
+        "percent": 100.0
+      },
+      "invalid_displayed_source_ids": {}
+    },
+    "cp2_pass": false,
+    "failed_case_ids": [
+      "V28-02",
+      "V28-08",
+      "V28-09",
+      "V28-12",
+      "V28-19",
+      "V28-22",
+      "V28-24",
+      "V28-26",
+      "V28-28"
+    ]
+  },
+  "comparison": {
+    "fixed_case_ids": [
+      "V28-03",
+      "V28-16",
+      "V28-17",
+      "V28-21",
+      "V28-27"
+    ],
+    "regressed_case_ids": [
+      "V28-02",
+      "V28-08",
+      "V28-12",
+      "V28-22"
+    ],
+    "still_failing_case_ids": [
+      "V28-09",
+      "V28-19",
+      "V28-24",
+      "V28-26",
+      "V28-28"
+    ],
+    "net_pass_change": 1,
+    "pass_percentage_point_change": 3.333333
+  },
+  "raw_result_sha256_before_grading": "ce75c0808448edaf7a1b918e4c2610e50991614fc05c2ab007470fc9d98b7ec6",
+  "graded_result_sha256": "5fb30540258d00bd3114ce972f0adf18eec7fa5524dce7c73b1977c6de33fef3",
+  "sha256": {
+    "eval/run-1.csv": "f1dee2328c54152f83f60bda978460d7b699034821fbecbdcb94f8a6b3e1dc8e",
+    "traces/run-1.jsonl": "e749ed8ba1d3a1d1775980df3dd452d107cfc3ad616e935c698eae0ddf833e25",
+    "eval/benchmark.csv": "a5e68683141b54788dc642b4d9a376eb183cfe244642924446fd5108f4f81669",
+    "eval/metric_spec.yaml": "66e76d62c81f76cff0d4fbc03e094d8eae8fa21e758d6a26ea123a09e6aa7d67",
+    "data/video-eval-source.json": "a2e0cc428c674006a44968b2c574240ff65e100e5576f399d0eb6c34e86cd947",
+    "data/lesson.json": "da475edae1eed1f9103d7d424b8af788699401d79e8763faffbd5db07813be2f",
+    "codebase/agent.py": "fb3115ab54dc98756194b248f5718be259db476d233b7765b1b02ee3ca9bad1b",
+    "codebase/ai.py": "ac955b664ae2181812be217d884773925af76f4898d396d07d714ef54efe94a5",
+    "codebase/tools.py": "7d8d5ad85d352aedb535e6e6f2f29b66173af918b7f1d783b4080bfc54396773",
+    "eval/run_eval.py": "b9dca5b51b50ead83e8aedb9f05217762b0cfbe98480f264b4ec8bb0c081ecdd",
+    "codebase/tracing.py": "53bac60171f7a0924ecc149189dfca7a395d00ffb6f640a56e290d2bb21775a6",
+    "run.py": "8f3016e7f10844d39145c359de2a25d8ef2ea5d55c7d807312a918f1f2e7f155",
+    "eval/run-2.csv": "5fb30540258d00bd3114ce972f0adf18eec7fa5524dce7c73b1977c6de33fef3",
+    "traces/run-2.jsonl": "397f204948b3fa2ea95d823d87accd7f39a107281fe7d0c2a1daed983b6d61f1"
+  },
+  "limits": [
+    "Source remains draft_unreviewed; expected labels not independently expert approved.",
+    "One before/after run; stochastic variation not isolated, no claim of statistical significance.",
+    "Metrics grader spec says human; these are AI-first grades awaiting human verification.",
+    "Token usage is measured from API, not a currency estimate; cache/reasoning breakdown not retained by framework."
+  ]
+}

@@ -17,7 +17,7 @@ Ví dụ từ kiểm tra giả: **V28-01** kỳ vọng khớp nguồn nhưng tr�
 | Lượt | Run ID | Đạt / tổng | % | So với chuẩn đạt |
 |---|---|---|---|---|
 | 1 · CP3 | `run-1@20261127-224225` | 20/30 | 66,67% | Chưa đạt chuẩn CP2 theo chấm bằng AI |
-| 2 · CP4 | Chưa chạy | Chưa có | Chưa có | Chưa chấm |
+| 2 · CP4 | `run-2@20261128-114555` | 21/30 | 70% | Chưa đạt CP2 theo chấm AI; mâu thuẫn và dẫn nguồn giảm |
 
 [Hồ sơ đánh giá](README.md) · [Metric spec](metric_spec.yaml)
 
@@ -40,11 +40,60 @@ Kết quả chấm bằng AI ghi 20/30 câu qua (66,67%), gồm 5/6 câu mâu th
 
 Nhóm lỗi: dẫn dư mã (V28-03, V28-09, V28-24); suy diễn quan hệ nguồn/nhận định ở ca thiếu căn cứ (V28-16, V28-17, V28-19, V28-26, V28-27, V28-28); thiếu nhạy với cách diễn đạt tương đương bằng tiếng Anh (V28-21). Đây là mô tả kết quả, chưa khẳng định nguyên nhân nội bộ của model.
 
-### Hướng cải tiến cho lượt sau — chưa thực hiện
+### Hướng cải tiến ghi nhận sau lượt 1
 
-Có thể thử prompt yêu cầu nguồn phải xác nhận đủ từng vế hoặc bác bỏ trực tiếp, phân biệt thiếu căn cứ với mâu thuẫn và chỉ chọn mã cần thiết. Kiểm trên ví dụ phát triển tách biệt, không cài so khớp input benchmark vào code. Chưa sửa prompt/code hoặc chạy lượt 2 trong công việc này; không thay đổi đáp án hay chuẩn CP2 để nâng điểm.
+Có thể thử prompt yêu cầu nguồn phải xác nhận đủ từng vế hoặc bác bỏ trực tiếp, phân biệt thiếu căn cứ với mâu thuẫn và chỉ chọn mã cần thiết. Kiểm trên ví dụ phát triển tách biệt, không cài so khớp input benchmark vào code. Tại thời điểm báo cáo lượt 1, chưa sửa prompt/code hoặc chạy lượt 2. Đến CP4, dùng commit32e490a của PR #9 để thực hiện hướng sửa; kết quả ở phần lượt 2 bên dưới. Không thay đổi đáp án hay chuẩn CP2 để nâng điểm.
 
 
 ### Kết quả chấm chéo
 
 Phiếu chấm bằng AI và phiếu của một người dùng khớp 4/5. Ca V28-21 còn bất đồng giữa hai phiếu. [Kết quả từng ca](crosscheck-run-1.json)
+
+
+## Lượt 2 và đối chiếu cùng model · 2026-11-28T11:52+07:00
+
+Run **`run-2@20261128-114555`**, model **`gpt-5.4-nano-2026-03-17`**, đúng commit PR #9 **`32e490a`**; cùng 30 câu và 7 đoạn nguồn. 30/30 ca xử lý, 0 lỗi kỹ thuật, 28 lần gọi, token API 21.506 vào / 3.726 ra. Chấm lượt đầu bằng Codex (AI), chưa có người chấm độc lập lượt 2.
+
+| Chỉ số | Lượt 1 | Lượt 2 | Chuẩn CP2 | Lượt 2 |
+|---|---|---|---|---|
+| Qua toàn bộ tiêu chí | 20/30 (66,67%) | **21/30 (70%)** | ≥80% | Không đạt |
+| Bắt đúng mâu thuẫn, tính toàn bộ tiêu chí | 5/6 (83,33%) | **3/6 (50%)** | ≥90% | Không đạt |
+| Báo nhầm câu khớp | 1/10 (10%) | **0/10 (0%)** | ≤10% | Đạt |
+| Dẫn đúng nguồn theo danh sách của từng ca | 12/16 (75%) | **10/16 (62,5%)** | ≥90% | Không đạt |
+| Ca từ chối qua | 2/2 (100%) | **2/2 (100%)** | 100% | Đạt |
+| Mã hiển thị ngoài tập nguồn của lượt | 0 | **0** | 0 | Đạt |
+
+### Lỗi được sửa và lỗi mới/còn lại
+
+| Nhóm | Số ca | ID |
+|---|---:|---|
+| Lượt 1 trượt → lượt 2 đạt | 5 | V28-03, V28-16, V28-17, V28-21, V28-27 |
+| Lượt 1 đạt → lượt 2 trượt | 4 | V28-02, V28-08, V28-12, V28-22 |
+| Cả hai lượt đều trượt | 5 | V28-09, V28-19, V28-24, V28-26, V28-28 |
+| Cả hai lượt đều đạt | 16 | Xem bảng đối chiếu từng ca |
+
+| Ca | Thay đổi thực tế | Đánh giá theo CP2 |
+|---|---|---|
+| V28-03 | Khớp nguồn; lượt 1 S03+S05 → lượt 2 chỉ S03 | Sửa lỗi dẫn dư mã, 0→1 |
+| V28-16 | Mâu thuẫn → thiếu căn cứ, mã rỗng, yêu cầu kiểm thêm | Sửa lỗi suy ra so sánh LLM-as-judge/chuyên gia từ nguồn không so sánh, 0→1 |
+| V28-17 | Mâu thuẫn → thiếu căn cứ, mã rỗng | Sửa việc coi thiếu bảo đảm 100% là bằng chứng phủ định, 0→1 |
+| V28-21 | Thiếu căn cứ → khớp S01; giải thích được ý tiếng Anh tương đương | 0→1 theo đáp án chốt; giữ nguyên bất đồng của phiếu người dùng ở lượt 1 |
+| V28-27 | Khớp nguồn → thiếu căn cứ, mã rỗng | Không còn suy ra giọng/bước tiếp theo của thông báo lỗi từ ý nguồn chung, 0→1 |
+| V28-02, V28-22 | Vẫn đúng nhãn nhưng dẫn thêm S05 hoặc S02 ngoài mã được chấp nhận | Lỗi mới về dẫn dư mã, 1→0 |
+| V28-08, V28-12 | Mâu thuẫn → thiếu căn cứ, mã rỗng | Lỗi mới: bỏ sót nhận định bị nguồn bác bỏ; trace cho thấy model thực sự trả thieu_can_cu, không phải lỗi transport/schema, 1→0 |
+| V28-09, V28-24 | Vẫn đúng nhãn nhưng còn dẫn dư mã | Lỗi chưa sửa, 0→0 |
+| V28-19 | Vẫn gắn mâu thuẫn về mọi sơ đồ qua transcript, dù nguồn chưa kiểm điều đó | Lỗi suy diễn còn lại, 0→0 |
+| V28-26 | Vẫn khớp S04; lý do chỉ giải thích vế không làm liều, không xác nhận yêu cầu hỏi lại một câu | Mục tiêu sửa chưa đạt, 0→0 |
+| V28-28 | Vẫn khớp; suy từ yêu cầu an toàn chung sang kiểm thêm theo mức hậu quả | Mục tiêu sửa chưa đạt, 0→0 |
+
+PR #9 nhắm V28-16, V28-26, V28-28: chỉ **1/3 ca mục tiêu** chuyển từ trượt sang đạt ở lượt này. Tổng tăng 1 ca nhưng không thể kết luận chất lượng/safety tốt hơn toàn diện: bắt mâu thuẫn giảm 83,33%→50%, dẫn đúng nguồn giảm 75%→62,5%. Cần tiếp tục sửa và kiểm lại, chưa đủ căn cứ go-live.
+
+### Review PR #9
+
+Diff không thay benchmark, nguồn, đáp án, metric, provider hay khung; không cài so khớp đầu vào benchmark. 30/30 unit test qua, `run.py check` không cảnh báo. Test mới chỉ kiểm prompt chứa các yêu cầu; không chứng minh model hiểu và thực thi đúng. Việc chạy thật là cần thiết và đã ghi nhận cả cải thiện lẫn hồi quy. Đã giữ đúng commit bàn giao, không chỉnh tiếp để làm đẹp lượt 2.
+
+### Giới hạn và hướng tiếp theo
+
+Một lượt trước/sau với model có thể biến thiên; chưa tách được ảnh hưởng prompt và ngẫu nhiên, không suy ra ý nghĩa thống kê. Nguồn vẫn draft_unreviewed và nhãn cần người chuyên môn rà. Chưa chấm chéo lượt 2. Hướng cần thử tiếp (chưa làm): ưu tiên phản chứng trực tiếp trước nhánh thiếu một vế, kiểm đầy đủ từng vế và chọn tập mã tối thiểu. Nếu sửa tiếp, ghi commit và chạy lượt mới, không sửa output hoặc đáp án của hai lượt đã có.
+
+[Từng ca trước/sau](run-1-to-2-comparison.csv) · [Lượt 2](run-2.csv) · [Trace](../traces/run-2.jsonl) · [Metrics](run-2-metrics.json) · [Score](run-2-score.txt).
