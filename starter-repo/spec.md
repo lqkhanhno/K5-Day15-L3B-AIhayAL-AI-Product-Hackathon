@@ -175,6 +175,7 @@ Cả nhóm dành 15 phút trước mỗi mốc để đối chiếu vấn đề,
 | 28/11/2026 | Tích hợp hồ sơ CP3 và xác nhận video phát trong tab ẩn danh. Rà lại tài liệu và ghi tình trạng bằng chứng trong Canvas và spec. | Xác nhận link demo dùng được. Bảng impact còn chờ dữ liệu người dùng. [Bằng chứng](evidence/summary.md) |
 | 28/11/2026 | Lưu câu hỏi khảo sát và cách lọc phản hồi theo đúng vai trò người duyệt. | Để tổng hợp nhất quán khi có dữ liệu. [Hồ sơ khảo sát](evidence/survey/questions.md) |
 | 28/11/2026 | Bổ sung 9 lượt khảo sát sơ bộ của Đức Anh vào hồ sơ CP3. | Ghi rõ giới hạn mẫu và cập nhật tình trạng bằng chứng trong spec và Canvas. [Hồ sơ khảo sát](evidence/summary.md) |
+| 28/11/2026 | Định dạng kết quả giao diện demo: nhãn màu, nhận định, lý do, trích đoạn nguồn và bước duyệt; model/token ở cuối. Kiểm các trạng thái bằng widget Tkinter ẩn và 30 unit test qua. | Giúp người duyệt đọc kết quả rõ hơn khi demo; nội dung kết luận lấy từ workflow hiện có. [Bàn giao CP4](docs/cp4-thanh-handoff.md) |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)** (sửa theo góp ý — không sửa chuẩn "đạt", câu thử, số bằng chứng, kết quả các lượt đã chạy)
 

@@ -8,6 +8,8 @@ Thay đổi nhắm vào nhóm lỗi suy diễn ở các ca V28-16, V28-26 và V2
 
 ## Hai ca demo CP4
 
+Giao diện `python codebase/demo_window.py` đã chia kết quả thành nhãn màu, nhận định, lý do đầy đủ, từng đoạn nguồn và bước người duyệt cần làm. Cảnh báo nguồn bản nháp vẫn hiện rõ; model/token ở cuối cửa sổ. Nhánh cần nhập lại và lỗi kết nối có thông báo riêng. Đã kiểm các trạng thái bằng widget Tkinter ẩn, không gọi API; 30/30 unit test hiện có qua. Đây là kiểm hiển thị và code, chưa phải kết quả benchmark lượt 2.
+
 Nguồn A3 hiện vẫn là `draft_unreviewed`; cần nói rõ đây là đối chiếu với các đoạn nguồn của bản nháp, không phải xác minh độc lập nội dung toàn video.
 
 1. **Ca thường — khớp nguồn:** “Một vài câu demo được chuẩn bị kỹ không đại diện cho môi trường thực tế có lỗi gõ, tiếng lóng và đầu vào phá hoại.” Kỳ vọng: `khop_nguon`, `V28-S02`.
